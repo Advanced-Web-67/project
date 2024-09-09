@@ -1,0 +1,53 @@
+.navbar-color {
+    background-color: #6D6E70;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* กระจายเนื้อหาซ้าย-ขวา */
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Downside shadow */
+}
+
+.navbar-brand-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* จัด brand ไว้ด้านซ้าย */
+}
+
+.searchbox {
+    flex: 4;
+    display: flex;
+    justify-content: center; /* จัด search box ไว้ซ้าย */
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* จัดปุ่มให้อยู่ด้านขวา */
+    gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่ม */
+}
+
+.button-container button {
+    white-space: nowrap; /* ป้องกันการแตกบรรทัดของปุ่ม */
+}
+
+.button1 {
+    background-color: #FF6500;
+    border-color: white;
+    color: white;
+    border-width: 2px;
+}
+
+.button2 {
+    background-color: white;
+    border-color: #FF6500;
+    color: #FF6500;
+    border-width: 2px;
+}
+
+input[type="search"] {
+    width: 600px; /* กำหนดความกว้างของกล่องค้นหาเป็น 300px */
+}
