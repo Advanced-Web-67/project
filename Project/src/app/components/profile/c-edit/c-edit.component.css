@@ -1,0 +1,60 @@
+.layout-edit {
+    background-color: white;
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500
+}
+
+.layout-edit-text {
+    height: 100%;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-edit {
+    background-color: #FF6500;
+    color: white;
+    margin-right: 5vh;
+    font-size: 1.5rem;
+    border-radius: 20px;
+}
+
+.edit-text {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.layout-data {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+}
+
+.public-data {
+    background-color: white;
+    height: 60vh;
+    width: 48%;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500
+}
+
+.private-data {
+    background-color: white;
+    height: 100%;
+    width: 48%;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500
+}
