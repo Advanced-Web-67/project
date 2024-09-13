@@ -1,18 +1,49 @@
-<div class="layout-edit">
-    <div class="layout-edit-text">
-        <div class="edit-text">
-            แก้ไขข้อมูลของคุณ
+<div class="container-fluid mt-4 layout-edit">
+    <form>
+        <div class="row align-items-center layout-edit-text">
+        <div class="col-md-6">
+            <h2 class="edit-text">แก้ไขข้อมูลของคุณ</h2>
         </div>
-        <button class="btn button-edit">
-            ยืนยัน
-        </button>
-    </div>
-    <div class="layout-data">
-        <div class="public-data">
-            public
+        <div class="col-md-6 d-flex justify-content-end">
+            <button type="submit" class="btn button-edit">ยืนยัน</button>
         </div>
-        <div class="private-data">
-            private
         </div>
-    </div>
-</div>
+    
+        <div class="row layout-data mt-3">
+        <!-- Public Data Section -->
+        <div class="col-md-6">
+            <div class="card public-data p-3">
+            <h4 class="title">ข้อมูลที่แสดง</h4>
+            <div class="form-group image-input mt-3">
+                <label for="public-image">เลือกรูปภาพ</label>
+                <input type="file" class="form-control-file" id="public-image">
+            </div>
+            <div class="form-group username mt-1">
+                <label for="public-username">ชื่อที่แสดง</label>
+                <input type="text" class="form-control" id="public-username">
+            </div>
+            <div class="form-group about mt-1">
+                <label for="public-about">เกี่ยวกับตัวเอง</label>
+                <textarea class="form-control" id="public-about" style="height: 10.5vw; resize: none;"></textarea>
+            </div>
+            </div>
+        </div>
+    
+        <!-- Private Data Section -->
+        <div class="col-md-6">
+            <div class="card private-data p-3">
+            <h4 class="title">ข้อมูลส่วนตัว</h4>
+            <div class="form-group username mt-3">
+                <label for="private-username">ชื่อผู้ใช้ (Username)</label>
+                <input type="text" class="form-control" id="private-username">
+            </div>
+            <div class="form-group password mt-3">
+                <label for="private-password">รหัสผ่าน (Password)</label>
+                <input type="password" class="form-control" id="private-password">
+            </div>
+            </div>
+        </div>
+        </div>
+    </form>
+  </div>
+  
