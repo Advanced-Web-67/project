@@ -1,0 +1,28 @@
+.layout-title {
+    background-color: white;
+    height: 150px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    border-color: #FF6500;
+    border-radius: 20px;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.profile-display {
+    margin-left: 5vh;
+    gap: 5vh;
+    display: flex;
+}
+
+.button-layout {
+    margin-right: 5vh;
+}
+
+.button {
+    background-color: white;
+    border-width: 2px;
+    border-color: #FF6500;
+    color: #FF6500;
+}

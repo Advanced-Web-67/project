@@ -1,0 +1,59 @@
+.layout-summary {
+    background-color: white;
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500
+}
+
+.title-summary {
+    padding-left: 20px;
+    padding-top: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.qa-summary {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+}
+
+.question-summary {
+    background-color: white;
+    height: 38vh;
+    width: 48%;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500
+}
+
+.answer-summary {
+    background-color: white;
+    height: 100%;
+    width: 48%;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500
+}
+
+.activity-layout {
+    padding: 20px;
+}
+
+.activity-summary {
+    background-color: white;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500;
+    width: 100%;
+    height: 21.3vh;
+}
