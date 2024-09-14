@@ -1,0 +1,33 @@
+.layout-comment {
+    margin-top: 20px;
+}
+
+.card-header{
+    border-radius: 20px;
+}
+.card-body{
+    border-radius: 20px;
+}
+.card{
+    border-radius: 20px;
+    border-color: #FF6500;
+}
+
+.btn-submit{
+    stroke-width: 1px;
+    border-radius: 20px;
+}
+
+.btn-delete {
+    background: none; /* ไม่มีพื้นหลัง */
+    border: none; /* ไม่มีกรอบ */
+    cursor: pointer; /* แสดงตัวชี้เมาส์ */
+    padding: 0; /* ไม่มีการเว้นระยะ */
+  }
+  
+  .btn-delete svg {
+    fill: #f00; /* สีของไอคอน */
+    width: 24px; /* ขนาดของไอคอน */
+    height: 24px; /* ขนาดของไอคอน */
+  }
+  

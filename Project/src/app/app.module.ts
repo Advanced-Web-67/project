@@ -13,6 +13,7 @@ import { CTitleComponent } from './components/profile/c-title/c-title.component'
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarLoginComponent } from './components/navbar-login/navbar-login.component';
+import { CommentMainComponent } from './components/comments/comment-main/comment-main.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +28,12 @@ import { NavbarLoginComponent } from './components/navbar-login/navbar-login.com
     LoginComponent,
     NavbarLoginComponent,
     
+    CommentMainComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(),
