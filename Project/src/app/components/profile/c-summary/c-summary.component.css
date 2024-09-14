@@ -1,8 +1,6 @@
 .layout-summary {
     background-color: white;
     margin-top: 20px;
-    height: 100%;
-    width: 100%;
     display: grid;
     border-style: solid;
     border-radius: 20px;
@@ -26,22 +24,23 @@
 
 .question-summary {
     background-color: white;
-    height: 38vh;
+    height: 10vh;
     width: 48%;
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;
-    border-color: #FF6500
+    border-color: #FF6500;
+    overflow: auto;
 }
 
 .answer-summary {
     background-color: white;
-    height: 100%;
+    height: 10vh;
     width: 48%;
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;
-    border-color: #FF6500
+    border-color: #FF6500;
 }
 
 .activity-layout {
@@ -49,6 +48,27 @@
 }
 
 .activity-summary {
+    background-color: white;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500;
+    width: 100%;
+    height: 10vh;
+}
+
+.showmore {
+    background-color: white;
+    height: 38vh;
+    width: 48%;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500;
+    overflow: auto;
+}
+
+.activity-more {
     background-color: white;
     border-style: solid;
     border-radius: 20px;

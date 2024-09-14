@@ -10,6 +10,9 @@ import { EditComponent } from './pages/profile/edit/edit.component';
 import { CSummaryComponent } from './components/profile/c-summary/c-summary.component';
 import { CEditComponent } from './components/profile/c-edit/c-edit.component';
 import { CTitleComponent } from './components/profile/c-title/c-title.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarLoginComponent } from './components/navbar-login/navbar-login.component';
 import { CommentMainComponent } from './components/comments/comment-main/comment-main.component';
 
 @NgModule({
@@ -22,15 +25,20 @@ import { CommentMainComponent } from './components/comments/comment-main/comment
     CSummaryComponent,
     CEditComponent,
     CTitleComponent,
+    LoginComponent,
+    NavbarLoginComponent,
+    
     CommentMainComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(),
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+
