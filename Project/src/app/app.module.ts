@@ -16,6 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarLoginComponent } from './components/navbar-login/navbar-login.component';
 import { CommentMainComponent } from './components/comments/comment-main/comment-main.component';
 import { ImageService } from './services/profiles/image/image.service';
+import { QMainComponent } from './components/questions/q-main/q-main.component';
+import { MainComponent } from './pages/questions/main/main.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ImageService } from './services/profiles/image/image.service';
     NavbarLoginComponent,
     
     CommentMainComponent,
+          QMainComponent,
+          MainComponent,
   ],
   imports: [
     BrowserModule,
