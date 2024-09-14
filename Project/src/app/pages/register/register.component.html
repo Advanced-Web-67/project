@@ -1,0 +1,33 @@
+<app-navbar-login></app-navbar-login>
+<div class="bg-register-page">
+  <div class="register-container">
+    <h2>สมัครสมาชิก</h2>
+    
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">ชื่อผู้ใช้:</label>
+        <input type="text" id="username" formControlName="username" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">อีเมล:</label>
+        <input type="email" id="email" formControlName="email" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">รหัสผ่าน:</label>
+        <input type="password" id="password" formControlName="password" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">ยืนยันรหัสผ่าน:</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control" required>
+      </div>
+      <p>มีบัญชีอยู่แล้ว? <a routerLink="/login">เข้าสู่ระบบที่นี่</a></p>
+
+      <div class="register-button-container">
+        <button type="submit" class="btn-register" [disabled]="registerForm.invalid">สมัครสมาชิก</button>
+      </div>
+    </form>
+  </div>
+</div>
