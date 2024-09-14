@@ -10,6 +10,7 @@ import { EditComponent } from './pages/profile/edit/edit.component';
 import { CSummaryComponent } from './components/profile/c-summary/c-summary.component';
 import { CEditComponent } from './components/profile/c-edit/c-edit.component';
 import { CTitleComponent } from './components/profile/c-title/c-title.component';
+import { CommentMainComponent } from './components/comments/comment-main/comment-main.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import { CTitleComponent } from './components/profile/c-title/c-title.component'
     CSummaryComponent,
     CEditComponent,
     CTitleComponent,
+    CommentMainComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     provideClientHydration(),
