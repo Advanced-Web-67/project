@@ -21,6 +21,18 @@ export class CSummaryComponent implements OnInit{
     {"id":10,"title":"Why i am stupid","body":"Hello....","tag":"monkey"},
   ]
 
+  answer: any = [
+    {"id":1,"text":"Go study fucker"},
+    {"id":2,"text":"Go study fucker"},
+    {"id":3,"text":"Go study fucker"},
+    {"id":4,"text":"Go study fucker"},
+    {"id":5,"text":"Go study fucker"},
+    {"id":6,"text":"Go study fucker"},
+    {"id":7,"text":"Go study fucker"},
+    {"id":8,"text":"Go study fucker"},
+    {"id":9,"text":"Go study fucker"},
+    {"id":10,"text":"Go study fucker"},
+  ]
   constructor(){} 
   ngOnInit(): void {
       this.status = false;

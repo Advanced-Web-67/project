@@ -14,6 +14,7 @@
     margin-left: 5vh;
     gap: 5vh;
     display: flex;
+    align-items: center;
 }
 
 .button-layout {
