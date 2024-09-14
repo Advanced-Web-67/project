@@ -16,7 +16,15 @@
             </table>
         </div>
         <div class="answer-summary p-3" [ngClass]="{'showmore': status}">
-            Answer
+            <table class="table">
+                <tbody>
+                    <tr *ngFor="let item of answer">
+                        <td>
+                            <a href="#">{{item.text}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="activity-layout">

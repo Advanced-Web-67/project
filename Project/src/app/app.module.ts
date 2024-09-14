@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';  // Import FormsModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarLoginComponent } from './components/navbar-login/navbar-login.component';
 import { CommentMainComponent } from './components/comments/comment-main/comment-main.component';
+import { ImageService } from './services/profiles/image/image.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,11 @@ import { CommentMainComponent } from './components/comments/comment-main/comment
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     provideClientHydration(),
+    ImageService,
   ],
   bootstrap: [AppComponent]
 })
