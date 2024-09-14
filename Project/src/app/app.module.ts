@@ -17,6 +17,8 @@ import { NavbarLoginComponent } from './components/navbar-login/navbar-login.com
 import { CommentMainComponent } from './components/comments/comment-main/comment-main.component';
 import { ImageService } from './services/profiles/image/image.service';
 import { RegisterComponent } from './pages/register/register.component';
+import { QMainComponent } from './components/questions/q-main/q-main.component';
+import { MainComponent } from './pages/questions/main/main.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { RegisterComponent } from './pages/register/register.component';
     
     CommentMainComponent,
           RegisterComponent,
+          QMainComponent,
+          MainComponent,
   ],
   imports: [
     BrowserModule,
