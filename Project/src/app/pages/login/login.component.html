@@ -1,5 +1,6 @@
 <app-navbar-login></app-navbar-login>
-<div class="login-container">
+<div class="bg-login-page">
+  <div class="login-container">
     <h2 class="text-login">เข้าสู่ระบบ</h2>
     <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
       <div class="form-group">
@@ -10,8 +11,10 @@
         <label for="password">รหัสผ่าน:</label>
         <input id="password" formControlName="password" type="password" class="form-control" required>
       </div>
+      <p>ยังไม่ได้เป็นสมาชิก? <a routerLink="/register">สมัครสมาชิกที่นี่</a></p>
       <div class="login-button-container">
-      <button class="login-button" type="submit" [disabled]="loginForm.invalid">เข้าสู่ระบบ</button>
-    </div>
+        <button class="login-button" type="submit" [disabled]="loginForm.invalid">เข้าสู่ระบบ</button>
+      </div>
     </form>
   </div>
+</div>

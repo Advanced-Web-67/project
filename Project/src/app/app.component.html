@@ -1,10 +1,13 @@
-<app-navbar *ngIf="!isLoginPage"></app-navbar>
-<div class="webbg" *ngIf="!isLoginPage">
-    <app-sidebar *ngIf="!isLoginPage"></app-sidebar>
+<app-navbar *ngIf="!isLoginPage && !isRegisterPage"></app-navbar>
+<div class="webbg" *ngIf="!isLoginPage && !isRegisterPage">
+    <app-sidebar></app-sidebar>
     <div class="content">
         <router-outlet></router-outlet>
     </div>
 </div>
+
+<!-- For login page -->
 <router-outlet *ngIf="isLoginPage"></router-outlet>
 
-
+<!-- For register page -->
+<router-outlet *ngIf="isRegisterPage"></router-outlet>

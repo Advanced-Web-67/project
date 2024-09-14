@@ -1,4 +1,4 @@
-.bg-login-page {
+.bg-register-page {
   width: 100%;
   height: 93%;
   background-image: url('../../../assets/images/pngegg.png');
@@ -10,36 +10,42 @@
   align-items: center; /* จัดศูนย์กลางในแนวตั้ง */
 }
 
-.login-container {
-  width: 300px;
-  height: 400px;
-  padding: 20px;
-  border: 1px solid #ffffff;
-  text-align: left;
-  border-radius: 10px;
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
-  font-family: 'Sarabun', sans-serif; /* ใช้ฟอนต์ Sarabun */
-  background-color: #ffffff; /* สีพื้นหลังของฟอร์ม */
-}
-
-
-  .text-login{
+.register-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    font-family: 'Sarabun';
+    background-color: #ffffff; /* สีพื้นหลังของฟอร์ม */
+  }
+  
+  .register-container h2 {
     text-align: center;
-
+    margin-bottom: 20px;
   }
   
   .form-group {
     margin-bottom: 15px;
-    margin-top: 25px;
     color: gray;
   }
-
-  .form-group input {
-    border: #EFEFEF;
-    background-color: #EFEFEF
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #EFEFEF;
+    background-color: #EFEFEF;
+    box-sizing: border-box;
   }
-
-  .login-button{
+  
+  .register-button-container{
+  
+    text-align: center;
+  }
+  .btn-register {
     width: 200px;
     height: 40px;
     margin: 0 auto;
@@ -50,24 +56,12 @@
     border-radius: 20px;
     border: 0px;
     transition-duration: 0.1s;
-    
-  }
-  .login-button-container{
-    margin-top: 30px;
-    text-align: center;
-    
   }
   
-  .login-button:hover {
+  .btn-register:hover {
     background-color: #ffffff; /* Green */
     border: 2px solid #FF8A08;
     color: rgb(0, 0, 0);
     box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
   }
   

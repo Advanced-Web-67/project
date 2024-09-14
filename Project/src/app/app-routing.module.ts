@@ -6,6 +6,7 @@ import { CSummaryComponent } from './components/profile/c-summary/c-summary.comp
 import { EditComponent } from './pages/profile/edit/edit.component';
 import { CEditComponent } from './components/profile/c-edit/c-edit.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
     ]},
     { path: 'login', component: LoginComponent },
   { path: 'login', redirectTo: '/login', pathMatch: 'full' },
-  
+  { path: 'register', component: RegisterComponent },
+  { path: 'register', redirectTo: '/register', pathMatch: 'full' },
+
 ];
 
 @NgModule({
