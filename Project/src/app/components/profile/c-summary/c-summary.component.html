@@ -1,17 +1,26 @@
-<div class="layout-summary">
+<div class="container-fluid layout-summary">
     <div class="title-summary">
         สรุป
+        <button type="button" class="btn" (click)="ngShowMore()" [ngClass]="{'btn-danger': status, 'btn-primary': !status}">SHOWMORE</button>
     </div>
     <div class="qa-summary">
-        <div class="question-summary">
-            Question
+        <div class="question-summary p-3" [ngClass]="{'showmore': status}">
+            <table class="table">
+                <tbody>
+                    <tr *ngFor="let item of questions">
+                        <td>
+                            <a href="#">{{item.title}}</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="answer-summary">
+        <div class="answer-summary p-3" [ngClass]="{'showmore': status}">
             Answer
         </div>
     </div>
     <div class="activity-layout">
-        <div class="activity-summary">
+        <div class="activity-summary p-3" [ngClass]="{'activity-more': status}">
             Activity
         </div>
     </div>
