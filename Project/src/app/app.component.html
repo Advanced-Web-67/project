@@ -1,7 +1,10 @@
-<app-navbar></app-navbar>
-<div class="webbg">
-    <app-sidebar></app-sidebar>
+<app-navbar *ngIf="!isLoginPage"></app-navbar>
+<div class="webbg" *ngIf="!isLoginPage">
+    <app-sidebar *ngIf="!isLoginPage"></app-sidebar>
     <div class="content">
         <router-outlet></router-outlet>
     </div>
 </div>
+<router-outlet *ngIf="isLoginPage"></router-outlet>
+
+
