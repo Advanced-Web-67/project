@@ -15,6 +15,11 @@
     font-weight: bold;
 }
 
+.qa-summary-title {
+    display: flex;
+    justify-content: center;
+}
+
 .qa-summary {
     padding-top: 10px;
     display: flex;
@@ -45,7 +50,9 @@
 }
 
 .activity-layout {
-    padding: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    font-size: 1.5rem;
 }
 
 .activity-summary {

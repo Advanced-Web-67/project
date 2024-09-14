@@ -3,6 +3,10 @@
         สรุป
         <button type="button" class="btn" (click)="ngShowMore()" [ngClass]="{'btn-danger': status, 'btn-primary': !status}">SHOWMORE</button>
     </div>
+    <div class="qa-summary-title">
+        <div class="px-4" style="font-size: 1.5rem;">คำถาม</div>
+        <div class="px-4" style="font-size: 1.5rem;">คำตอบ</div>
+    </div>
     <div class="qa-summary">
         <div class="question-summary p-3" [ngClass]="{'showmore': status}">
             <table class="table">
@@ -28,8 +32,8 @@
         </div>
     </div>
     <div class="activity-layout">
+        กิจกรรม
         <div class="activity-summary p-3" [ngClass]="{'activity-more': status}">
-            Activity
         </div>
     </div>
 </div>
