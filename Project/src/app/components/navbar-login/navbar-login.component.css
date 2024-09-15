@@ -1,23 +1,21 @@
-.navbar-login{
+.navbar-login {
     display: flex;
-    justify-content: space-between; /* กระจายเนื้อหาซ้าย-ขวา */
-    align-items: center;
+    justify-content: flex-start; /* จัดเนื้อหาให้อยู่ทางซ้าย */
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
     position: relative;
     height: 7%;
     width: 100%;
     background-color: #444444;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Downside shadow */
+    padding-left: 30px; /* เพิ่มระยะห่างจากขอบซ้าย */
 }
 
-.navbar-login-text{
+.navbar-login-text {
     font-family: "Jersey 10", sans-serif;
-    font-weight: 400;
+    font-weight: 400px;
     font-size: 38px;
-    text-align: center;
-    justify-content: center;
+    text-align: left; /* ให้ข้อความชิดซ้าย */
     display: flex;
-    padding-left: 2%;
-    margin-bottom: -0.5%;
+    align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
     
 }
-

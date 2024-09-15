@@ -7,21 +7,44 @@
       <div class="form-group">
         <label for="username">ชื่อผู้ใช้:</label>
         <input type="text" id="username" formControlName="username" class="form-control" required>
+        <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+          <small *ngIf="registerForm.get('username')?.errors?.['required']" class="text-danger">ชื่อผู้ใช้ห้ามว่างเปล่า</small>
+          <small *ngIf="registerForm.get('username')?.errors?.['minlength']" class="text-danger">
+            ชื่อผู้ใช้ต้องมีอย่างน้อย 4 ตัวอักษร
+          </small>
+        </div>
       </div>
-
+  
       <div class="form-group">
         <label for="email">อีเมล:</label>
         <input type="email" id="email" formControlName="email" class="form-control" required>
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          <small *ngIf="registerForm.get('email')?.errors?.['required']" class="text-danger">อีเมลห้ามว่างเปล่า</small>
+          <small *ngIf="registerForm.get('email')?.errors?.['email']" class="text-danger">รูปแบบอีเมลไม่ถูกต้อง</small>
+        </div>
       </div>
-
+  
       <div class="form-group">
         <label for="password">รหัสผ่าน:</label>
         <input type="password" id="password" formControlName="password" class="form-control" required>
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          <small *ngIf="registerForm.get('password')?.errors?.['required']" class="text-danger">รหัสผ่านห้ามว่างเปล่า</small>
+          <small *ngIf="registerForm.get('password')?.errors?.['minlength']" class="text-danger">
+            รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร
+          </small>
+        </div>
       </div>
-
+  
       <div class="form-group">
         <label for="confirmPassword">ยืนยันรหัสผ่าน:</label>
         <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control" required>
+        <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+          <small *ngIf="registerForm.get('confirmPassword')?.errors?.['required']" class="text-danger">โปรดยืนยันรหัสผ่าน</small>
+        </div>
+        <div *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched">
+          <i class="fa fa-exclamation-triangle text-danger"></i>
+          <small class="text-danger">รหัสผ่านไม่ตรงกัน</small>
+        </div>
       </div>
       <p>มีบัญชีอยู่แล้ว? <a routerLink="/login">เข้าสู่ระบบที่นี่</a></p>
 

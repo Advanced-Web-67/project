@@ -45,6 +45,7 @@
   
     text-align: center;
   }
+  
   .btn-register {
     width: 200px;
     height: 40px;
@@ -56,6 +57,23 @@
     border-radius: 20px;
     border: 0px;
     transition-duration: 0.1s;
+    cursor: pointer; /* ทำให้เมาส์เปลี่ยนเป็น pointer เมื่อ hover บนปุ่ม */
+  }
+  
+  .btn-register:disabled {
+    background-color: #cccccc; /* สีปุ่มเมื่อปิดการใช้งาน */
+    border: 0px;
+    color: #666666; /* สีข้อความเมื่อปิดการใช้งาน */
+    cursor: not-allowed; /* ทำให้เมาส์เปลี่ยนเป็นรูป not-allowed เมื่อ hover */
+    box-shadow: none;
+  }
+  
+  .btn-register:hover:disabled {
+    background-color: #cccccc; /* สีปุ่มเมื่อปิดการใช้งาน */
+    border: 0px;
+    color: #666666; /* สีข้อความเมื่อปิดการใช้งาน */
+    cursor: not-allowed; /* ทำให้เมาส์เปลี่ยนเป็นรูป not-allowed เมื่อ hover */
+    box-shadow: none;
   }
   
   .btn-register:hover {
@@ -65,3 +83,17 @@
     box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
   }
   
+  .fa-exclamation-triangle {
+    margin-right: 5px;
+  }
+
+  .text-danger {
+    color: #FF0000; /* สีแดง */
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
