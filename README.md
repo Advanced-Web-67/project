@@ -1,4 +1,4 @@
 # project
 
-CSS Framework
-# npm install ng-zorro-antd
+# CSS Framework
+npm install ngx-toastr
