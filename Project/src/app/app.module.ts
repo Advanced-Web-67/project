@@ -19,6 +19,8 @@ import { ImageService } from './services/profiles/image/image.service';
 import { RegisterComponent } from './pages/register/register.component';
 import { QMainComponent } from './components/questions/q-main/q-main.component';
 import { MainComponent } from './pages/questions/main/main.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { MainComponent } from './pages/questions/main/main.component';
     CTitleComponent,
     LoginComponent,
     NavbarLoginComponent,
+
     
     CommentMainComponent,
           RegisterComponent,
@@ -42,7 +45,14 @@ import { MainComponent } from './pages/questions/main/main.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-center', 
+      timeOut: 2000, 
+      closeButton: false, 
+      progressBar: true, 
+    }),
     FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration(),
