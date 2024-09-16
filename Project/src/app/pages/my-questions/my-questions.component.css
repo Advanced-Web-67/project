@@ -1,57 +1,55 @@
 .myQuestionsBody {
     min-height: 97vh;
+    position: relative;
 }
 
-.myQuestionInBody{
-
+.myQuestionInBody {
     display: flex;
 }
-.noneSelectQuestion1{
-    font-size: 0.9vw;width: 30px; 
-    color: rgb(77, 77, 77); 
+
+.noneSelectQuestion1 {
+    font-size: 0.9vw;
+    width: 30px;
+}
+
+.noneSelectQuestion2 {
+    align-content: center;
+    font-size: 1.4vw;
+    transition: 0.2s;
+}
+
+.noneSelectQuestion3 {
+    color: rgb(56, 110, 190);
+    align-content: center;
+    font-size: 1.2vw;
+    transition: 0.2s;
+}
+
+.noneSelectQuestion4 {
+    font-size: 1.3vw;
+    color: rgb(109, 106, 106);
     align-content: center;
     transition: 0.2s;
-
-}
-.noneSelectQuestion2{
-    align-content: center;font-size: 1.4vw;
-    transition: 0.2s;
-
-}
-.noneSelectQuestion3{
-    color: rgb(56, 110, 190); align-content: center;font-size: 1.2vw;
-    transition: 0.2s;
-
-}
-.noneSelectQuestion4{
-    font-size: 1.3vw; color: rgb(109, 106, 106); align-content: center; 
-    transition: 0.2s;
-
 }
 
 .toppic {
-    
     min-height: 97vh;
     width: 18%;
     padding-left: 2%;
     margin-top: 2vw;
-
     display: flex;
     justify-content: left;
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-    
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.bordertoppic{
+.bordertoppic {
     color: #ffffff;
     background: #FF6500;
     filter: drop-shadow(5px 5px 5px #c9d2dd);
     box-shadow: inset 3px 5px 6px #ff9853;
-
     text-shadow: 0px 2px 3px rgba(173, 78, 0, 0.5);
-    
     width: max-content;
     height: max-content;
     padding: 10px;
@@ -62,23 +60,9 @@
     position: fixed;
     padding-left: 25px;
     padding-right: 25px;
-    
 }
 
-.questions{
-    width: 80%;
-    min-height: 97vmin;
-
-}
-
-.QuestionsBOX{
-    justify-content: center;
-    display: flex;
-    min-height: 97vmin;
-    
-}
-
-.borderQuestions{
+.borderQuestions {
     width: 80%;
     padding: 20px;
     text-shadow: 0px 2px 3px rgb(177, 202, 224);
@@ -86,238 +70,165 @@
     margin-bottom: 10px;
     display: block;
     border-radius: 1.5vh;
-    
 }
 
-
-
-
-.noneSelectQuestion{
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+.questionsTable {
+    transition: 0.3s;
 }
 
-.questionsTable{
-    transition: 0.3S;
-}
-
-.questionsTable:hover{
+.questionsTable:hover {
     background-color: #f7f8fa;
-    
 }
 
-
-
-
-.checkBoxNone{
+.checkBoxNone {
     margin-top: 1vi;
     margin-left: 20px;
     margin-right: 80%;
     width: 1vw;
     height: 1vw;
-    border:solid 0.156vw #b9b9b9;
+    border: solid 0.156vw #b9b9b9;
     border-radius: 0.5vh;
     transition: 0.3s;
     filter: drop-shadow(2px 2px 2px #a7b4c4a1);
-
 }
 
-.checkBoxNone:hover{
-    border:solid 0.156vw #858585;
+.checkBoxNone:hover {
+    border: solid 0.156vw #858585;
 }
 
-.checkBoxtext{
+.checkBoxtext {
     font-size: 1vw;
     margin-left: 2vw;
     display: flex;
     align-items: center;
 }
 
-.checkedBox{
+.checkedBox {
     margin-top: 1vi;
     margin-left: 20px;
     margin-right: 80%;
     width: 1vw;
     height: 1vw;
-    border:solid 0.156vw #ee680f;
+    border: solid 0.156vw #ee680f;
     border-radius: 0.5vh;
-    background-color:#FF6500 ;
+    background-color: #FF6500;
     transition: 0.3s;
     filter: drop-shadow(2px 2px 2px #a7b4c4a1);
-    
 }
 
-.checkedBox:hover{
-    border:solid 0.156vw #ff9045;
-    background-color:#ff9045 ;
+.checkedBox:hover {
+    border: solid 0.156vw #ff9045;
+    background-color: #ff9045;
 }
 
-.filterDataBorder{
+.filterDataBorder {
     position: fixed;
-    margin-top:7vw;
+    margin-top: 7vw;
     width: 13vw;
-    height: 35vw;
     background-color: #ffffff;
     border-radius: 1.5vh;
     filter: drop-shadow(5px 5px 5px rgba(144, 154, 167, 0.363));
-
     height: fit-content;
     padding-bottom: 2%;
     transition: 0.1s;
-
 }
 
-.boxButtonCheckBox{
+.boxButtonCheckBox {
     width: 5px;
 }
 
-.questionsTable{
+.questionsTable {
     height: 15vh;
     font-size: x-large;
 }
 
-@media screen and (max-width: 820px) and (min-height: 1000px){
-
-    .filterDataBorder{
+@media screen and (max-width: 1100px), screen and (min-height: 1000px) {
+    .filterDataBorder {
         width: 20vw;
     }
-    .checkBoxNone{
+    .checkBoxNone {
         margin-top: 2vi;
-        margin-left: 20px;
-        margin-right: 80%;
         width: 2vw;
         height: 2.2vw;
-        border:solid 0.156vw #b9b9b9;
-        border-radius: 0.5vh;
-        transition: 0.3s;
-        filter: drop-shadow(2px 2px 2px #a7b4c4a1);
-    
     }
-    
-
-    
-    .checkedBox{
+    .checkedBox {
         margin-top: 2vi;
-        margin-left: 20px;
-        margin-right: 80%;
         width: 2vw;
         height: 2.2vw;
-        border:solid 0.156vw #ee680f;
-        border-radius: 0.5vh;
-        background-color:#FF6500 ;
-        transition: 0.3s;
-        filter: drop-shadow(2px 2px 2px #a7b4c4a1);
-        
     }
-
-    .checkBoxtext{
+    .checkBoxtext {
         font-size: 1.4vw;
-        
     }
-    .noneSelectQuestion1{
-        font-size: 1.5vw;width: 30px; 
-        color: rgb(77, 77, 77); 
-        align-content: center;
+    .noneSelectQuestion1 {
+        font-size: 1.5vw;
     }
-    .noneSelectQuestion2{
-        align-content: center;font-size: 2.4vw;
+    .noneSelectQuestion2 {
+        font-size: 2.4vw;
     }
-    .noneSelectQuestion3{
-        color: rgb(56, 110, 190); align-content: center;font-size: 1.7vw;
+    .noneSelectQuestion3 {
+        font-size: 1.7vw;
     }
-    .noneSelectQuestion4{
-        font-size: 1.4vw; color: rgb(109, 106, 106); align-content: center; 
+    .noneSelectQuestion4 {
+        font-size: 1.4vw;
     }
-    
 }
 
-@media screen and (max-width: 500px), screen and (min-height: 1500px){
+@media screen and (max-width: 600px), screen and (min-height: 1500px) {
     .toppic {
         min-height: 100px;
-
         width: 100%;
         position: relative;
-        display: flex;
         justify-content: center;
-
-        
     }
-    .bordertoppic{
+    .bordertoppic {
         position: relative;
         min-width: 170px;
         width: 90vw;
         display: flex;
         justify-content: center;
         margin-top: 0.5vw;
-        
+        font-size: 5vw;
     }
-    .filterDataBorder{
+    .filterDataBorder {
         position: relative;
-        min-width: 120px;
         width: 90vw;
         margin-top: 2vw;
     }
-    .myQuestionInBody{
+    .myQuestionInBody {
         display: inline;
-        position: relative;
+        justify-content: space-between;
     }
-    .toppicCase{
-        width: 100%;
-        position: relative;
-        display: block;
-        justify-content: center;
-    }
-    .checkBoxtext{
+    .checkBoxtext {
         font-size: 3vw;
         margin-left: 4vw;
-        
     }
-    .bordertoppic{
-        font-size: 5vw;
-    }
-    .questions{
+    .questions {
         width: 100%;
-        min-height: 97vmin;
-    
     }
-    .borderQuestions{
+    .borderQuestions {
         width: 100%;
-
     }
-
-    .questionsTable{
+    .questionsTable {
         height: 10vh;
-        font-size: x-large;
     }
-
-    .noneSelectQuestion{
+    .noneSelectQuestion {
         font-size: 10vw;
     }
-
-    .checkBoxNone{
-        margin-top: 2vi;
+    .checkBoxNone,
+    .checkedBox {
         width: 3.8vw;
         height: 3.8vw;
     }
- 
-    .checkedBox{
-        margin-top: 2vi;
-        width: 3.8vw;
-        height: 3.8vw;
+    .noneSelectQuestion1 {
+        font-size: 2.5vw;
     }
-    .noneSelectQuestion1{
-        font-size: 2.5vw;width: 30px; 
-        color: rgb(77, 77, 77); 
-        align-content: center;
+    .noneSelectQuestion2 {
+        font-size: 4vw;
     }
-    .noneSelectQuestion2{
-        align-content: center;font-size: 4vw;
+    .noneSelectQuestion3 {
+        font-size: 3vw;
     }
-    .noneSelectQuestion3{
-        color: rgb(56, 110, 190); align-content: center;font-size: 3vw;
-    }
-    .noneSelectQuestion4{
-        font-size: 2.4vw; color: rgb(109, 106, 106); align-content: center; 
+    .noneSelectQuestion4 {
+        font-size: 2.4vw;
     }
 }
