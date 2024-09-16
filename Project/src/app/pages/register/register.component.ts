@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr'; // นำเข้า ToastrService
 import { Router } from '@angular/router';  // นำเข้า Router
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder, 
     private toastr: ToastrService,
-    private router: Router  // เพิ่ม Router ที่นี่
+    private router: Router,
+    private http: HttpClient  
   ) {}
 
   ngOnInit(): void {
@@ -38,16 +40,32 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-      const { password, confirmPassword } = this.registerForm.value;
+      const { username, email, password, confirmPassword } = this.registerForm.value;
+      
       if (password !== confirmPassword) {
         this.toastr.error('รหัสผ่านไม่ตรงกัน', 'Error');
         return;
       }
-      this.toastr.success('สมัครสมาชิกสำเร็จ', 'Success');
-
-      setTimeout(() => {
-        this.router.navigate(['/login']);
-      }, 2000);  
+  
+      // ส่งข้อมูลไปยัง backend ด้วย HttpClient
+      this.http.post('http://localhost:3000/register/register', { username, email, password })
+        .subscribe(
+          (response) => {
+            // แสดงข้อความสำเร็จ
+            this.toastr.success('สมัครสมาชิกสำเร็จ', 'Success');
+  
+            // เปลี่ยนหน้าไปยังหน้า login หลังจากสมัครสำเร็จ
+            setTimeout(() => {
+              this.router.navigate(['/login']);
+            }, 2000); 
+          },
+          (error) => {
+            // แสดง error หากมีข้อผิดพลาดจาก backend
+            const errorMessage = error.error?.message || 'เกิดข้อผิดพลาดในการสมัครสมาชิก';
+            this.toastr.error(errorMessage, 'Error');
+            console.error('Error:', error);
+          }
+        );
     }
   }
 }
