@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import e from 'cors';
 
 @Component({
   selector: 'app-c-summary',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class CSummaryComponent implements OnInit{
 
   status!: boolean;
+  textmore: string = "SHOWMORE";
+
   questions: any = [
     {"id":1,"title":"Why i am stupid","body":"Hello....","tag":"monkey"},
     {"id":2,"title":"Why i am stupid","body":"Hello....","tag":"monkey"},
@@ -40,6 +43,11 @@ export class CSummaryComponent implements OnInit{
 
   ngShowMore() {
     this.status = !this.status;
+    if(this.status == true){
+      this.textmore = "LESSMORE";
+    }else{
+      this.textmore = "SHOWMORE";
+    }
   }
 
 }

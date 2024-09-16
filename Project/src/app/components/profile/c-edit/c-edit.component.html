@@ -1,49 +1,67 @@
 <div class="container-fluid mt-4 layout-edit">
     <form>
         <div class="row align-items-center layout-edit-text">
-        <div class="col-md-6">
-            <h2 class="edit-text">แก้ไขข้อมูลของคุณ</h2>
+            <div class="col-md-6">
+                <h2 class="edit-text">แก้ไขข้อมูลของคุณ</h2>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end">
+                <button type="button" class="btn button-edit btn-lg" (click)="openModal()">ยืนยัน</button>
+            </div>
         </div>
-        <div class="col-md-6 d-flex justify-content-end">
-            <button type="submit" class="btn button-edit">ยืนยัน</button>
-        </div>
-        </div>
-    
         <div class="row layout-data mt-3">
-        <!-- Public Data Section -->
-        <div class="col-md-6">
-            <div class="card public-data p-3">
-            <h4 class="title">ข้อมูลที่แสดง</h4>
-            <div class="form-group image-input mt-3">
-                <label for="public-image">เลือกรูปภาพ</label>
-                <input type="file" class="form-control-file" id="public-image" (change)="onImageSelected($event)"> 
+            <!-- Public Data Section -->
+            <div class="col-md-6">
+                <div class="card public-data p-3">
+                <h4 class="title">ข้อมูลที่แสดง</h4>
+                <div class="form-group image-input mt-3">
+                    <label for="public-image">เลือกรูปภาพ</label>
+                    <input type="file" class="form-control-file" id="public-image" (change)="onImageSelected($event)"> 
+                </div>
+                <div class="form-group username mt-1">
+                    <label for="public-username">ชื่อที่แสดง</label>
+                    <input type="text" class="form-control" id="public-username" [(ngModel)]="displayName" (input)="onDisplayNameChange($event)">
+                </div>
+                <div class="form-group about mt-1">
+                    <label for="public-about">เกี่ยวกับตัวเอง</label>
+                    <textarea class="form-control" id="public-about" style="height: 10.5vw; resize: none;"></textarea>
+                </div>
+                </div>
             </div>
-            <div class="form-group username mt-1">
-                <label for="public-username">ชื่อที่แสดง</label>
-                <input type="text" class="form-control" id="public-username" [(ngModel)]="displayName" (input)="onDisplayNameChange($event)">
-            </div>
-            <div class="form-group about mt-1">
-                <label for="public-about">เกี่ยวกับตัวเอง</label>
-                <textarea class="form-control" id="public-about" style="height: 10.5vw; resize: none;"></textarea>
-            </div>
+        
+            <!-- Private Data Section -->
+            <div class="col-md-6">
+                <div class="card private-data p-3">
+                <h4 class="title">ข้อมูลส่วนตัว</h4>
+                <div class="form-group username mt-3">
+                    <label for="private-username">ชื่อผู้ใช้ (Username)</label>
+                    <input type="text" class="form-control" id="private-username">
+                </div>
+                <div class="form-group password mt-3">
+                    <label for="private-password">รหัสผ่าน (Password)</label>
+                    <input type="password" class="form-control" id="private-password">
+                </div>
+                </div>
             </div>
         </div>
-    
-        <!-- Private Data Section -->
-        <div class="col-md-6">
-            <div class="card private-data p-3">
-            <h4 class="title">ข้อมูลส่วนตัว</h4>
-            <div class="form-group username mt-3">
-                <label for="private-username">ชื่อผู้ใช้ (Username)</label>
-                <input type="text" class="form-control" id="private-username">
+        <!-- Modal HTML -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="customModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmation</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <div class="form-group password mt-3">
-                <label for="private-password">รหัสผ่าน (Password)</label>
-                <input type="password" class="form-control" id="private-password">
+            <div class="modal-body">
+              <p>ต้องการแก้ไขข้อมูลของคุณใช่หรือไม่</p>
             </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" (click)="confirm()" data-dismiss="modal">ใช่</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
             </div>
+          </div>
         </div>
-        </div>
+      </div>
     </form>
-  </div>
-  
+</div>

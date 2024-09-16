@@ -1,0 +1,12 @@
+<div class="user-list" *ngIf="!isLoading">
+    <h2>รายชื่อผู้ใช้</h2>
+    <ul>
+      <li *ngFor="let user of users">
+        <strong>{{ user.username }}</strong> - {{ user.email }}
+      </li>
+    </ul>
+  </div>
+  <div class="loading" *ngIf="isLoading">
+    <p>กำลังโหลด...</p>
+  </div>
+  

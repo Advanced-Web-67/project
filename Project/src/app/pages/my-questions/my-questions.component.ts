@@ -30,7 +30,7 @@ export class MyQuestionsComponent implements OnInit{
     {"id":"2003","Q_name":"1769","Q_date":"2022-08-11","subject":"Science"}
   ]
 
-  
+  selectedSubject: any[] = [];
 
   constructor() {}
 
@@ -39,10 +39,12 @@ export class MyQuestionsComponent implements OnInit{
     this.statusEnglish = false;
     this.statusScience = false;
     this.statusHistory = false;
+
+    this.selectedSubject = this.questions;
   }
 
   ngCheckMath(){
-    this.statusMath = !this.statusMath
+    this.statusMath = !this.statusMath 
   }
   ngCheckEnglish(){
     this.statusEnglish = !this.statusEnglish
@@ -52,6 +54,21 @@ export class MyQuestionsComponent implements OnInit{
   }
   ngCheckHistory(){
     this.statusHistory = !this.statusHistory
+  }
+
+  ngCheckselectSubject() {
+    const subjects: string[] = [];
+    
+    if (this.statusEnglish) subjects.push('English');
+    if (this.statusScience) subjects.push('Science');
+    if (this.statusHistory) subjects.push('History');
+    if (this.statusMath) subjects.push('Math');
+    
+    if (subjects.length > 0) {
+      this.selectedSubject = this.questions.filter((question: any) => subjects.includes(question.subject));
+    } else {
+      this.selectedSubject = this.questions;
+    }
   }
 
 
