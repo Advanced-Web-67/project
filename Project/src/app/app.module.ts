@@ -22,6 +22,8 @@ import { MainComponent } from './pages/questions/main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { MyQuestionsComponent } from './pages/my-questions/my-questions.component';
+import { QuestionsDetailComponent } from './pages/questions/questions-detail/questions-detail.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { MyQuestionsComponent } from './pages/my-questions/my-questions.componen
           RegisterComponent,
           QMainComponent,
           MainComponent,
+          QuestionsDetailComponent,
   ],
   imports: [
     BrowserModule,

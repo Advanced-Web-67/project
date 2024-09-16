@@ -1,26 +1,30 @@
-<div class="layout-question d-flex flex-column">
-  <!-- Card เล็ก -->
-  <div class="card small-card mb-3">
-    <div class="card-body">
-      <!-- ส่วนบน: ALL COMMENT -->
-      <div><strong>ALL COMMENT</strong></div>
+<div class="container-qmain">
+  <div class="layout-question d-flex flex-column">
+    <!-- Card เล็ก -->
+    <div class="card small-card mb-3">
+      <div class="card-body">
+        <!-- ส่วนบน: ALL COMMENT -->
+        <div><strong>ALL COMMENT</strong></div>
 
-      <!-- ส่วนล่าง: ปุ่ม Newest, Unanswered และ Ask question -->
-      <div class="d-flex justify-content-between align-items-center mt-3">
-        <div class="btn-group" role="group" aria-label="Comment Filter">
-          <button type="button" class="btn btn-secondary">Newest</button>
-          <button type="button" class="btn btn-secondary">Unanswered</button>
+        <!-- ส่วนล่าง: ปุ่ม Newest, Unanswered และ Ask question -->
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <div class="btn-group" role="group" aria-label="Comment Filter">
+            <button type="button" class="btn btn-secondary">Newest</button>
+            <button type="button" class="btn btn-secondary">Unanswered</button>
+          </div>
+          <button class="btn btn-orange">Ask question</button>
         </div>
-        <button class="btn btn-orange">Ask question</button>
       </div>
     </div>
-  </div>
 
-  <!-- Card ใหญ่ -->
-  <div class="card big-card">
-    <div class="card-body">
-      <h1>Card ใหญ่</h1>
-      <p>เนื้อหาของการ์ดใหญ่</p>
+    <!-- Card ใหญ่ -->
+    <div *ngFor="let question of questions" class="card big-card mb-3">
+      <div class="card-body">
+        <h1>
+          <a href="/questions/{{question.questionId}}" class="topic-link">{{ question.topic }}</a>
+        </h1>
+        <p>{{ question.detail | slice: 0:200 }}{{ question.detail.length > 200 ? '...' : '' }}</p>
+      </div>
     </div>
   </div>
 </div>

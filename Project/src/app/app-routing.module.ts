@@ -9,6 +9,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { MainComponent } from './pages/questions/main/main.component';
 import { MyQuestionsComponent } from './pages/my-questions/my-questions.component';
+import { QMainComponent } from './components/questions/q-main/q-main.component';
+import { QuestionsDetailComponent } from './pages/questions/questions-detail/questions-detail.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,10 @@ const routes: Routes = [
   { path: 'questions/main',component:MainComponent },
 
   { path: 'myQuestions', component: MyQuestionsComponent},
+ 
+  { path: '', redirectTo: '/questions', pathMatch: 'full' },
+  { path: 'questions', component: QMainComponent },
+  { path: 'questions/:id', component: QuestionsDetailComponent },
   
   
 
