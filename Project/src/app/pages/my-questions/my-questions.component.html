@@ -4,22 +4,32 @@
 <div class="myQuestionsBody">
     <div class="myQuestionInBody">
         <div class="toppic">
-            <div class="bordertoppic">คำถามของฉัน</div>
-            <div class="filterDataBorder" style="position: fixed;">
-                <div style="display: block;">
-                    <button class="checkBoxNone" (click)="ngCheckMath()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusMath,'checkBoxNone':!statusMath}"> 
-                        <p style="margin-left: 20px; top: -5px; position: relative;">Math</p>
-                    </button>
-                    <button class="checkBoxNone" (click)="ngCheckEnglish()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusEnglish,'checkBoxNone':!statusEnglish}"> 
-                        <p style="margin-left: 20px; top: -5px; position: relative;">English</p>
-                    </button>
-                    <button class="checkBoxNone" (click)="ngCheckScience()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusScience,'checkBoxNone':!statusScience}"> 
-                        <p style="margin-left: 20px; top: -5px; position: relative;">Science</p>
-                    </button>
-                    <button class="checkBoxNone" (click)="ngCheckHistory()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusHistory,'checkBoxNone':!statusHistory}"> 
-                        <p style="margin-left: 20px; top: -5px; position: relative;">History</p>
-                    </button>
-                    
+            <div class="toppicCase">
+                <div class="bordertoppic">คำถามของฉัน</div>
+                <div class="filterDataBorder">
+                    <div style="display: block;">
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheckMath()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusMath,'checkBoxNone':!statusMath}"> 
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">Math</p>
+                            </button>
+                        </div>
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheckEnglish()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusEnglish,'checkBoxNone':!statusEnglish}"> 
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">English</p>
+                            </button>
+                        </div>
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheckScience()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusScience,'checkBoxNone':!statusScience}"> 
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">Science</p>
+                            </button>
+                        </div>
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheckHistory()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusHistory,'checkBoxNone':!statusHistory}"> 
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">History</p>
+                            </button>
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,12 +38,12 @@
                 <div class="borderQuestions">
                     <table class="table">
                         <tbody style="align-items: center; ">
-                            <tr class="questionsTable" *ngFor="let item of selectedSubject" style="height: 15vh; font-size: x-large; ">
-                                <td class="noneSelectQuestion" scope="row" style="font-size: small;width: 30px; color: rgb(77, 77, 77); align-content: center;">{{item.id}}</td>
+                            <tr class="questionsTable" *ngFor="let item of selectedSubject">
+                                <td class="noneSelectQuestion1" scope="row">{{item.id}}</td>
                                 <td></td>
-                                <td class="noneSelectQuestion" style="align-content: center;">{{item.Q_name}} ?</td>
-                                <td class="noneSelectQuestion"  style=" color: rgb(56, 110, 190); align-content: center;">{{item.subject}}</td>
-                                <td class="noneSelectQuestion"  style=" font-size: large; color: rgb(109, 106, 106); align-content: center; ">
+                                <td class="noneSelectQuestion2">{{item.Q_name}} ?</td>
+                                <td class="noneSelectQuestion3">{{item.subject}}</td>
+                                <td class="noneSelectQuestion4">
                                     <p style="display: flex; justify-content: center;">{{item.Q_date}}</p>
                                 </td>
                                 
