@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
       }
   
       // ส่งข้อมูลไปยัง backend ด้วย HttpClient
-      this.http.post('http://localhost:3000/register/register', { username, email, password })
+      this.http.post('http://localhost:3000/register/signup', { username, email, password })
         .subscribe(
           (response) => {
             // แสดงข้อความสำเร็จ

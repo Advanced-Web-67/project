@@ -48,7 +48,7 @@ const insertUser = async (dataUser) => {
 
 
 // POST /register สำหรับการสมัครผู้ใช้ใหม่
-router.route('/register')
+router.route('/signup')
     .post(async (req, res) => {
         const { username, email, password } = req.body;
 

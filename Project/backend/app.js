@@ -32,7 +32,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/register', require('./routes/register'));
-// app.use('/login', require('./routes/signin'));
+app.use('/login', require('./routes/login'));
+app.use('/api', require('./routes/users'));
 
 app.listen(3000, function() {
     console.log('Listening on port 3000');

@@ -4,8 +4,8 @@
     <h2 class="text-login">เข้าสู่ระบบ</h2>
     <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
       <div class="form-group">
-        <label class="email-text-login" for="email">อีเมลผู้ใช้งาน:</label>
-        <input id="email" formControlName="email" type="email" class="form-control" required>
+        <label class="username-text-login" for="username">ชื่อผู้ใช้งาน:</label>
+        <input id="username" formControlName="username" type="text" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="password">รหัสผ่าน:</label>
