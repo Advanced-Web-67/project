@@ -8,6 +8,7 @@ import { CEditComponent } from './components/profile/c-edit/c-edit.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { MainComponent } from './pages/questions/main/main.component';
+import { MyQuestionsComponent } from './pages/my-questions/my-questions.component';
 
 
 const routes: Routes = [
@@ -24,8 +25,14 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'register', redirectTo: '/register', pathMatch: 'full' },
 
-  { path: 'questions/main',component:MainComponent }
+  { path: 'questions/main',component:MainComponent },
 
+  { path: 'myQuestions', component: MyQuestionsComponent},
+  
+  
+
+
+  
 ];
 
 @NgModule({

@@ -1,0 +1,134 @@
+.myQuestionsBody {
+    min-height: 97vmin;
+    min-width: 1000px;
+    
+}
+
+.myQuestionInBody{
+
+    display: flex;
+}
+
+.toppic {
+    
+    min-height: 97vmin;
+    width: 18%;
+    padding-left: 2%;
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: left;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    
+}
+
+.bordertoppic{
+    color: #ffffff;
+    background: #FF6500;
+    filter: drop-shadow(5px 5px 5px #a7b4c4);
+    box-shadow: inset 3px 5px 6px #ff9853;
+
+    text-shadow: 0px 2px 3px rgba(173, 78, 0, 0.5);
+    
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    font-size: 1.7vw;
+    border-radius: 3vh;
+    display: flex;
+    align-content: center;
+    position: fixed;
+    padding-left: 25px;
+    padding-right: 25px;
+    
+}
+
+.questions{
+    width: 80%;
+    min-height: 97vmin;
+
+}
+
+.QuestionsBOX{
+    justify-content: center;
+    display: flex;
+    min-height: 97vmin;
+    
+}
+
+.borderQuestions{
+    width: 80%;
+    padding: 20px;
+    text-shadow: 0px 2px 3px rgba(194, 203, 211, 0.5);
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 1.5vh;
+    
+}
+
+
+
+
+.noneSelectQuestion{
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.questionsTable{
+    transition: 0.3S;
+}
+
+.questionsTable:hover{
+    background-color: #f7f8fa;
+    
+}
+
+.filterDataBorder{
+    position: fixed;
+    margin-top:150px;
+    width: 13vw;
+    height: 35vh;
+    background-color: #ffffff;
+    border-radius: 20px;
+    filter: drop-shadow(5px 5px 5px rgba(184, 196, 211, 0.363));
+}
+
+
+.checkBoxNone{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 80%;
+    width: 1vw;
+    height: 2.1vh;
+    border:solid 0.156vw #b9b9b9;
+    border-radius: 5px;
+    transition: 0.3s;
+    filter: drop-shadow(2px 2px 2px #a7b4c4a1);
+}
+
+.checkBoxNone:hover{
+    border:solid 0.156vw #858585;
+}
+
+.checkedBox{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 80%;
+    width: 1vw;
+    height: 2.1vh;
+    border:solid 0.156vw #ee680f;
+    border-radius: 5px;
+    background-color:#FF6500 ;
+    transition: 0.3s;
+    filter: drop-shadow(2px 2px 2px #a7b4c4a1);
+    
+}
+
+.checkedBox:hover{
+    border:solid 0.156vw #ff9045;
+    background-color:#ff9045 ;
+}
