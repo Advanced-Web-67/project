@@ -1,19 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-light navbar-color">
-  <div class="navbar-brand-container">
-    <a class="navbar-brand" href="/">Q&A SUT</a>
+<div class="navbar-login">
+  <div routerLink="" class="navbar-login-text">
+    <p><span style="color: white;">Q&A</span><span style="color: orange;padding-left: 10px;">SUT</span></p>
   </div>
-  <div class="searchbox">
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-    </form>
+  <div class="search-container">
+    <input type="text" name="search" placeholder="Search..." class="search-input">
+    <a href="#" class="search-btn">
+      <i class="fas fa-search"></i>
+    </a>
   </div>
+  <div class="button-container-navbar" style="display: flex;justify-content: space-between;">
+    <button class="button-65" >เข้าสู่ระบบ</button>
+    <button class="button-65">ลงทะเบียน</button>
+  </div>
+</div>
+<div style="height: 60px;width: 100%;">
 
-  <div class="button-container">
-    <button class="btn button1" type="submit" routerLink="/register">
-      สมัคร
-    </button>
-    <button class="btn button2" type="submit" routerLink="/login">
-      เข้าสู่ระบบ
-    </button>
-  </div>
-</nav>
+</div>
