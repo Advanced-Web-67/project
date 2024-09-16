@@ -19,4 +19,8 @@
 .nav-link:hover {
     background-color: #f26522;
 }
+
+.btn-link {
+    width: 100%;
+}
   
