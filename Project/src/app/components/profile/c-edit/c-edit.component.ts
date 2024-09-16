@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../../../services/profiles/image/image.service';
 
-
 @Component({
   selector: 'app-c-edit',
   templateUrl: './c-edit.component.html',
@@ -36,5 +35,14 @@ export class CEditComponent implements OnInit{
   onDisplayNameChange(event: any) {
     this.displayName = event.target.value;
     this.imageService.changeDisplayName(this.displayName);
+  }
+
+  openModal() {
+    const modal = new (window as any).bootstrap.Modal(document.getElementById('customModal'));
+    modal.show();
+  }
+  confirm() {
+    console.log('Confirmed!');
+    // Perform actions for confirmation
   }
 }
