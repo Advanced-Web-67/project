@@ -58,7 +58,7 @@
 @media screen and (max-width: 600px){
     .sidebarContainer{
         width: 100dvw; 
-        position: sticky;
+        position: fixed;
         height: 12vw;
         background-color: rgb(255, 255, 255);
         min-width: 376px;
@@ -67,9 +67,11 @@
     }
 
     .sidebarContainerUseSpace{
-        width: 0px; 
-        position: sticky;
-        height: 0px;
+        width: 100dvw; 
+        position: relative;
+        height: 12vw;
+        min-width: 376px;
+        margin-bottom: 30px;
     }
     .borderButtonSidebar{
     
@@ -78,7 +80,7 @@
     }
 
     .boxAllButtonSidebar{
-        margin-top: 20px;
+        margin-top: 5px;
         display: flex;
     }
 
