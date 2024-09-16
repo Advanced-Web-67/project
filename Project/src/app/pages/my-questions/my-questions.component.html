@@ -9,53 +9,57 @@
                 <div class="filterDataBorder">
                     <div style="display: block;">
                         <div class="boxButtonCheckBox">
-                            <button class="checkBoxNone" (click)="ngCheckMath()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusMath,'checkBoxNone':!statusMath}"> 
+                            <button class="checkBoxNone" (click)="ngCheckMath()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': statusMath,'checkBoxNone':!statusMath}">
                                 <p class="checkBoxtext" style="top: -5px; position: relative;">Math</p>
                             </button>
                         </div>
                         <div class="boxButtonCheckBox">
-                            <button class="checkBoxNone" (click)="ngCheckEnglish()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusEnglish,'checkBoxNone':!statusEnglish}"> 
+                            <button class="checkBoxNone" (click)="ngCheckEnglish()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': statusEnglish,'checkBoxNone':!statusEnglish}">
                                 <p class="checkBoxtext" style="top: -5px; position: relative;">English</p>
                             </button>
                         </div>
                         <div class="boxButtonCheckBox">
-                            <button class="checkBoxNone" (click)="ngCheckScience()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusScience,'checkBoxNone':!statusScience}"> 
+                            <button class="checkBoxNone" (click)="ngCheckScience()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': statusScience,'checkBoxNone':!statusScience}">
                                 <p class="checkBoxtext" style="top: -5px; position: relative;">Science</p>
                             </button>
                         </div>
                         <div class="boxButtonCheckBox">
-                            <button class="checkBoxNone" (click)="ngCheckHistory()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusHistory,'checkBoxNone':!statusHistory}"> 
+                            <button class="checkBoxNone" (click)="ngCheckHistory()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': statusHistory,'checkBoxNone':!statusHistory}">
                                 <p class="checkBoxtext" style="top: -5px; position: relative;">History</p>
                             </button>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="questions">
-            <div class="QuestionsBOX">
-                <div class="borderQuestions">
-                    <table class="table">
-                        <tbody style="align-items: center; ">
-                            <tr class="questionsTable" *ngFor="let item of selectedSubject">
-                                <td class="noneSelectQuestion1" scope="row">{{item.id}}</td>
-                                <td></td>
-                                <td class="noneSelectQuestion2">{{item.Q_name}} ?</td>
-                                <td class="noneSelectQuestion3">{{item.subject}}</td>
-                                <td class="noneSelectQuestion4">
-                                    <p style="display: flex; justify-content: center;">{{item.Q_date}}</p>
-                                </td>
-                                
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            
+        <div style="width: 15vw;"></div>
+        <div class="borderQuestions">
+            <table class="table">
+                <tbody style="align-items: center; ">
+                    <tr class="questionsTable" *ngFor="let item of selectedSubject">
+                        <td class="noneSelectQuestion1" scope="row">{{item.id}}</td>
+                        <td></td>
+                        <td class="noneSelectQuestion2">{{item.Q_name}} ?</td>
+                        <td class="noneSelectQuestion3">{{item.subject}}</td>
+                        <td class="noneSelectQuestion4">
+                            <p style="display: flex; justify-content: center;">{{item.Q_date}}</p>
+                        </td>
 
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
+
+
+
+
     </div>
 
 </div>
