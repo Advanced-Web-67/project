@@ -7,16 +7,16 @@
             <div class="bordertoppic">คำถามของฉัน</div>
             <div class="filterDataBorder" style="position: fixed;">
                 <div style="display: block;">
-                    <button class="checkBoxNone" (click)="ngCheckMath()" [ngClass]="{'checkedBox': statusMath,'checkBoxNone':!statusMath}"> 
+                    <button class="checkBoxNone" (click)="ngCheckMath()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusMath,'checkBoxNone':!statusMath}"> 
                         <p style="margin-left: 20px; top: -5px; position: relative;">Math</p>
                     </button>
-                    <button class="checkBoxNone" (click)="ngCheckEnglish()" [ngClass]="{'checkedBox': statusEnglish,'checkBoxNone':!statusEnglish}"> 
+                    <button class="checkBoxNone" (click)="ngCheckEnglish()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusEnglish,'checkBoxNone':!statusEnglish}"> 
                         <p style="margin-left: 20px; top: -5px; position: relative;">English</p>
                     </button>
-                    <button class="checkBoxNone" (click)="ngCheckScience()" [ngClass]="{'checkedBox': statusScience,'checkBoxNone':!statusScience}"> 
+                    <button class="checkBoxNone" (click)="ngCheckScience()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusScience,'checkBoxNone':!statusScience}"> 
                         <p style="margin-left: 20px; top: -5px; position: relative;">Science</p>
                     </button>
-                    <button class="checkBoxNone" (click)="ngCheckHistory()" [ngClass]="{'checkedBox': statusHistory,'checkBoxNone':!statusHistory}"> 
+                    <button class="checkBoxNone" (click)="ngCheckHistory()" (click)="ngCheckselectSubject()" [ngClass]="{'checkedBox': statusHistory,'checkBoxNone':!statusHistory}"> 
                         <p style="margin-left: 20px; top: -5px; position: relative;">History</p>
                     </button>
                     
@@ -28,7 +28,7 @@
                 <div class="borderQuestions">
                     <table class="table">
                         <tbody style="align-items: center; ">
-                            <tr class="questionsTable" *ngFor="let item of questions" style="height: 15vh; font-size: x-large; ">
+                            <tr class="questionsTable" *ngFor="let item of selectedSubject" style="height: 15vh; font-size: x-large; ">
                                 <td class="noneSelectQuestion" scope="row" style="font-size: small;width: 30px; color: rgb(77, 77, 77); align-content: center;">{{item.id}}</td>
                                 <td></td>
                                 <td class="noneSelectQuestion" style="align-content: center;">{{item.Q_name}} ?</td>
