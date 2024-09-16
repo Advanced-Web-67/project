@@ -41,5 +41,18 @@
 }
 
   
-  
-  
+.container-qmain{
+  height: 100vh;
+  z-index: 200;
+}
+
+.topic-link {
+  color: #007bff; /* สีฟ้า */
+  text-decoration: none; /* ลบเส้นขีดใต้ลิงก์ */
+}
+
+.topic-link:hover {
+  text-decoration: underline; /* ใส่เส้นขีดใต้เมื่อ hover */
+}
+
+
