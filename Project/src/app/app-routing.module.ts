@@ -22,7 +22,6 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
   { path: 'login', redirectTo: '/login', pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
-  { path: 'register', redirectTo: '/register', pathMatch: 'full' },
 
   { path: 'questions/main',component:MainComponent }
 
