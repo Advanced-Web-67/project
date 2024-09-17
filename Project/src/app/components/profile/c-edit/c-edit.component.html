@@ -1,5 +1,5 @@
 <div class="container-fluid mt-4 layout-edit">
-    <form>
+    <form [formGroup]="profileForm" (ngSubmit)="openModal()">
         <div class="row align-items-center layout-edit-text">
             <div class="col-md-6">
                 <h2 class="edit-text">แก้ไขข้อมูลของคุณ</h2>
@@ -12,18 +12,25 @@
             <!-- Public Data Section -->
             <div class="col-md-6">
                 <div class="card public-data p-3">
-                <h4 class="title">ข้อมูลที่แสดง</h4>
-                <div class="form-group image-input mt-3">
-                    <label for="public-image">เลือกรูปภาพ</label>
-                    <input type="file" class="form-control-file" id="public-image" (change)="onImageSelected($event)"> 
-                </div>
+                  <div class="layout-picture">
+                    <div>
+                      <h4 class="title ">ข้อมูลที่แสดง</h4>
+                      <div class="form-group image-input mt-3">
+                          <label for="public-image">เลือกรูปภาพ</label>
+                          <input type="file" class="form-control-file" id="picture" (change)="onImageSelected($event)">
+                      </div>
+                    </div>
+                    <div *ngIf="profileForm.get('picture')?.value">
+                      <img [src]="profileForm.get('picture')?.value" alt="Profile Image" class="img-fluid mt-3" width="100"height="100">
+                    </div>
+                  </div>
                 <div class="form-group username mt-1">
-                    <label for="public-username">ชื่อที่แสดง</label>
-                    <input type="text" class="form-control" id="public-username" [(ngModel)]="displayName" (input)="onDisplayNameChange($event)">
+                    <label for="public-username">ชื่อผู้ใช้งาน</label>
+                    <input type="text" class="form-control" id="public-username" formControlName="username" (input)="onUsernameChange($event)">
                 </div>
                 <div class="form-group about mt-1">
                     <label for="public-about">เกี่ยวกับตัวเอง</label>
-                    <textarea class="form-control" id="public-about" style="height: 10.5vw; resize: none;"></textarea>
+                    <textarea class="form-control" id="public-about" style="height: 10.5vw; resize: none;" formControlName="about"></textarea>
                 </div>
                 </div>
             </div>
@@ -32,13 +39,13 @@
             <div class="col-md-6">
                 <div class="card private-data p-3">
                 <h4 class="title">ข้อมูลส่วนตัว</h4>
-                <div class="form-group username mt-3">
-                    <label for="private-username">ชื่อผู้ใช้ (Username)</label>
-                    <input type="text" class="form-control" id="private-username">
+                <div class="form-group email mt-3">
+                    <label for="private-email">อีเมล (Email)</label>
+                    <input type="text" class="form-control" id="email" formControlName="email">
                 </div>
                 <div class="form-group password mt-3">
                     <label for="private-password">รหัสผ่าน (Password)</label>
-                    <input type="password" class="form-control" id="private-password">
+                    <input type="text" class="form-control" id="password" formControlName="password">
                 </div>
                 </div>
             </div>

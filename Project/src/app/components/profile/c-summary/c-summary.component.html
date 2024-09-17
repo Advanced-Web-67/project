@@ -22,9 +22,9 @@
         <div class="answer-summary p-3" [ngClass]="{'showmore': status}">
             <table class="table">
                 <tbody>
-                    <tr *ngFor="let item of answer">
+                    <tr *ngFor="let item of answers">
                         <td>
-                            <a href="#">{{item.text}}</a>
+                            <a href="#">{{ item.answertext | slice: 0:80 }}{{item.answertext.length > 80 ? '...' : '' }}</a>
                         </td>
                     </tr>
                 </tbody>
