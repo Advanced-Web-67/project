@@ -32,7 +32,7 @@ const routes: Routes = [
 
   { path: 'myQuestions', component: MyQuestionsComponent},
  
-  { path: '', redirectTo: '/questions', pathMatch: 'full' },
+  // { path: '', redirectTo: '/questions', pathMatch: 'full' },
   { path: 'questions', component: QMainComponent },
   { path: 'questions/:id', component: QuestionsDetailComponent },
   
