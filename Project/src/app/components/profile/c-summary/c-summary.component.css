@@ -1,3 +1,27 @@
+/* Label styles for question and answer headers */
+.summary-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #FF6500;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 2px solid #FF6500;
+    margin-bottom: 10px;
+}
+
+/* Question and answer sections */
+.question-summary, .answer-summary {
+    background-color: white;
+    width: 48%;
+    height: 13vh;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #FF6500;
+    overflow: auto;
+}
+
+/* Other existing styles */
 .layout-summary {
     background-color: white;
     margin-top: 20px;
@@ -5,7 +29,8 @@
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;
-    border-color: #FF6500
+    border-color: #FF6500;
+    padding: 10px;
 }
 
 .title-summary {
@@ -13,11 +38,7 @@
     padding-top: 10px;
     font-size: 2rem;
     font-weight: bold;
-}
-
-.qa-summary-title {
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .qa-summary {
@@ -25,50 +46,34 @@
     display: flex;
     justify-content: center;
     gap: 1%;
-}
-
-.question-summary {
-    background-color: white;
-    height: 13vh;
-    width: 48%;
-    border-style: solid;
-    border-radius: 20px;
-    border-width: 2px;
-    border-color: #FF6500;
-    overflow: auto;
-}
-
-.answer-summary {
-    background-color: white;
-    height: 13vh;
-    width: 48%;
-    border-style: solid;
-    border-radius: 20px;
-    border-width: 2px;
-    border-color: #FF6500;
-    overflow: auto;
+    flex-wrap: wrap;
 }
 
 .activity-layout {
-    padding-left: 20px;
-    padding-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    flex-wrap: wrap;
 }
 
 .activity-summary {
     background-color: white;
+    width: 97%;
+    height: 11vh;
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;
     border-color: #FF6500;
-    width: 100%;
-    height: 10vh;
+    overflow: auto;
 }
 
 .showmore {
     background-color: white;
-    height: 38vh;
     width: 48%;
+    height: 40vh;
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;
@@ -78,10 +83,35 @@
 
 .activity-more {
     background-color: white;
+    width: 97%;
+    height: 30vh;
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;
     border-color: #FF6500;
-    width: 100%;
-    height: 21.3vh;
+    overflow: auto;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .qa-summary {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .question-summary, .answer-summary {
+        width: 100%;
+        height: 14vh;
+        margin-top: 5vw;
+    }
+
+    .showmore {
+        background-color: white;
+        width: 100%;
+        height: 40vh;
+        border-style: solid;
+        border-radius: 20px;
+        border-width: 2px;
+        border-color: #FF6500;
+        overflow: auto;
+    }
 }
