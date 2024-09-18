@@ -1,25 +1,29 @@
 <div class="container-fluid layout-summary">
     <div class="title-summary">
         สรุป
-        <button type="button" class="btn" (click)="ngShowMore()" [ngClass]="{'btn-danger': status, 'btn-success': !status}">{{textmore}}</button>
+        <button type="button" class="btn" (click)="ngShowMore()" [ngClass]="{'btn-danger': status, 'btn-success': !status}">
+            {{textmore}}
+        </button>
     </div>
-    <div class="qa-summary-title">
-        <div class="px-4" style="font-size: 1.5rem;">คำถาม</div>
-        <div class="px-4" style="font-size: 1.5rem;">คำตอบ</div>
-    </div>
+    
     <div class="qa-summary">
+        <!-- Questions Section -->
         <div class="question-summary p-3" [ngClass]="{'showmore': status}">
+            <div class="summary-header">คำถาม</div>
             <table class="table">
                 <tbody>
                     <tr *ngFor="let item of questions">
                         <td>
-                            <a href="#">{{item.title}}</a>
+                            <a href="#">{{ item.title }}</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        
+        <!-- Answers Section -->
         <div class="answer-summary p-3" [ngClass]="{'showmore': status}">
+            <div class="summary-header">คำตอบ</div>
             <table class="table">
                 <tbody>
                     <tr *ngFor="let item of answers">
@@ -31,6 +35,7 @@
             </table>
         </div>
     </div>
+    
     <div class="activity-layout">
         กิจกรรม
         <div class="activity-summary p-3" [ngClass]="{'activity-more': status}">
