@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');  // นำเข้า cors
+const cors = require('cors');
 
 const app = express();
 
@@ -18,7 +18,9 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.use(express.json());
+// ตั้งค่า limit ขนาดข้อมูล
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use((req, res, next) => {
     mongoose.connect(url, config)
@@ -35,6 +37,7 @@ app.use('/register', require('./routes/register'));
 app.use('/login', require('./routes/login'));
 app.use('/api', require('./routes/users'));
 app.use('/profile', require('./routes/profile'));
+app.use('/question', require('./routes/question'));
 
 app.listen(3000, function() {
     console.log('Listening on port 3000');
