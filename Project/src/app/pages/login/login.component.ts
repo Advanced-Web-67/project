@@ -39,6 +39,8 @@ export class LoginComponent implements OnInit {
             
             // เก็บ Token และเปลี่ยนหน้าไปยังหน้าอื่น
             localStorage.setItem('token', response.token);
+            localStorage.setItem('username', response.result.username);
+            
             setTimeout(() => {
               this.router.navigate(['/users']);
             }, 2000); 

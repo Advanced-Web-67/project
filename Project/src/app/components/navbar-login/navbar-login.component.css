@@ -3,7 +3,7 @@
     justify-content: flex-start; /* จัดเนื้อหาให้อยู่ทางซ้าย */
     align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
     position: relative;
-    height: 7%;
+    height: 60px;
     width: 100%;
     background-color: #444444;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Downside shadow */
@@ -17,6 +17,7 @@
     text-align: left; /* ให้ข้อความชิดซ้าย */
     display: flex;
     align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
+    margin-top: 10px;
     
 }
 
