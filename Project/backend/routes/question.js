@@ -32,4 +32,30 @@ router.post('/create', authorization, async (req, res) => {
   }
 });
 
+// Get questions for a specific time range
+router.get('/:period', async (req, res) => {
+  try {
+      const { period } = req.params;
+      let startDate;
+
+      const now = new Date();
+      if (period === 'week') {
+          startDate = new Date(now.setDate(now.getDate() - 7));
+      } else if (period === 'month') {
+          startDate = new Date(now.setMonth(now.getMonth() - 1));
+      }else if (period === 'day') {
+        startDate = new Date(now.setDate(now.getDate() - 1)); // Use setDate() to get the start of the day
+        startDate.setHours(0, 0, 0, 0); // Set the time to the start of the day
+      } else {
+          return res.status(400).send('Invalid period');
+      }
+
+      const questions = await Question.find({ createdAt: { $gte: startDate } });
+      res.json(questions);
+  } catch (error) {
+      res.status(500).send(error.message);
+  }
+});
+
+
 module.exports = router;
