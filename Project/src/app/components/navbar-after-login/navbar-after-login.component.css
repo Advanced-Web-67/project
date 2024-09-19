@@ -31,7 +31,7 @@
 
 }
 
-.navbar-login-text:hover{
+.navbar-login-text:hover {
     scale: 1.01;
 }
 
@@ -103,34 +103,47 @@
     text-align: center;
     position: relative;
     justify-content: space-between;
-    width: 15rem;
+    width: fit-content;
+    margin-left: 5px;
 }
 
 .username-text {
+    padding-left: 10px;
+    width: fit-content;
     margin: 0 auto;
     align-self: center;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+
+.spaceBetweenNavbar{
+    width: 25px;
 }
 
 .user-avatar {
     width: 40px;
+    border-radius: 100%;
 }
 
 .profile-user-navbar {
     display: flex;
-    width: 45%;
+    width: fit-content;
+    max-width: 1000px;
+    padding-right: 10px;
     justify-self: center;
     background: rgb(150, 150, 150);
     border-radius: 20px;
     margin-top: -2px;
-    cursor:pointer;
+    cursor: pointer;
     transition: 0.2s;
 }
 
-.profile-user-navbar:hover{
+.profile-user-navbar:hover {
     background-color: #bdbdbd;
     scale: 0.99;
 }
@@ -144,14 +157,15 @@
     color: #fff;
     cursor: pointer;
     font-family: 'Sarabun';
-    margin-right: 10px;
+    margin-right: 20px;
     height: 35px;
     box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
     transition: 0.2s;
     
+
 }
 
-.text-navbar-after-login-container .btn-logout:hover{
+.text-navbar-after-login-container .btn-logout:hover {
     background-color: #aa5b00;
 }
 
@@ -160,8 +174,9 @@
         width: 0px;
     }
 
-    .text-navbar-after-login-container {
-        width: 10rem;
+    .spaceBetweenNavbar{
+        width: none;
+        max-width: 2vw;
     }
 
     .profile-user-navbar {
@@ -171,18 +186,20 @@
         border-radius: 20px;
         height: 40px;
         margin-top: -1px;
+        padding-right: 0px;
+
+        
 
     }
 
-    .user-avatar {
-        width: 40px;
-    }
 
     .username-text {
         margin: 0 auto;
         align-self: center;
         font-size: 0rem;
         width: 0px;
+        margin-left: 0px;
+        
     }
 
     .text-navbar-after-login-container .btn-logout {
@@ -194,7 +211,6 @@
         color: #fff;
         cursor: pointer;
         font-size: 0.8rem;
-        margin-right: 10px;
         height: 35px;
         box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
         transition: 0.8s;
