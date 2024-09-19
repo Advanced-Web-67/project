@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../../../services/profiles/image/image.service';
 import { UserdataService } from '../../../services/profiles/userdata/userdata.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators, AbstractControl  } from '@angular/forms';
 
 @Component({
   selector: 'app-c-edit',
@@ -10,15 +10,20 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class CEditComponent implements OnInit{
 
+  
   private user_id: string | null = '';
+  password: string = '';
   profileForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-    email: new FormControl(''),
+    username: new FormControl('',[Validators.required]),
+    newpassword: new FormControl('',[Validators.minLength(6)]),
+    email: new FormControl('',[Validators.required, Validators.email]),
     about: new FormControl(''),
-    picture: new FormControl('')
+    picture: new FormControl(''),
+    confirm: new FormControl('')
   });
+
   constructor (private imageService: ImageService,private userdata: UserdataService){  } // Inject the image service
+
   
   ngOnInit(): void {
     this.userdata.currentUserId.subscribe(user_id => {
@@ -30,11 +35,21 @@ export class CEditComponent implements OnInit{
         username: user.username,
         about: user.about,
         email: user.email,
-        password: user.password,
         picture: user.picture // Assuming picture is stored as a base64 string
       });
       this.imageService.updateImage(user.picture);
+      this.password = user.password;
+      console.log(this.profileForm);
     });
+    this.profileForm.get('confirm')?.setValidators(this.matchPassword.bind(this));
+  }
+
+  matchPassword(control: AbstractControl): { [key: string]: boolean } | null {
+    const newPassword = this.profileForm.get('newpassword')?.value;
+    if (control.value !== newPassword) {
+      return { mismatch: true };
+    }
+    return null;
   }
 
   onImageSelected(event: Event): void {
@@ -67,7 +82,22 @@ export class CEditComponent implements OnInit{
     modal.show();
   }
   confirm() {
-    console.log('Confirmed!');
-    // Perform actions for confirmation
+    if (this.profileForm.valid) {
+      const updatedUserData = this.profileForm.value;
+      
+      // Call your userdata service to update the user data
+      this.userdata.updateUser(this.user_id, updatedUserData).subscribe(
+        response => {
+          console.log('User profile updated successfully', response);
+          alert('แก้ไขข้อมูลเสร็จสิ้น');
+        },
+        error => {
+          console.error('Error updating profile', error);
+          alert('ไม่สามารถแก้ไขข้อมูลได้โปรดลองอีกครั้ง');
+        }
+      );
+    } else {
+      console.log('Form is invalid');
+    }
   }
 }

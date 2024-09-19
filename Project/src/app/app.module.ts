@@ -30,6 +30,7 @@ import { NavbarAfterLoginComponent } from './components/navbar-after-login/navba
 import { QadataService } from './services/profiles/qadata/qadata.service';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
           QuestionsDetailComponent,
           QuestionsCreateComponent,
           NavbarAfterLoginComponent,
+          DashboardComponent,
 
   ],
   imports: [

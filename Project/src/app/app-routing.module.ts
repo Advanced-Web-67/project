@@ -14,6 +14,7 @@ import { QMainComponent } from './components/questions/q-main/q-main.component';
 import { QuestionsDetailComponent } from './pages/questions/questions-detail/questions-detail.component';
 import { QuestionsCreateComponent } from './pages/questions/questions-create/questions-create.component';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'questions/:id', component: QuestionsDetailComponent },
   { path: 'questions/main/create', component: QuestionsCreateComponent },
   
+  { path: '', component: DashboardComponent },
 
   
 ];
