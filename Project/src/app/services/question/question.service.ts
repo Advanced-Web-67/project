@@ -6,15 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class QuestionService {
-
   private apiUrl = 'http://localhost:3000/question'; // Backend URL
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   createQuestion(questionData: any): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
     return this.http.post(`${this.apiUrl}/create`, questionData, { headers });
+  }
+  
+  getQuestionById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+  
+
+  getAllQuestions(): Observable<{ questions: any[] }> {
+    return this.http.get<{ questions: any[] }>(`${this.apiUrl}/all`);
   }
 }

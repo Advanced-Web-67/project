@@ -32,6 +32,36 @@ router.post('/create', authorization, async (req, res) => {
   }
 });
 
+// Get all questions
+router.get('/all', async (req, res) => {
+  try {
+    // Retrieve all questions from the database
+    const questions = await Question.find();
+
+    res.status(200).json({ questions });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching questions', error });
+  }
+});
+
+// Get question by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params; // Get the ID from the request parameters
+
+    // Find the question by ID
+    const question = await Question.findById(id);
+
+    if (!question) {
+      return res.status(404).json({ message: 'Question not found' });
+    }
+
+    res.status(200).json(question);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching question', error });
+  }
+});
+
 // Get questions for a specific time range
 router.get('/:period', async (req, res) => {
   try {
@@ -56,6 +86,7 @@ router.get('/:period', async (req, res) => {
       res.status(500).send(error.message);
   }
 });
+
 
 
 module.exports = router;
