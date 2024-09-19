@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs'); 
 
 // Import your Mongoose models if needed
 const Question = require('../models/question');
@@ -33,6 +34,30 @@ router.get('/user/:id', async (req, res) => {
     } catch (error) {
         res.status(500).send(error.message);
     }
+});
+
+router.put('/user/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        let updatedData = req.body;
+        // Check if password is being updated
+        if (updatedData.newpassword) {
+          // Hash the new password
+          const salt = await bcrypt.genSalt(10);
+          const hashedPassword = await bcrypt.hash(updatedData.newpassword, salt);
+          updatedData.password = hashedPassword;
+        }
+    
+        const user = await User.findByIdAndUpdate(id, updatedData, { new: true });
+    
+        if (!user) {
+          return res.status(404).send('User not found');
+        }
+    
+        res.json(user);
+      } catch (error) {
+        res.status(500).send(error.message);
+      }
 });
 
 module.exports = router;

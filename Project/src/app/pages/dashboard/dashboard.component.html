@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Dashboard</h2>
+            <div class="btn-group" role="group" aria-label="Select Period">
+                <button type="button" class="btn btn-info" (click)="fetchQuestions('day')">Today</button>
+                <button type="button" class="btn btn-primary" (click)="fetchQuestions('week')">This Week</button>
+                <button type="button" class="btn btn-secondary" (click)="fetchQuestions('month')">This Month</button>
+            </div>
+            <div class="container mt-4">
+                <h2>Questions</h2>
+                <div *ngIf="questions.length === 0">No questions available.</div>
+                <div *ngFor="let question of questions" class="card mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ question.title }}</h5>
+                    <p class="card-text">{{ question.body }}</p>
+                    <div *ngIf="question.tag.length > 0">
+                      <strong>Tags:</strong>
+                      <ul>
+                        <li *ngFor="let tag of question.tag">{{ tag }}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

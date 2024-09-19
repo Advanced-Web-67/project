@@ -3,15 +3,15 @@
   <div *ngIf="question" class="card-detail" style="position: relative">
     <div class="card-body">
       <!-- หัวข้อคำถาม -->
-      <h1>{{ question.topic }}</h1>
-      <p>ถามเมื่อ {{ question.askedOn }}</p>
+      <h1>{{ question.title }}</h1>
+      <p>ถามเมื่อ {{ question.createdAt }}</p>
       <!-- รายละเอียดคำถาม -->
       <hr class="hr" />
-      <p>{{ question.detail }}</p>
+      <p>{{ question.body }}</p>
       <!-- แสดงรูปถ้ามี imageUrl -->
-      <div *ngIf="question.imageUrl">
+      <div *ngIf="question.image">
         <img
-          [src]="question.imageUrl"
+          [src]="question.image"
           alt="Question Image"
           style="max-width: 100%; height: auto; margin-top: 10px"
         />
@@ -20,14 +20,8 @@
       <hr class="hr" />
 
       <div class="d-flex justify-content-between align-items-center">
-        <a
-          [routerLink]="['/edit', questionId]"
-          [class.disabled]="userId !== question.userId"
-          [attr.aria-disabled]="userId !== question.userId"
-        >
-          แก้ไข
-        </a>
-        <p class="ml-auto">ถามโดย {{ question.username }}</p>
+        
+        <p class="ml-auto">ถามโดย {{ username }}</p>
       </div>
       <h1 style="margin-top: 50px">Your answer</h1>
       <form
@@ -59,14 +53,14 @@
         </div>
       </form>
       <!-- Loop through answers -->
-      <div *ngFor="let answer of question.answers" class="card mt-3">
+      <!-- <div *ngFor="let answer of question.answers" class="card mt-3">
         <div class="card-body">
           <p>{{ answer.detail }}</p>
           <div class="d-flex justify-content-between align-items-center">
             <p class="text-muted mb-0">
               Answered by {{ answer.username }} on {{ answer.answeredOn }}
             </p>
-            <!-- Show buttons if currentUserId matches the userId of the answer owner -->
+           
             <div *ngIf="answer.userId === currentUserId">
               <button class="btn btn-link">
                 <i
@@ -85,7 +79,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div *ngIf="!question.answers?.length">
     <p>No answers yet. Be the first to answer!</p>

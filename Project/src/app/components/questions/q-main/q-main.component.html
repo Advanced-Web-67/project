@@ -1,3 +1,4 @@
+<!-- q-main.component.html -->
 <div class="container-qmain">
   <div class="layout-question d-flex flex-column">
     <!-- Card เล็ก -->
@@ -42,13 +43,13 @@
     <div *ngFor="let question of questions" class="card big-card mb-3">
       <div class="card-body">
         <h1>
-          <a href="/questions/{{ question.questionId }}" class="topic-link">{{
-            question.topic
+          <a href="/questions/{{ question._id }}" class="topic-link">{{
+            question.title
           }}</a>
         </h1>
         <p>
-          {{ question.detail | slice : 0 : 200
-          }}{{ question.detail.length > 200 ? "..." : "" }}
+          {{ question.body | slice : 0 : 200
+          }}{{ question.body.length > 200 ? "..." : "" }}
         </p>
       </div>
     </div>
