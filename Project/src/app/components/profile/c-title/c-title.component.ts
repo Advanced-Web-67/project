@@ -11,10 +11,9 @@ export class CTitleComponent implements OnInit{
 
   private user_id: string | null = null;
   username: string = '';
-  picture: string = '';
 
   image: string | ArrayBuffer | null = '';  // Image to display
-  defaultImage: string = this.picture;  // Default image URL
+  defaultImage: string | ArrayBuffer | null = this.image;  // Default image URL
 
   displayName: string = this.username;  // Default display name
 
@@ -26,7 +25,7 @@ export class CTitleComponent implements OnInit{
 
     this.userdata.getUser(this.user_id).subscribe(user => {
       this.username = user.username;
-      this.picture = user.picture; // Assuming picture is stored as a base64 string
+      this.image = user.picture; // Assuming picture is stored as a base64 string
       this.defaultImage = user.picture;
       this.displayName = user.username;
     });
