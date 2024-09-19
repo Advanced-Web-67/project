@@ -20,4 +20,8 @@ export class UserdataService {
     this.userIdSubject.next(userId);
   }
 
+  updateUser(id: string | null, userData: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, userData);
+  }
+
 }
