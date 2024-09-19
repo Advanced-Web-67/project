@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { QuestionService } from '../../services/question/question.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,16 +8,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashboardComponent implements OnInit {
   questions: any[] = [];
-  apiUrl = 'http://localhost:3000';
 
-  constructor(private http: HttpClient) { }
+  constructor(private questionService: QuestionService) { }
 
   ngOnInit(): void {
     this.fetchQuestions('day');
   }
 
   fetchQuestions(period: string): void {
-    this.http.get<any[]>(`${this.apiUrl}/question/${period}`).subscribe(
+    this.questionService.fetchQuestions(period).subscribe(
       data => this.questions = data,
       error => console.error('Error fetching questions', error)
     );
