@@ -1,31 +1,87 @@
-<content>
-  <div class="container-detail">
-    <!-- ตรวจสอบว่า question มีข้อมูลหรือไม่ -->
-    <div *ngIf="question" class="card-detail">
-      <div class="card-body">
-        <!-- หัวข้อคำถาม -->
-        <h1>{{ question.topic }}</h1>
-        <p>ถามเมื่อ {{ question.askedOn }}</p>
-        <!-- รายละเอียดคำถาม -->
-        <hr class="hr" />
-        <p>{{ question.detail }}</p>
-        <hr class="hr" />
-
-        <div class="d-flex justify-content-between align-items-center">
-            <a [routerLink]="['/edit', questionId]" [class.disabled]="userId !== question.userId" [attr.aria-disabled]="userId !== question.userId">
-              แก้ไข
-            </a>
-            <p class="ml-auto">ถามโดย {{ question.username }}</p>
-          </div>          
-          
+<div class="container-detail">
+  <!-- ตรวจสอบว่า question มีข้อมูลหรือไม่ -->
+  <div *ngIf="question" class="card-detail" style="position: relative">
+    <div class="card-body">
+      <!-- หัวข้อคำถาม -->
+      <h1>{{ question.topic }}</h1>
+      <p>ถามเมื่อ {{ question.askedOn }}</p>
+      <!-- รายละเอียดคำถาม -->
+      <hr class="hr" />
+      <p>{{ question.detail }}</p>
+      <!-- แสดงรูปถ้ามี imageUrl -->
+      <div *ngIf="question.imageUrl">
+        <img
+          [src]="question.imageUrl"
+          alt="Question Image"
+          style="max-width: 100%; height: auto; margin-top: 10px"
+        />
       </div>
-    </div>
 
-    <!-- หากไม่มีข้อมูลของคำถาม -->
-    <div *ngIf="!question" class="card-detail">
-      <div class="card-body">
-        <p>Question not found!</p>
+      <hr class="hr" />
+
+      <div class="d-flex justify-content-between align-items-center">
+        <a
+          [routerLink]="['/edit', questionId]"
+          [class.disabled]="userId !== question.userId"
+          [attr.aria-disabled]="userId !== question.userId"
+        >
+          แก้ไข
+        </a>
+        <p class="ml-auto">ถามโดย {{ question.username }}</p>
+      </div>
+      <h1 style="margin-top: 50px">Your answer</h1>
+      <form style="position: relative">
+        <div class="form-group" style="display: flex; align-items: center">
+          <textarea
+            class="form-control"
+            placeholder="You can answer here!!!"
+            style="flex: 1; height: 200px; border-radius: 20px"
+          ></textarea>
+          <button
+            type="submit"
+            class="btn-submit"
+            style="
+              margin-left: 10px;
+              display: table-cell;
+              max-width: 600px;
+              height: 200px;
+              border-radius: 20px;
+            "
+          >
+            เพิ่มคำตอบของคุณ
+          </button>
+        </div>
+      </form>
+      <!-- Loop through answers -->
+      <div *ngFor="let answer of question.answers" class="card mt-3">
+        <div class="card-body">
+          <p>{{ answer.detail }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="text-muted mb-0">
+              Answered by {{ answer.username }} on {{ answer.answeredOn }}
+            </p>
+            <!-- Show buttons if currentUserId matches the userId of the answer owner -->
+            <div *ngIf="answer.userId === currentUserId">
+              <button class="btn btn-link">
+                <i
+                  class="far fa-edit"
+                  style="font-size: 24px; color: orange"
+                ></i>
+              </button>
+              <button class="btn btn-link">
+                <i
+                  class="far fa-trash-alt"
+                  style="font-size: 24px; color: orange"
+                ></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</content>
+
+  <div *ngIf="!question.answers?.length">
+    <p>No answers yet. Be the first to answer!</p>
+  </div>
+</div>

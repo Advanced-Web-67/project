@@ -25,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { MyQuestionsComponent } from './pages/my-questions/my-questions.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { QuestionsDetailComponent } from './pages/questions/questions-detail/questions-detail.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { QuestionsDetailComponent } from './pages/questions/questions-detail/que
           MainComponent,
           UserListComponent,
           QuestionsDetailComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -66,6 +68,7 @@ import { QuestionsDetailComponent } from './pages/questions/questions-detail/que
   providers: [
     provideClientHydration(),
     ImageService,
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })
