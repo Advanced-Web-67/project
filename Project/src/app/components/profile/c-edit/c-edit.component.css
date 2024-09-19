@@ -23,6 +23,11 @@
     color: white;
     border-width: 2px;
     border-style: solid;
+    transition: transform 0.3s ease-in-out;
+}
+
+.button-edit:hover {
+    transform: scale(1.2);
 }
 
 .layout-data {
@@ -52,4 +57,17 @@
 .form-control-file {
     border-radius: 10px;
     padding: 10px;
+}
+
+.layout-picture {
+    width: 100%;
+    display: flex;
+}
+
+img {
+    transition: transform 0.3s ease-in-out;
+}
+  
+img:hover {
+    transform: scale(1.3);
 }

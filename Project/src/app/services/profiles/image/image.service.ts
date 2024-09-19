@@ -9,8 +9,8 @@ export class ImageService {
   private imageSource = new BehaviorSubject<string | ArrayBuffer | null>(null);
   currentImage = this.imageSource.asObservable();
 
-  private displayNameSource = new BehaviorSubject<string>('');  // Observable for Display Name
-  currentDisplayName = this.displayNameSource.asObservable();
+  private UsernameSource = new BehaviorSubject<string>('');  // Observable for Display Name
+  currentUsername = this.UsernameSource.asObservable();
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class ImageService {
   }
 
   // Set username
-  changeDisplayName(displayName: string) {
-    this.displayNameSource.next(displayName);
+  changeUsername(username: string) {
+    this.UsernameSource.next(username);
   }
 }

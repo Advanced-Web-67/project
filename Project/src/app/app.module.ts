@@ -25,6 +25,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { MyQuestionsComponent } from './pages/my-questions/my-questions.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { QuestionsDetailComponent } from './pages/questions/questions-detail/questions-detail.component';
+import { QuestionsCreateComponent } from './pages/questions/questions-create/questions-create.component';
+import { NavbarAfterLoginComponent } from './components/navbar-after-login/navbar-after-login.component';
+import { QadataService } from './services/profiles/qadata/qadata.service';
+
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
@@ -49,6 +53,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
           MainComponent,
           UserListComponent,
           QuestionsDetailComponent,
+          QuestionsCreateComponent,
+          NavbarAfterLoginComponent,
 
   ],
   imports: [
@@ -68,6 +74,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   providers: [
     provideClientHydration(),
     ImageService,
+    QadataService,
     provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]

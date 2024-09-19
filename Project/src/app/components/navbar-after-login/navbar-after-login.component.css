@@ -1,0 +1,136 @@
+.navbar-login {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    justify-content: space-between;
+    height: 60px;
+    width: 100vw;
+    background-color: #444444;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding-left: 30px;
+    min-width: 375px;
+    z-index: 99;
+    font-family: 'Sarabun';
+}
+
+.navbar-login-text {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400px;
+    font-size: 38px;
+    text-align: left;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+
+
+}
+
+.search-container {
+    background: #fff;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.8s;
+    /*box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    inset -7px -7px 10px 0px rgba(0,0,0,.1),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+   text-shadow:  0px 0px 6px rgba(255,255,255,.3),
+              -4px -4px 6px rgba(116, 125, 136, .2);
+  text-shadow: 2px 2px 3px rgba(255,255,255,0.5);*/
+    box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+        -4px -4px 6px 0 rgba(116, 125, 136, .2),
+        inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+        inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+
+.search-container .search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 350px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+
+}
+
+.search-container .search-btn .fas {
+    color: #5cbdbb;
+}
+
+.navbar-login-btn {
+    width: 100px;
+    height: 35px;
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+    background-color: #eb8a1c;
+    border-radius: 10px;
+    border: 0px;
+    transition-duration: 0.1s;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+
+}
+
+.navbar-login-btn:hover {
+    background-color: #b95a00;
+    /* Green */
+    border: 2px solid #e28316;
+    color: rgb(253, 253, 253);
+
+}
+
+
+.text-navbar-after-login-container {
+    display: flex;
+    text-align: center;
+    position: relative;
+    justify-items: space-between;
+    width: 20%;
+}
+
+.username-text{
+    margin: 0 auto;
+    align-self: center;
+}
+.user-avatar{
+    width: 40px;
+}
+
+.profile-user-navbar{
+    display: flex;
+    width: 40%;
+    justify-self: center;
+    background: rgb(156, 79, 79);
+    border-radius: 20px;
+}
+
+.text-navbar-after-login-container .btn-logout{
+    background-color: #FF8A08;
+    border-radius: 10px;
+    border-style: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Sarabun';
+    margin-right: 10px;
+    height: 35px;
+    box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
+    transition: 0.8s;
+}
+
+@media screen and (max-width:980px) {
+    .search-container .search-input {
+        width: 0px;
+    }
+
+
+}

@@ -1,0 +1,31 @@
+<div class="question-create-container">
+    <h2>สร้างคำถามใหม่</h2>
+    <form [formGroup]="createQuestionForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">หัวข้อคำถาม:</label>
+        <input id="title" formControlName="title" type="text" class="form-control" placeholder="ตั้งคำถามให้ชัดเจนและกระชับ" required>
+        <div *ngIf="createQuestionForm.get('title')?.invalid && createQuestionForm.get('title')?.touched" class="error">
+          หัวข้อคำถามต้องมีความยาวอย่างน้อย 10 ตัวอักษร
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">คำอธิบาย:</label>
+        <textarea id="description" formControlName="description" rows="5" class="form-control" placeholder="อธิบายคำถามของคุณโดยละเอียด" required></textarea>
+        <div *ngIf="createQuestionForm.get('description')?.invalid && createQuestionForm.get('description')?.touched" class="error">
+          คำอธิบายต้องมีความยาวอย่างน้อย 30 ตัวอักษร
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="tags">แท็ก:</label>
+        <input id="tags" formControlName="tags" type="text" class="form-control" placeholder="ใส่แท็กเพื่อจัดหมวดหมู่คำถามของคุณ" required>
+        <div *ngIf="createQuestionForm.get('tags')?.invalid && createQuestionForm.get('tags')?.touched" class="error">
+          โปรดใส่แท็กสำหรับคำถามของคุณ
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="createQuestionForm.invalid">โพสต์คำถาม</button>
+    </form>
+  </div>
+  
