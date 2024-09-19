@@ -7,6 +7,14 @@
     border: none;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
+
+  .cardQ{
+    height: 60px;
+    margin-left: 20px;
+    margin-top: 10px;
+    align-content: center;
+    display: block;
+  }
   
   .btn-group .btn {
     background-color: #f5f5f5;

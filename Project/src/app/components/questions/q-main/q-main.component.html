@@ -2,17 +2,38 @@
   <div class="layout-question d-flex flex-column">
     <!-- Card เล็ก -->
     <div class="card small-card mb-3">
-      <div class="card-body">
-        <!-- ส่วนบน: ALL COMMENT -->
-        <div><strong>ALL COMMENT</strong></div>
-
-        <!-- ส่วนล่าง: ปุ่ม Newest, Unanswered และ Ask question -->
-        <div class="d-flex justify-content-between align-items-center mt-3">
-          <div class="btn-group" role="group" aria-label="Comment Filter">
-            <button type="button" class="btn btn-secondary">Newest</button>
-            <button type="button" class="btn btn-secondary">Unanswered</button>
+      <div class="card">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="cardQ">
+            <h5>คำถามทั้งหมด</h5>
           </div>
-          <button routerLink="/questions/main/create" class="btn btn-orange">Ask question</button>
+          <button
+            class="btn btn-link ml-auto"
+            data-toggle="collapse"
+            data-target="#collapseCard"
+            aria-expanded="false"
+            aria-controls="collapseCard"
+            style="text-align: right; color: #ff6500"
+          >
+            <i class="fa fa-filter" style="font-size: 24px"></i>
+          </button>
+        </div>
+
+        <div id="collapseCard" class="collapse">
+          <div class="card-body">
+            <!-- Dropdown menu inside the card body -->
+            <ul class="list-group">
+              <li class="list-group-item">สำนักวิชาวิทยาศาสตร์</li>
+              <li class="list-group-item">สำนักวิชาเทคโนโลยีสังคม</li>
+              <li class="list-group-item">สำนักวิชาเทคโนโลยีการเกษตร</li>
+              <li class="list-group-item">สำนักวิชาวิศวกรรมศาสตร์</li>
+              <li class="list-group-item">สำนักวิชาแพทยศาสตร์</li>
+              <li class="list-group-item">สำนักวิชาพยาบาลศาสตร์</li>
+              <li class="list-group-item">สำนักวิชาทันตแพทยศาสตร์</li>
+              <li class="list-group-item">สำนักวิชาสาธารณสุขศาสตร์</li>
+              <li class="list-group-item">สำนักวิชาศาสตร์และศิลป์ดิจิทัล</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -21,9 +42,14 @@
     <div *ngFor="let question of questions" class="card big-card mb-3">
       <div class="card-body">
         <h1>
-          <a href="/questions/{{question.questionId}}" class="topic-link">{{ question.topic }}</a>
+          <a href="/questions/{{ question.questionId }}" class="topic-link">{{
+            question.topic
+          }}</a>
         </h1>
-        <p>{{ question.detail | slice: 0:200 }}{{ question.detail.length > 200 ? '...' : '' }}</p>
+        <p>
+          {{ question.detail | slice : 0 : 200
+          }}{{ question.detail.length > 200 ? "..." : "" }}
+        </p>
       </div>
     </div>
   </div>

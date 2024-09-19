@@ -30,10 +30,15 @@
         <p class="ml-auto">ถามโดย {{ question.username }}</p>
       </div>
       <h1 style="margin-top: 50px">Your answer</h1>
-      <form style="position: relative">
+      <form
+        [formGroup]="createAnswerForm"
+        (ngSubmit)="onSubmit()"
+        style="position: relative"
+      >
         <div class="form-group" style="display: flex; align-items: center">
           <textarea
             class="form-control"
+            formControlName="answertext"
             placeholder="You can answer here!!!"
             style="flex: 1; height: 200px; border-radius: 20px"
           ></textarea>
@@ -47,6 +52,7 @@
               height: 200px;
               border-radius: 20px;
             "
+            [disabled]="createAnswerForm.invalid"
           >
             เพิ่มคำตอบของคุณ
           </button>
