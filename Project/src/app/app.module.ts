@@ -31,6 +31,7 @@ import { QadataService } from './services/profiles/qadata/qadata.service';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AboutusComponent } from './pages/aboutus/aboutus.component';
 
 
 @NgModule({
@@ -45,19 +46,17 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     CTitleComponent,
     LoginComponent,
     NavbarLoginComponent,
-
     MyQuestionsComponent,
-    
     CommentMainComponent,
-          RegisterComponent,
-          QMainComponent,
-          MainComponent,
-          UserListComponent,
-          QuestionsDetailComponent,
-          QuestionsCreateComponent,
-          NavbarAfterLoginComponent,
-          DashboardComponent,
-
+    RegisterComponent,
+    QMainComponent,
+    MainComponent,
+    UserListComponent,
+    QuestionsDetailComponent,
+    QuestionsCreateComponent,
+    NavbarAfterLoginComponent,
+    DashboardComponent,
+    AboutusComponent,
   ],
   imports: [
     BrowserModule,
