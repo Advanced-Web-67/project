@@ -18,6 +18,15 @@
     display: flex;
     align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
     margin-top: 10px;
+    transition: 0.1s;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     
+}
+
+.navbar-login-text:hover {
+    scale: 1.01;
 }
 

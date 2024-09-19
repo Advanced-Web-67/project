@@ -20,9 +20,17 @@
     margin-top: 10px;
     display: flex;
     align-items: center;
-
-
+    transition: 0.1s;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+
+.navbar-login-text:hover {
+    scale: 1.01;
+}
+
 
 .search-container {
     background: #fff;
