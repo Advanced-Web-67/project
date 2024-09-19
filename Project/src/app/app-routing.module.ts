@@ -13,6 +13,7 @@ import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { QMainComponent } from './components/questions/q-main/q-main.component';
 import { QuestionsDetailComponent } from './pages/questions/questions-detail/questions-detail.component';
 import { QuestionsCreateComponent } from './pages/questions/questions-create/questions-create.component';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
@@ -33,12 +34,10 @@ const routes: Routes = [
 
   { path: 'myQuestions', component: MyQuestionsComponent},
  
-  // { path: '', redirectTo: '/questions', pathMatch: 'full' },
   { path: 'questions', component: QMainComponent },
   { path: 'questions/:id', component: QuestionsDetailComponent },
   { path: 'questions/main/create', component: QuestionsCreateComponent },
   
-
 
   
 ];

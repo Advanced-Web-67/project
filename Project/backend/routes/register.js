@@ -10,7 +10,9 @@ var Schema = mongoose.Schema;
 const userSchema = new Schema({
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    picture: { type:String },
+    about: { type:String },
 }, {
     collection: 'users'
 });
@@ -35,7 +37,9 @@ const insertUser = async (dataUser) => {
         var new_user = new User({
             username: dataUser.username,
             email: dataUser.email,
-            password: dataUser.password
+            password: dataUser.password,
+            picture: "https://static-00.iconduck.com/assets.00/avatar-default-icon-1975x2048-2mpk4u9k.png",
+            about: ""
         });
 
         // บันทึกผู้ใช้ลงในฐานข้อมูล
@@ -74,7 +78,9 @@ router.route('/signup')
             const payload = {
                 username: username,
                 email: email,
-                password: hashText
+                password: hashText,
+                picture: "https://static-00.iconduck.com/assets.00/avatar-default-icon-1975x2048-2mpk4u9k.png",
+                about: ""
             };
 
             // บันทึกผู้ใช้ใหม่

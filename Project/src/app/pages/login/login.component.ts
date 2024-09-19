@@ -34,15 +34,18 @@ export class LoginComponent implements OnInit {
       this.http.post('http://localhost:3000/login/signin', { username, password })
         .subscribe(
           (response: any) => {
+            
             // แสดงข้อความสำเร็จ
             this.toastr.success('เข้าสู่ระบบสำเร็จ', 'Success');
             
             // เก็บ Token และเปลี่ยนหน้าไปยังหน้าอื่น
+            // localStorage.setItem('userid',response.)
             localStorage.setItem('token', response.token);
             localStorage.setItem('username', response.result.username);
+            localStorage.setItem('userid', response.result.id);
             
             setTimeout(() => {
-              this.router.navigate(['/users']);
+              this.router.navigate(['/']);
             }, 2000); 
           },
           (error) => {
