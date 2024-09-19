@@ -63,7 +63,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Get questions for a specific time range
-router.get('/:period', async (req, res) => {
+router.get('/period/:period', async (req, res) => {
   try {
       const { period } = req.params;
       let startDate;

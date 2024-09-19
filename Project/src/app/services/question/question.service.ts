@@ -21,8 +21,11 @@ export class QuestionService {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
   
-
   getAllQuestions(): Observable<{ questions: any[] }> {
     return this.http.get<{ questions: any[] }>(`${this.apiUrl}/all`);
+  }
+
+  fetchQuestions(period: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/period/${period}`);
   }
 }

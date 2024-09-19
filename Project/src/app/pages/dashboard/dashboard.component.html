@@ -12,7 +12,7 @@
                 <div *ngIf="questions.length === 0">No questions available.</div>
                 <div *ngFor="let question of questions" class="card mb-3">
                   <div class="card-body">
-                    <h5 class="card-title">{{ question.title }}</h5>
+                    <h5 class="card-title"><a href="/questions/{{question._id}}">{{ question.title }}</a></h5>
                     <p class="card-text">{{ question.body }}</p>
                     <div *ngIf="question.tag.length > 0">
                       <strong>Tags:</strong>
