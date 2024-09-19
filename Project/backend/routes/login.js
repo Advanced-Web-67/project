@@ -36,7 +36,7 @@ const findUser = async (username) => {
         if (!user) {
             throw new Error('Cannot find username');
         }
-        return { id: user._id, username: user.username, password: user.password };
+        return { id: user._id, username: user.username, password: user.password, picture: user.picture, about: user.about };
     } catch (err) {
         throw new Error('Cannot find username');
     }

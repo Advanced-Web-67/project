@@ -9,7 +9,7 @@ import { UserdataService } from '../../../services/profiles/userdata/userdata.se
 })
 export class CTitleComponent implements OnInit{
 
-  private user_id: string = '66e82b40b41581cda1840e94';
+  private user_id: string | null = null;
   username: string = '';
   picture: string = '';
 
@@ -21,6 +21,7 @@ export class CTitleComponent implements OnInit{
   constructor(private imageService: ImageService, private userdata: UserdataService) {}  // Inject the image service
 
   ngOnInit() {
+    this.user_id = localStorage.getItem('userid');
     this.userdata.setUserId(this.user_id);
 
     this.userdata.getUser(this.user_id).subscribe(user => {

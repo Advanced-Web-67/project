@@ -10,7 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class CEditComponent implements OnInit{
 
-  private user_id: string = '';
+  private user_id: string | null = '';
   profileForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),

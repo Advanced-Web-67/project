@@ -7,16 +7,16 @@ import { Observable, BehaviorSubject } from 'rxjs';
 })
 export class UserdataService {
   private apiUrl = 'http://localhost:3000/profile/user';
-  private userIdSubject = new BehaviorSubject<string>(''); // Default value
+  private userIdSubject = new BehaviorSubject<string|null>(''); // Default value
   currentUserId = this.userIdSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
-  getUser(id: string): Observable<any> {
+  getUser(id: string|null): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
-  setUserId(userId: string) {
+  setUserId(userId: string | null) {
     this.userIdSubject.next(userId);
   }
 
