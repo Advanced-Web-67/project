@@ -4,7 +4,7 @@ const cors = require('cors');  // นำเข้า cors
 
 const app = express();
 
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb://localhost:27017/Project';
 const config = {
     autoIndex: true,
     useNewUrlParser: true,
@@ -34,6 +34,7 @@ app.use((req, res, next) => {
 app.use('/register', require('./routes/register'));
 app.use('/login', require('./routes/login'));
 app.use('/api', require('./routes/users'));
+app.use('/profile', require('./routes/profile'));
 
 app.listen(3000, function() {
     console.log('Listening on port 3000');

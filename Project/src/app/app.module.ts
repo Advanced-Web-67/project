@@ -27,6 +27,8 @@ import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { QuestionsDetailComponent } from './pages/questions/questions-detail/questions-detail.component';
 import { QuestionsCreateComponent } from './pages/questions/questions-create/questions-create.component';
 import { NavbarAfterLoginComponent } from './components/navbar-after-login/navbar-after-login.component';
+import { QadataService } from './services/profiles/qadata/qadata.service';
+
 
 
 @NgModule({
@@ -70,6 +72,7 @@ import { NavbarAfterLoginComponent } from './components/navbar-after-login/navba
   providers: [
     provideClientHydration(),
     ImageService,
+    QadataService,
   ],
   bootstrap: [AppComponent]
 })
