@@ -38,6 +38,8 @@ app.use('/login', require('./routes/login'));
 app.use('/api', require('./routes/users'));
 app.use('/profile', require('./routes/profile'));
 app.use('/question', require('./routes/question'));
+app.use('/answer', require('./routes/answer'));
+
 
 app.listen(3000, function() {
     console.log('Listening on port 3000');

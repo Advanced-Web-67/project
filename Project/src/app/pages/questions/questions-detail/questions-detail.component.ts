@@ -1,14 +1,19 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from '../../../services/question/question.service';
 import { UserdataService } from '../../../services/profiles/userdata/userdata.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-question-detail',
   templateUrl: './questions-detail.component.html',
-  styleUrls: ['./questions-detail.component.css']
+  styleUrls: ['./questions-detail.component.css'],
 })
 export class QuestionsDetailComponent implements OnInit {
+  createAnswerForm!: FormGroup;
+
   question: any;
   username!: string;
 
