@@ -25,7 +25,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { MyQuestionsComponent } from './pages/my-questions/my-questions.component';
 import { UserListComponent } from './pages/users/user-list/user-list.component';
 import { QuestionsDetailComponent } from './pages/questions/questions-detail/questions-detail.component';
+import { QuestionsCreateComponent } from './pages/questions/questions-create/questions-create.component';
+import { NavbarAfterLoginComponent } from './components/navbar-after-login/navbar-after-login.component';
 import { QadataService } from './services/profiles/qadata/qadata.service';
+
 
 
 @NgModule({
@@ -49,6 +52,8 @@ import { QadataService } from './services/profiles/qadata/qadata.service';
           MainComponent,
           UserListComponent,
           QuestionsDetailComponent,
+          QuestionsCreateComponent,
+          NavbarAfterLoginComponent,
   ],
   imports: [
     BrowserModule,

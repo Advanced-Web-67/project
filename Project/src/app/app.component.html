@@ -1,4 +1,9 @@
-<app-navbar *ngIf="!isLoginPage && !isRegisterPage"></app-navbar>
+<!-- Navbar ก่อน login -->
+<app-navbar *ngIf="!isLoggedIn && !isLoginPage && !isRegisterPage"></app-navbar>
+
+<!-- Navbar หลัง login -->
+<app-navbar-after-login *ngIf="isLoggedIn && !isLoginPage && !isRegisterPage"></app-navbar-after-login>
+
 <div class="webbg" *ngIf="!isLoginPage && !isRegisterPage">
     <app-sidebar></app-sidebar>
     <div class="content">
