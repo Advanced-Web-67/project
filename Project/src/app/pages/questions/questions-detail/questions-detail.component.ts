@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./questions-detail.component.css'],
 })
 export class QuestionsDetailComponent implements OnInit {
-  createAnswerForm!: FormGroup;
+  // createAnswerForm!: FormGroup;
 
   question: any;
   username!: string;
@@ -57,33 +57,33 @@ export class QuestionsDetailComponent implements OnInit {
     );
   }
   onSubmit(): void {
-    if (this.createAnswerForm.valid) {
-      const { answertext, user_id, question_id} = this.createAnswerForm.value;
+    // if (this.createAnswerForm.valid) {
+    //   const { answertext, user_id, question_id} = this.createAnswerForm.value;
       
-      // ตรวจสอบว่า token มีอยู่หรือไม่
-      const token = localStorage.getItem('token');
-      if (!token) {
-        this.toastr.error('กรุณาเข้าสู่ระบบก่อน!', 'Unauthorized');
-        return;
-      }
+    //   // ตรวจสอบว่า token มีอยู่หรือไม่
+    //   const token = localStorage.getItem('token');
+    //   if (!token) {
+    //     this.toastr.error('กรุณาเข้าสู่ระบบก่อน!', 'Unauthorized');
+    //     return;
+    //   }
 
-      // ตั้งค่า header สำหรับการส่ง token ในการ request
-      const headers = new HttpHeaders({
-        'Authorization': `Bearer ${token}`
-      });
+    //   // ตั้งค่า header สำหรับการส่ง token ในการ request
+    //   const headers = new HttpHeaders({
+    //     'Authorization': `Bearer ${token}`
+    //   });
 
-      // ส่งคำถามพร้อมกับรูปภาพในรูปแบบ base64
-      this.http.post('http://localhost:3000/question/answer', { answertext, user_id, question_id}, { headers })
-        .subscribe(
-          (response: any) => {
-            this.toastr.success('สร้างคำถามสำเร็จ!', 'Success');
-            // this.router.navigate(['/questions']); // เปลี่ยนไปที่หน้าหลักของคำถาม
-          },
-          (error) => {
-            this.toastr.error('เกิดข้อผิดพลาดในการสร้างคำถาม', 'Error');
-            console.error('Error:', error);
-          }
-        );
-    }
+    //   // ส่งคำถามพร้อมกับรูปภาพในรูปแบบ base64
+    //   this.http.post('http://localhost:3000/question/answer', { answertext, user_id, question_id}, { headers })
+    //     .subscribe(
+    //       (response: any) => {
+    //         this.toastr.success('สร้างคำถามสำเร็จ!', 'Success');
+    //         // this.router.navigate(['/questions']); // เปลี่ยนไปที่หน้าหลักของคำถาม
+    //       },
+    //       (error) => {
+    //         this.toastr.error('เกิดข้อผิดพลาดในการสร้างคำถาม', 'Error');
+    //         console.error('Error:', error);
+    //       }
+    //     );
+    // }
   }
 }
