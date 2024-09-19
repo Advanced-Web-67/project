@@ -15,6 +15,7 @@ import { QuestionsDetailComponent } from './pages/questions/questions-detail/que
 import { QuestionsCreateComponent } from './pages/questions/questions-create/questions-create.component';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AboutusComponent } from './pages/aboutus/aboutus.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
   
   { path: '', component: DashboardComponent },
 
+  { path: 'aboutus', component: AboutusComponent },
   
 ];
 
