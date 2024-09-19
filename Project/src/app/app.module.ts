@@ -29,6 +29,7 @@ import { QuestionsCreateComponent } from './pages/questions/questions-create/que
 import { NavbarAfterLoginComponent } from './components/navbar-after-login/navbar-after-login.component';
 import { QadataService } from './services/profiles/qadata/qadata.service';
 
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { QadataService } from './services/profiles/qadata/qadata.service';
           QuestionsDetailComponent,
           QuestionsCreateComponent,
           NavbarAfterLoginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -73,6 +75,7 @@ import { QadataService } from './services/profiles/qadata/qadata.service';
     provideClientHydration(),
     ImageService,
     QadataService,
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })
