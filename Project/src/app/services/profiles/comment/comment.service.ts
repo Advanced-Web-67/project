@@ -10,9 +10,12 @@ export class CommentService {
   constructor(private http: HttpClient) { }
   
   createComment(commentData: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
-    });
-    return this.http.post<any>(`${this.apiUrl}/create`, commentData, { headers });
+    return this.http.post<any>(`${this.apiUrl}/create`, commentData);
   }
+
+  // Method to get comments by user_id
+  getCommentsByUserId(userId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/comment/${userId}`);
+  }
+
 }
