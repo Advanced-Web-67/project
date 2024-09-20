@@ -39,6 +39,7 @@ app.use('/api', require('./routes/users'));
 app.use('/profile', require('./routes/profile'));
 app.use('/question', require('./routes/question'));
 app.use('/answer', require('./routes/answer'));
+app.use('comment',require('./routes/comment'))
 
 
 app.listen(3000, function() {

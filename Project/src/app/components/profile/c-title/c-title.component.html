@@ -5,7 +5,7 @@
             {{displayName }}
         </div>
         <div class="button-layout">
-            <button class="btn button" routerLink="/profile/edit">แก้ไขข้อมูล</button>
+            <button class="btn button" routerLink="/profile/edit" *ngIf="useridfromparant === tempuserid">แก้ไขข้อมูล</button>
         </div>
     </div>
 </div>

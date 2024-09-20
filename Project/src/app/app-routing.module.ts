@@ -16,13 +16,10 @@ import { QuestionsCreateComponent } from './pages/questions/questions-create/que
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
+import { AllusersComponent } from './pages/allusers/allusers.component';
 
 
 const routes: Routes = [
-  { path: 'profile/summary', component: SummaryComponent, children: [
-    { path: 'title', component: CTitleComponent },
-    { path: 'summary', component: CSummaryComponent },
-  ]},
   { path: 'profile/edit', component: EditComponent, children: [
     { path: 'title', component: CTitleComponent },
     { path: 'edit', component: CEditComponent },
@@ -43,7 +40,17 @@ const routes: Routes = [
   { path: '', component: DashboardComponent },
 
   { path: 'aboutus', component: AboutusComponent },
-  
+  { path: 'allusers', component: AllusersComponent },
+
+  { path: 'user/:id', component: SummaryComponent, children: [
+    { path: 'title', component: CTitleComponent },
+    { path: 'summary', component: CSummaryComponent },
+  ]},
+  { path: 'user/look/:id', component: SummaryComponent, children: [
+    { path: 'title', component: CTitleComponent },
+    { path: 'summary', component: CSummaryComponent },
+  ]
+  }
 ];
 
 @NgModule({
