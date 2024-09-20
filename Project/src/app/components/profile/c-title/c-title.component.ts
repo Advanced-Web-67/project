@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ImageService } from '../../../services/profiles/image/image.service';
 import { UserdataService } from '../../../services/profiles/userdata/userdata.service';
 
@@ -9,6 +9,8 @@ import { UserdataService } from '../../../services/profiles/userdata/userdata.se
 })
 export class CTitleComponent implements OnInit{
 
+  @Input() useridfromparant!: string;
+  tempuserid: string | null = '';
   private user_id: string | null = null;
   username: string = '';
 
@@ -20,7 +22,12 @@ export class CTitleComponent implements OnInit{
   constructor(private imageService: ImageService, private userdata: UserdataService) {}  // Inject the image service
 
   ngOnInit() {
-    this.user_id = localStorage.getItem('userid');
+    if(this.useridfromparant){
+      this.user_id = this.useridfromparant;
+    }else{
+      this.user_id = localStorage.getItem('userid');
+    }
+    this.tempuserid = localStorage.getItem('userid');
     this.userdata.setUserId(this.user_id);
 
     this.userdata.getUser(this.user_id).subscribe(user => {

@@ -60,4 +60,13 @@ router.put('/user/:id', async (req, res) => {
       }
 });
 
+router.get('/user/user/all', async (req, res) => {
+    try {
+        const users = await User.find({}, 'username picture email');
+        res.json(users);
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
 module.exports = router;

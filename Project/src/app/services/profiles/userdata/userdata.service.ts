@@ -24,4 +24,7 @@ export class UserdataService {
     return this.http.put(`${this.apiUrl}/${id}`, userData);
   }
 
+  getAllUser(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/user/all`);
+  }
 }
