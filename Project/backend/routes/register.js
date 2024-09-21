@@ -38,7 +38,7 @@ const insertUser = async (dataUser) => {
             username: dataUser.username,
             email: dataUser.email,
             password: dataUser.password,
-            picture: "https://static-00.iconduck.com/assets.00/avatar-default-icon-1975x2048-2mpk4u9k.png",
+            picture: "",
             about: ""
         });
 

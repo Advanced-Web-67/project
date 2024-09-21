@@ -87,6 +87,23 @@ router.get('/period/:period', async (req, res) => {
   }
 });
 
+router.get('/byUser/:user_id', async (req, res) => {
+  try {
+    const { user_id } = req.params;
+
+    // Find questions created by the specified user
+    const questions = await Question.find({ user_id });
+
+    if (questions.length === 0) {
+      return res.status(404).json({ message: 'No questions found for this user' });
+    }
+
+    res.status(200).json({ questions });
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching questions', error: error.message });
+  }
+});
+
 
 
 module.exports = router;

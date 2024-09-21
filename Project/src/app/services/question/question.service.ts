@@ -28,4 +28,9 @@ export class QuestionService {
   fetchQuestions(period: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/period/${period}`);
   }
+
+  getQuestionsByUserId(user_id: string): Observable<{questions: any[]}> {
+    return this.http.get<{ questions: any[] }>(`${this.apiUrl}/byUser/${user_id}`);
+  }
+
 }

@@ -37,18 +37,19 @@
                 </div>
             </div>
         </div>
+        
 
         <div style="width: 15vw;"></div>
         <div class="borderQuestions">
             <table class="table">
                 <tbody style="align-items: center; ">
-                    <tr class="questionsTable" *ngFor="let item of selectedSubject">
-                        <td class="noneSelectQuestion1" scope="row">{{item.id}}</td>
+                    <tr class="questionsTable" *ngFor="let question of questions">
+                        <td class="noneSelectQuestion1" scope="row"></td>
                         <td></td>
-                        <td class="noneSelectQuestion2">{{item.Q_name}} ?</td>
-                        <td class="noneSelectQuestion3">{{item.subject}}</td>
+                        <td class="noneSelectQuestion2">{{question.title}} </td>
+                        <td class="noneSelectQuestion3">{{question.tags}}</td>
                         <td class="noneSelectQuestion4">
-                            <p style="display: flex; justify-content: center;">{{item.Q_date}}</p>
+                            <p style="display: flex; justify-content: center;"></p>
                         </td>
 
                     </tr>

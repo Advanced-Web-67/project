@@ -128,6 +128,8 @@
 .user-avatar {
     width: 40px;
     border-radius: 100%;
+    max-width: 100%; /* ทำให้ภาพไม่ใหญ่กว่าขนาดของ container */
+    height: auto;
 }
 
 .profile-user-navbar {
