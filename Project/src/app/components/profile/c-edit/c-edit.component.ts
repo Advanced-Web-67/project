@@ -3,6 +3,7 @@ import { ImageService } from '../../../services/profiles/image/image.service';
 import { UserdataService } from '../../../services/profiles/userdata/userdata.service';
 import { CommentService } from '../../../services/profiles/comment/comment.service';
 import { FormControl, FormGroup, Validators, AbstractControl  } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-c-edit',
@@ -23,9 +24,12 @@ export class CEditComponent implements OnInit{
     confirm: new FormControl('')
   });
 
+  modals!: any;
+
   constructor ( private imageService: ImageService,
                 private userdata: UserdataService,
-                private commentPictureservice: CommentService){  } // Inject the image service
+                private commentPictureservice: CommentService,
+                private toastr: ToastrService){  } // Inject the image service
 
   
   ngOnInit(): void {
@@ -44,6 +48,9 @@ export class CEditComponent implements OnInit{
       this.password = user.password;
     });
     this.profileForm.get('confirm')?.setValidators(this.matchPassword.bind(this));
+
+    const modal = new (window as any).bootstrap.Modal(document.getElementById('customModal'));
+    this.modals = modal;
   }
 
   matchPassword(control: AbstractControl): { [key: string]: boolean } | null {
@@ -80,8 +87,7 @@ export class CEditComponent implements OnInit{
   }
 
   openModal() {
-    const modal = new (window as any).bootstrap.Modal(document.getElementById('customModal'));
-    modal.show();
+    this.modals.show();
   }
   confirm() {
     if (this.profileForm.valid) {
@@ -91,11 +97,12 @@ export class CEditComponent implements OnInit{
       this.userdata.updateUser(this.user_id, updatedUserData).subscribe(
         response => {
           console.log('User profile updated successfully', response);
-          alert('แก้ไขข้อมูลเสร็จสิ้น');
+          this.modals.hide();
+          this.toastr.success('แก้ไขข้อมูลสำเร็จ', 'Success');
         },
         error => {
           console.error('Error updating profile', error);
-          alert('ไม่สามารถแก้ไขข้อมูลได้โปรดลองอีกครั้ง');
+          this.toastr.error('ไม่สามารถแก้ไขข้อมูล โปรดลองอีกครั้ง', 'Error');
         }
       );
       this.commentPictureservice.updateCommentPicture(localStorage.getItem('userid'), this.profileForm.value.picture).subscribe(
