@@ -51,7 +51,7 @@ router.route('/signin')
             const isPasswordValid = await compareHash(password, user.password);
 
             if (isPasswordValid) {
-                const token = jwt.sign({ id: user.id, username: user.username }, key, { expiresIn: '5m' });
+                const token = jwt.sign({ id: user.id, username: user.username }, key, { expiresIn: '5h' });
                 res.status(200).json({ result: user, token, status: true });
             } else {
                 res.status(400).json({ status: false, message: 'Invalid password' });

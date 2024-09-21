@@ -32,6 +32,7 @@ import { QadataService } from './services/profiles/qadata/qadata.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
+import { AllusersComponent } from './pages/allusers/allusers.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { AboutusComponent } from './pages/aboutus/aboutus.component';
     NavbarAfterLoginComponent,
     DashboardComponent,
     AboutusComponent,
+    AllusersComponent,
   ],
   imports: [
     BrowserModule,

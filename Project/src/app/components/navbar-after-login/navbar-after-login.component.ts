@@ -28,8 +28,7 @@ export class NavbarAfterLoginComponent implements OnInit {
     localStorage.removeItem('userid');
     localStorage.removeItem('username');
     localStorage.removeItem('token');
-
-    
   }
+
 }
 

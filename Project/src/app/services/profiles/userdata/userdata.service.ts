@@ -16,6 +16,10 @@ export class UserdataService {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
 
+  getUserPictures(userId: string|null): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${userId}/pictures`);
+  }
+
   setUserId(userId: string | null) {
     this.userIdSubject.next(userId);
   }
@@ -24,4 +28,7 @@ export class UserdataService {
     return this.http.put(`${this.apiUrl}/${id}`, userData);
   }
 
+  getAllUser(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/user/all`);
+  }
 }

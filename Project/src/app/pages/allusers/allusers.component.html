@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>All Users</h2>
+  
+    <!-- Search box -->
+    <div class="search-box">
+      <input type="text" [(ngModel)]="searchQuery" placeholder="Search by username" class="form-control">
+    </div>
+  
+    <!-- Grid layout for users -->
+    <div class="user-grid">
+      <div class="user-card" *ngFor="let user of filteredUsers() let i = index">
+        <img [src]="user.picture" alt="{{ user.username }}'s picture" class="user-picture">
+        <div class="user-info">
+          <h5><a href="user/{{user._id}}">{{ user.username }}</a></h5>
+          <p>{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <p *ngIf="filteredUsers().length === 0">No users found.</p>
+  </div>
+  
