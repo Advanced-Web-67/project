@@ -4,6 +4,9 @@ const answerSchema = new mongoose.Schema({
   answertext: { type: String, required: true },
   question_id: { type: mongoose.Schema.Types.ObjectId, ref: 'questions', required: true },
   user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true },
-}, { timestamps: true });
+}, {
+  timestamps: true, // Automatically add createdAt and updatedAt fields
+});
 
-module.exports = mongoose.model('Answer', answerSchema);
+const Answer = mongoose.model('Answer', answerSchema);
+module.exports = Answer;

@@ -15,12 +15,14 @@ import { ToastrService } from 'ngx-toastr';
 
 export class QuestionsDetailComponent implements OnInit {
   createAnswerForm!: FormGroup ;
-
   question!: any ;
   username!: string;
   user_id!: string; // เก็บ ID ของผู้ใช้ปัจจุบันที่เข้าสู่ระบบ
   question_id!: string
   answers: any[] = []; // To hold the retrieved answers
+  showEditModal: boolean = false;
+  editAnswerForm!: FormGroup;
+currentAnswerId!: string; // To hold the ID of the answer being edited
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +39,9 @@ export class QuestionsDetailComponent implements OnInit {
     // สร้างฟอร์มการตอบคำถาม
     this.createAnswerForm = this.fb.group({
       answertext: ['', [Validators.required, Validators.minLength(10)]], // คำตอบต้องมีอย่างน้อย 10 ตัวอักษร
+    });
+    this.editAnswerForm = this.fb.group({
+      answertext: ['', [Validators.required, Validators.minLength(10)]],
     });
 
     // โหลดข้อมูลคำถามตาม id
@@ -60,6 +65,11 @@ export class QuestionsDetailComponent implements OnInit {
     }
   }
 
+  openEditModal(answer: any): void {
+    this.currentAnswerId = answer._id;
+    this.editAnswerForm.patchValue({ answertext: answer.answertext });
+    this.showEditModal = true; // Show the modal
+  }
 
   loadQuestion(id: string): void {
     this.questionService.getQuestionById(id).subscribe(
@@ -95,8 +105,38 @@ export class QuestionsDetailComponent implements OnInit {
       }
     );
   }
-  
+  onEditSubmit(): void {
+    if (this.editAnswerForm.valid) {
+      const { answertext } = this.editAnswerForm.value;
+      
+      const token = localStorage.getItem('token');
+      if (!token) {
+        this.toastr.error('กรุณาเข้าสู่ระบบก่อน!', 'Unauthorized');
+        return;
+      }
 
+      // ตั้งค่า header สำหรับการส่ง token ในการ request
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      });
+
+      
+      const payload = { answertext };
+      
+      this.http.put(`http://localhost:3000/answer/update/${this.currentAnswerId}`, payload, { headers }).subscribe(
+        (response: any) => {
+          this.toastr.success('Answer updated successfully!', 'Success');
+          this.showEditModal = false; // Close the modal
+          this.loadAnswers(this.question_id); // Reload answers
+        },
+        (error) => {
+          this.toastr.error('Error updating answer', 'Error');
+          console.error('Error:', error);
+        }
+      );
+    }
+  }
+  
   onSubmit(): void {
     // ตรวจสอบความถูกต้องของฟอร์มก่อนส่ง
     if (this.createAnswerForm.valid) {
@@ -127,7 +167,9 @@ export class QuestionsDetailComponent implements OnInit {
         .subscribe(
           (response: any) => {
             this.toastr.success('ตอบคำถามสำเร็จ!', 'Success');
-            location.reload(); // Refresh the page
+            setTimeout(() => {
+              location.reload(); 
+            }, 2000);
           },
           (error) => {
             this.toastr.error('เกิดข้อผิดพลาดในการตอบคำถาม', 'Error');
@@ -136,4 +178,28 @@ export class QuestionsDetailComponent implements OnInit {
         );
     }
   }
+
+  deleteAnswer(answerId: string): void {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.toastr.error('กรุณาเข้าสู่ระบบก่อน!', 'Unauthorized');
+      return;
+    }
+  
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+  
+    this.http.delete(`http://localhost:3000/answer/delete/${answerId}`, { headers }).subscribe(
+      (response: any) => {
+        this.toastr.success('Answer deleted successfully!', 'Success');
+        this.loadAnswers(this.question_id); // Reload answers after deletion
+      },
+      (error) => {
+        this.toastr.error('Error deleting answer', 'Error');
+        console.error('Error:', error);
+      }
+    );
+  }
+  
 }
