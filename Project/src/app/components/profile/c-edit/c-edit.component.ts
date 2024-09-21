@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../../../services/profiles/image/image.service';
 import { UserdataService } from '../../../services/profiles/userdata/userdata.service';
+import { CommentService } from '../../../services/profiles/comment/comment.service';
 import { FormControl, FormGroup, Validators, AbstractControl  } from '@angular/forms';
 
 @Component({
@@ -22,7 +23,9 @@ export class CEditComponent implements OnInit{
     confirm: new FormControl('')
   });
 
-  constructor (private imageService: ImageService,private userdata: UserdataService){  } // Inject the image service
+  constructor ( private imageService: ImageService,
+                private userdata: UserdataService,
+                private commentPictureservice: CommentService){  } // Inject the image service
 
   
   ngOnInit(): void {
@@ -39,7 +42,6 @@ export class CEditComponent implements OnInit{
       });
       this.imageService.updateImage(user.picture);
       this.password = user.password;
-      console.log(this.profileForm);
     });
     this.profileForm.get('confirm')?.setValidators(this.matchPassword.bind(this));
   }
@@ -94,6 +96,15 @@ export class CEditComponent implements OnInit{
         error => {
           console.error('Error updating profile', error);
           alert('ไม่สามารถแก้ไขข้อมูลได้โปรดลองอีกครั้ง');
+        }
+      );
+      this.commentPictureservice.updateCommentPicture(localStorage.getItem('userid'), this.profileForm.value.picture).subscribe(
+        (response) => {
+          console.log('Picture updated successfully', response);
+          // You can reload the comments or handle the UI as needed
+        },
+        (error) => {
+          console.error('Error updating picture:', error);
         }
       );
     } else {
