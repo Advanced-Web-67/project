@@ -6,7 +6,7 @@ const authorization = require('../config/authorize'); // For authenticated reque
 // Create a new question with base64 image
 router.post('/create', authorization, async (req, res) => {
   try {
-    const { title, body, tag, image } = req.body;
+    const { title, body, tags, image } = req.body;
     const user_id = req.user.id; // Assuming the user ID comes from the token after authorization
 
     // Validate if the image is in base64 format
@@ -18,7 +18,7 @@ router.post('/create', authorization, async (req, res) => {
     const newQuestion = new Question({
       title,
       body,
-      tag,
+      tags,
       user_id,
       image // Store the base64 string of the image
     });
