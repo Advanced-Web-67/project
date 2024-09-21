@@ -35,7 +35,7 @@ export class MyQuestionsComponent implements OnInit{
   }
 
   loadUserQuestions(): void {
-    this.questionService.getQuestionsByUserId('66ed0cce9696ac17285f0da3').subscribe(
+    this.questionService.getQuestionsByUserId(this.user_id).subscribe(
       (response: { questions: any[] }) => {
         console.log('Loaded questions:', response);
         this.questions = response.questions || []; // ตรวจสอบให้แน่ใจว่า questions มีค่าเป็น Array
