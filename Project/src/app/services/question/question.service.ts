@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class QuestionService {
   private apiUrl = 'http://localhost:3000/question'; // Backend URL
-  private baseUrl: string = 'http://localhost:4200/api';
 
   constructor(private http: HttpClient) {}
 
@@ -33,11 +32,6 @@ export class QuestionService {
 
   getQuestionsByUserId(user_id: string): Observable<{questions: any[]}> {
     return this.http.get<{ questions: any[] }>(`${this.apiUrl}/byUser/${user_id}`);
-  }
-
-
-  filterQuestions(tag: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/questions/filter?tag=${tag}`);
   }
 
 }

@@ -105,24 +105,22 @@ router.get('/byUser/:user_id', async (req, res) => {
 }
 });
 // Get questions by tag (renamed to filterQuestions)
-router.get('/filter', async (req, res) => {
-  try {
-    const { tag } = req.query; // Get the tag from the query parameters
+router.get('/questions/filter/:tag', async (req, res) => {
 
-    // Find questions that match the tag
-    const questions = await Question.find({ tags: tag });
-
-    if (questions.length === 0) {
-      return res.status(404).json({ message: 'No questions found for this tag' });
+  const { tag } = req.params;
+  Question.find({ tag: tag }, (err, questions) => {
+    if (err) {
+      return res.status(500).send({ message: 'Error retrieving questions' });
     }
 
-    res.status(200).json(questions);
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching questions', error });
+    // If no questions found, return an empty array
+    if (!questions || questions.length === 0) {
+      return res.status(404).json([]);
+    }
 
-  }
+    // Return filtered questions
+    res.json(questions);
+  });
 });
-
-
 
 module.exports = router;
