@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from '../../../services/question/question.service';
 import { UserdataService } from '../../../services/profiles/userdata/userdata.service';
+import { AnswerService } from '../../../services/answer/answer.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -11,18 +12,21 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './questions-detail.component.html',
   styleUrls: ['./questions-detail.component.css'],
 })
-export class QuestionsDetailComponent implements OnInit {
-  createAnswerForm!: FormGroup;
 
-  question: any;
+export class QuestionsDetailComponent implements OnInit {
+  createAnswerForm!: FormGroup ;
+
+  question!: any ;
   username!: string;
   user_id!: string; // เก็บ ID ของผู้ใช้ปัจจุบันที่เข้าสู่ระบบ
   question_id!: string
+  answers: any[] = []; // To hold the retrieved answers
 
   constructor(
     private route: ActivatedRoute,
     private questionService: QuestionService,
     private userService: UserdataService,
+    private answerService: AnswerService,
     private fb: FormBuilder,
     private http: HttpClient,
     private toastr: ToastrService,
@@ -40,19 +44,22 @@ export class QuestionsDetailComponent implements OnInit {
       const id = params.get('id');
       if (id) {
         this.loadQuestion(id);
+        this.loadAnswers(id)
         this.question_id = id;
       }
     });
 
     // โหลดข้อมูลผู้ใช้ปัจจุบัน (จากบริการ UserdataService หรือ token)
-    const userid = localStorage.getItem('userid');
-
-    if (userid) {
-      this.user_id = userid
-    } else {
-      this.toastr.error('กรุณาเข้าสู่ระบบก่อน!', 'Unauthorized');
+    if (typeof localStorage !== 'undefined') {
+      const userid = localStorage.getItem('userid');
+      if (userid) {
+        this.user_id = userid
+      } else {
+        this.toastr.error('กรุณาเข้าสู่ระบบก่อน!', 'Unauthorized');
+      }
     }
   }
+
 
   loadQuestion(id: string): void {
     this.questionService.getQuestionById(id).subscribe(
@@ -73,6 +80,22 @@ export class QuestionsDetailComponent implements OnInit {
       }
     );
   }
+
+  loadAnswers(questionId: string): void {
+    this.answerService.getAnswersByQuestionId(questionId).subscribe(
+      (response) => {
+        // Ensure that answers is initialized correctly
+        this.answers = response.answers || []; // Use an empty array if undefined
+        console.log(this.answers);
+      },
+      (error) => {
+        // You can log the error or handle it as needed
+        console.error('Error loading answers:', error);
+        // No toastr error for missing answers
+      }
+    );
+  }
+  
 
   onSubmit(): void {
     // ตรวจสอบความถูกต้องของฟอร์มก่อนส่ง
@@ -97,14 +120,14 @@ export class QuestionsDetailComponent implements OnInit {
         user_id: this.user_id, // ผู้ใช้ที่ตอบคำถาม
         question_id: this.question_id, // ID ของคำถาม
       };
-
+      console.log(payload)
       // ส่งคำตอบไปยัง backend
       this.http
         .post('http://localhost:3000/answer/create', payload, { headers })
         .subscribe(
           (response: any) => {
             this.toastr.success('ตอบคำถามสำเร็จ!', 'Success');
-            // this.router.navigate(['/questions']); // เปลี่ยนไปที่หน้าหลักของคำถาม (หรืออัปเดตคำตอบ)
+            location.reload(); // Refresh the page
           },
           (error) => {
             this.toastr.error('เกิดข้อผิดพลาดในการตอบคำถาม', 'Error');
