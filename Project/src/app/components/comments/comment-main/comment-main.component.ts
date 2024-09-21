@@ -13,6 +13,7 @@ export class CommentMainComponent implements OnInit {
   userPicture: string = '';
   commentForm: FormGroup;
   comments: Array<{
+    _id:string;
     commentText: string;
     user_id: string;
     user_comment_id: string;
@@ -20,6 +21,7 @@ export class CommentMainComponent implements OnInit {
     username: string;
   }> = [];
   commentUserId: string = '';
+  logedUserId: string | null = '';
 
   constructor(
     private fb: FormBuilder,
@@ -39,17 +41,15 @@ export class CommentMainComponent implements OnInit {
         this.commentUserId = id;
       }
     });
-
+    this.logedUserId = localStorage.getItem('userid');
     this.loadComments();
     this.getUserPicture(localStorage.getItem('userid'));
-
   }
 
   getUserPicture(userId: string|null): void {
     this.userService.getUserPictures(userId).subscribe(
       (user) => {
         this.userPicture = user.picture; // Wrap the picture string in an array
-        console.log(this.userPicture);
       },
       (error) => {
         console.error('Error fetching user picture:', error);
@@ -87,6 +87,18 @@ export class CommentMainComponent implements OnInit {
       },
       (error) => {
         console.error('Error fetching comments:', error);
+      }
+    );
+  }
+
+  deleteComment(commentId: string, index: number): void {
+    this.commentService.deleteComment(commentId).subscribe(
+      (response) => {
+        this.comments.splice(index, 1); // Remove comment from array after successful deletion
+        alert("Remove Success");
+      },
+      (error) => {
+        console.error('Error deleting comment:', error);
       }
     );
   }
