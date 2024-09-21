@@ -1,30 +1,26 @@
-<!-- q-main.component.html -->
 <div class="container-qmain">
   <div class="layout-question d-flex flex-column">
-    <!-- Card เล็ก -->
+    <!-- Filter Section -->
     <div class="card small-card mb-3" style="border-radius: 10px">
       <div class="card" style="border-radius: 10px">
-        <div class="d-flex justify-content-between align-items-center" style="border-radius: 20px">
+        <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
             <div class="cardQ">
-              <h5 style="font-family: 'MyCustomFont'">คำถามทั้งหมด</h5>
+              <h5>คำถามทั้งหมด</h5>
             </div>
-            <!-- ปุ่ม filter อยู่ต่อจาก คำถามทั้งหมด -->
+            <!-- Filter Button -->
             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseCard" aria-expanded="false"
               aria-controls="collapseCard" style="color: #ff6500; margin-left: 5px">
               <i class="fa fa-filter" style="font-size: 20px"></i>
             </button>
           </div>
-          <!-- ปุ่ม Ask question -->
-          <button routerLink="/questions/main/create" class="btn btn-orange" style="margin-right: 10px">
-            Ask question
-          </button>
+          <button routerLink="/questions/main/create" class="btn btn-orange" style="margin-right: 10px">Ask question</button>
+          <button class="btn btn-secondary" (click)="resetFilter()" style="margin-right: 10px">Reset Filter</button>
         </div>
 
         <div id="collapseCard" class="collapse">
           <div class="card-body">
-            <!-- Dropdown menu inside the card body -->
-            <!-- Dropdown menu inside the card body -->
+            <!-- Filter Options -->
             <ul class="list-group">
               <li class="list-group-item" (click)="onFilter('สำนักวิชาวิทยาศาสตร์')">
                 สำนักวิชาวิทยาศาสตร์
@@ -59,17 +55,21 @@
       </div>
     </div>
 
-    <!-- Card ใหญ่ -->
-    <div *ngFor="let question of questions" class="card big-card mb-3" style="border-radius: 10px">
-      <div class="card-body" style="border-radius: 10px">
-        <h1 style="font-family: 'MyCustomFont'">
-          <a href="/questions/{{ question._id }}" class="topic-link" style="color: #ff6500">{{ question.title }}</a>
-        </h1>
-        <p>
-          {{ question.body | slice : 0 : 200
-          }}{{ question.body.length > 200 ? "..." : "" }}
-        </p>
+    <!-- Display Questions -->
+    <div *ngIf="filteredQuestions.length > 0">
+      <div *ngFor="let question of filteredQuestions" class="card big-card mb-3" style="border-radius: 10px">
+        <div class="card-body" style="border-radius: 10px">
+          <h1>
+            <a [routerLink]="['/questions', question._id]" class="topic-link" style="color: #ff6500">{{ question.title }}</a>
+          </h1>
+          <p>{{ question.body | slice : 0 : 200 }}{{ question.body.length > 200 ? "..." : "" }}</p>
+        </div>
       </div>
+    </div>
+
+    <!-- Show this if no filtered questions are found -->
+    <div *ngIf="filteredQuestions.length === 0">
+      <p>No questions found for this filter.</p>
     </div>
   </div>
 </div>

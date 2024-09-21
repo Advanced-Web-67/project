@@ -7,8 +7,8 @@ import { QuestionService } from '../../../services/question/question.service';
   styleUrls: ['./q-main.component.css'],
 })
 export class QMainComponent implements OnInit {
-  questions: any[] = []; // ตั้งค่าเริ่มต้นเป็น Array
-  filteredQuestions: any[] = []; // ตั้งค่าตัวแปรสำหรับกรองคำถาม
+  questions: any[] = []; // All questions
+  filteredQuestions: any[] = []; // Filtered questions
 
   constructor(private questionService: QuestionService) {}
 
@@ -19,9 +19,8 @@ export class QMainComponent implements OnInit {
   loadQuestions(): void {
     this.questionService.getAllQuestions().subscribe(
       (response: { questions: any[] }) => {
-        console.log('Loaded questions:', response);
-        this.questions = response.questions || []; // ตรวจสอบให้แน่ใจว่า questions มีค่าเป็น Array
-        this.filteredQuestions = this.questions; // กำหนดให้ filteredQuestions เป็น questions ทั้งหมด
+        this.questions = response.questions || [];
+        this.filteredQuestions = this.questions;
       },
       (error) => {
         console.error('Error loading questions', error);
@@ -29,14 +28,13 @@ export class QMainComponent implements OnInit {
     );
   }
 
-  onFilter(tag: string) {
-    this.questionService.filterQuestions(tag).subscribe(
-      (data: any[]) => {
-        this.questions = data; // เก็บข้อมูลที่กรองแล้ว
-      },
-      (error) => {
-        console.error('Error filtering questions', error);
-      }
+  onFilter(tags: string): void {
+    this.filteredQuestions = this.questions.filter(question => 
+      question.tags === tags
     );
+  }
+
+  resetFilter(): void {
+    this.filteredQuestions = this.questions; // Reset to all questions
   }
 }

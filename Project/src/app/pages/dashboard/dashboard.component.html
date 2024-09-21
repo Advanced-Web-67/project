@@ -14,13 +14,10 @@
                   <div class="card-body">
                     <h5 class="card-title"><a href="/questions/{{question._id}}">{{ question.title }}</a></h5>
                     <p class="card-text">{{ question.body }}</p>
-                    <div *ngIf="question.tag.length > 0">
-                      <strong>Tags:</strong>
-                      <ul>
-                        <li *ngFor="let tag of question.tag">{{ tag }}</li>
-                      </ul>
-                    </div>
                   </div>
+                  <div class="tags ml-3">
+                    <span class="card-text">Tag: {{question.tags }}</span>
+                </div>
                 </div>
             </div>
         </div>
