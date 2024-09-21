@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/assets/fonts/THSarabun.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 .layout-question {
     display: flex;
     flex-direction: column;
@@ -52,6 +60,8 @@
 .container-qmain{
   height: 100vh;
   z-index: 200;
+  font-family: 'MyCustomFont';
+  font-size: 24px;
 }
 
 .topic-link {
@@ -63,4 +73,13 @@
   text-decoration: underline; /* ใส่เส้นขีดใต้เมื่อ hover */
 }
 
+.list-group-item {
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อเลื่อนเมาส์ */
+  padding: 10px; /* เพิ่ม padding ให้เหมาะสม */
+  transition: background-color 0.3s; /* เพิ่มการเปลี่ยนแปลงสีเมื่อ hover */
+}
+
+.list-group-item:hover {
+  background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+}
 

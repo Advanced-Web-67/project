@@ -2,40 +2,57 @@
 <div class="container-qmain">
   <div class="layout-question d-flex flex-column">
     <!-- Card เล็ก -->
-    <div class="card small-card mb-3">
-      <div class="card">
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="cardQ">
-            <h5>คำถามทั้งหมด</h5>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <button routerLink="/questions/main/create" class="btn btn-orange">Ask question</button>
-            <button
-              class="btn btn-link ml-auto"
-              data-toggle="collapse"
-              data-target="#collapseCard"
-              aria-expanded="false"
-              aria-controls="collapseCard"
-              style="color: #ff6500"
-            >
-              <i class="fa fa-filter" style="font-size: 24px"></i>
+    <div class="card small-card mb-3" style="border-radius: 10px">
+      <div class="card" style="border-radius: 10px">
+        <div class="d-flex justify-content-between align-items-center" style="border-radius: 20px">
+          <div class="d-flex align-items-center">
+            <div class="cardQ">
+              <h5 style="font-family: 'MyCustomFont'">คำถามทั้งหมด</h5>
+            </div>
+            <!-- ปุ่ม filter อยู่ต่อจาก คำถามทั้งหมด -->
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseCard" aria-expanded="false"
+              aria-controls="collapseCard" style="color: #ff6500; margin-left: 5px">
+              <i class="fa fa-filter" style="font-size: 20px"></i>
             </button>
           </div>
+          <!-- ปุ่ม Ask question -->
+          <button routerLink="/questions/main/create" class="btn btn-orange" style="margin-right: 10px">
+            Ask question
+          </button>
         </div>
 
         <div id="collapseCard" class="collapse">
           <div class="card-body">
             <!-- Dropdown menu inside the card body -->
+            <!-- Dropdown menu inside the card body -->
             <ul class="list-group">
-              <li class="list-group-item">สำนักวิชาวิทยาศาสตร์</li>
-              <li class="list-group-item">สำนักวิชาเทคโนโลยีสังคม</li>
-              <li class="list-group-item">สำนักวิชาเทคโนโลยีการเกษตร</li>
-              <li class="list-group-item">สำนักวิชาวิศวกรรมศาสตร์</li>
-              <li class="list-group-item">สำนักวิชาแพทยศาสตร์</li>
-              <li class="list-group-item">สำนักวิชาพยาบาลศาสตร์</li>
-              <li class="list-group-item">สำนักวิชาทันตแพทยศาสตร์</li>
-              <li class="list-group-item">สำนักวิชาสาธารณสุขศาสตร์</li>
-              <li class="list-group-item">สำนักวิชาศาสตร์และศิลป์ดิจิทัล</li>
+              <li class="list-group-item" (click)="onFilter('สำนักวิชาวิทยาศาสตร์')">
+                สำนักวิชาวิทยาศาสตร์
+              </li>
+              <li class="list-group-item" (click)="onFilter('สำนักวิชาเทคโนโลยีสังคม')">
+                สำนักวิชาเทคโนโลยีสังคม
+              </li>
+              <li class="list-group-item" (click)="onFilter('สำนักวิชาเทคโนโลยีการเกษตร')">
+                สำนักวิชาเทคโนโลยีการเกษตร
+              </li>
+              <li class="list-group-item" (click)="onFilter('สำนักวิชาวิศวกรรมศาสตร์')">
+                สำนักวิชาวิศวกรรมศาสตร์
+              </li>
+              <li class="list-group-item" (click)="onFilter('สำนักวิชาแพทยศาสตร์')">
+                สำนักวิชาแพทยศาสตร์
+              </li>
+              <li class="list-group-item" (click)="onFilter('สำนักวิชาพยาบาลศาสตร์')">
+                สำนักวิชาพยาบาลศาสตร์
+              </li>
+              <li class="list-group-item" (click)="onFilter('สำนักวิชาทันตแพทยศาสตร์')">
+                สำนักวิชาทันตแพทยศาสตร์
+              </li>
+              <li class="list-group-item" (click)="onFilter('สำนักวิชาสาธารณสุขศาสตร์')">
+                สำนักวิชาสาธารณสุขศาสตร์
+              </li>
+              <li class="list-group-item" (click)="onFilter('สำนักวิชาศาสตร์และศิลป์ดิจิทัล')">
+                สำนักวิชาศาสตร์และศิลป์ดิจิทัล
+              </li>
             </ul>
           </div>
         </div>
@@ -43,12 +60,10 @@
     </div>
 
     <!-- Card ใหญ่ -->
-    <div *ngFor="let question of questions" class="card big-card mb-3">
-      <div class="card-body">
-        <h1>
-          <a href="/questions/{{ question._id }}" class="topic-link">{{
-            question.title
-          }}</a>
+    <div *ngFor="let question of questions" class="card big-card mb-3" style="border-radius: 10px">
+      <div class="card-body" style="border-radius: 10px">
+        <h1 style="font-family: 'MyCustomFont'">
+          <a href="/questions/{{ question._id }}" class="topic-link" style="color: #ff6500">{{ question.title }}</a>
         </h1>
         <p>
           {{ question.body | slice : 0 : 200

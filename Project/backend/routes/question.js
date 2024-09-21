@@ -87,6 +87,24 @@ router.get('/period/:period', async (req, res) => {
   }
 });
 
+// Get questions by tag (renamed to filterQuestions)
+router.get('/filter', async (req, res) => {
+  try {
+    const { tag } = req.query; // Get the tag from the query parameters
+
+    // Find questions that match the tag
+    const questions = await Question.find({ tags: tag });
+
+    if (questions.length === 0) {
+      return res.status(404).json({ message: 'No questions found for this tag' });
+    }
+
+    res.status(200).json(questions);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching questions', error });
+  }
+});
+
 
 
 module.exports = router;
