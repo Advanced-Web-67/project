@@ -11,12 +11,19 @@ import { Router } from '@angular/router';
 })
 export class MyQuestionsComponent implements OnInit{
   
-  statusMath!: boolean;
-  statusEnglish!: boolean;
-  statusScience!: boolean;
-  statusHistory!: boolean;
-  selectedSubject: any[] = [];
+  status1!: boolean;
+  status2!: boolean;
+  status3!: boolean;
+  status4!: boolean;
+  status5!: boolean;
+  status6!: boolean;
+  status7!: boolean;
+  status8!: boolean;
+  status9!: boolean;
+  status10!: boolean;
+  
   questions: any[] = []; 
+  selectedSubject: any[] = [];
   user_id!: string  // Replace with the actual user ID
 
   constructor(private questionService: QuestionService, private toastr: ToastrService,private router: Router) {}
@@ -40,6 +47,7 @@ export class MyQuestionsComponent implements OnInit{
       (response: { questions: any[] }) => {
         console.log('Loaded questions:', response);
         this.questions = response.questions || []; // ตรวจสอบให้แน่ใจว่า questions มีค่าเป็น Array
+        this.ngCheckselectSubject();
       },
       error => {
         console.error('Error loading questions', error);
@@ -67,32 +75,61 @@ export class MyQuestionsComponent implements OnInit{
     }
   }
 
-  ngCheckMath() {
-    this.statusMath = !this.statusMath;
+  ngCheck1() {
+    this.status1 = !this.status1;
   }
   
-  ngCheckEnglish() {
-    this.statusEnglish = !this.statusEnglish;
+  ngCheck2() {
+    this.status2 = !this.status2;
   }
   
-  ngCheckScience() {
-    this.statusScience = !this.statusScience;
+  ngCheck3() {
+    this.status3 = !this.status3;
   }
   
-  ngCheckHistory() {
-    this.statusHistory = !this.statusHistory;
+  ngCheck4() {
+    this.status4 = !this.status4;
+  }
+  
+  ngCheck5() {
+    this.status5 = !this.status5;
+  }
+  
+  ngCheck6() {
+    this.status6 = !this.status6;
+  }
+  
+  ngCheck7() {
+    this.status7 = !this.status7;
+  }
+  
+  ngCheck8() {
+    this.status8 = !this.status8;
+  }
+  
+  ngCheck9() {
+    this.status9 = !this.status9;
+  }
+  
+  ngCheck10() {
+    this.status10 = !this.status10;
   }
 
   ngCheckselectSubject() {
     const subjects: string[] = [];
-    
-    if (this.statusEnglish) subjects.push('English');
-    if (this.statusScience) subjects.push('Science');
-    if (this.statusHistory) subjects.push('History');
-    if (this.statusMath) subjects.push('Math');
+    if (this.status1) subjects.push('สำนักวิชาวิทยาศาสตร์');
+    if (this.status2) subjects.push('สำนักวิชาเทคโนโลยีสังคม');
+    if (this.status3) subjects.push('สำนักวิชาเทคโนโลยีการเกษตร');
+    if (this.status4) subjects.push('สำนักวิชาวิศวกรรมศาสตร์');
+    if (this.status5) subjects.push('สำนักวิชาแพทยศาสตร์');
+    if (this.status6) subjects.push('สำนักวิชาพยาบาลศาสตร์');
+    if (this.status7) subjects.push('สำนักวิชาทันตแพทยศาสตร์');
+    if (this.status8) subjects.push('สำนักวิชาสาธารณสุขศาสตร์');
+    if (this.status9) subjects.push('สำนักวิชาศาสตร์และศิลป์ดิจิทัล');
+    if (this.status10) subjects.push('อื่นๆ');
     
     if (subjects.length > 0) {
-      this.selectedSubject = this.questions.filter((question: any) => subjects.includes(question.subject));
+      this.selectedSubject = this.questions.filter((question: any) => subjects.includes(question.tags));
     } else {
       this.selectedSubject = this.questions;
     }

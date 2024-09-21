@@ -9,27 +9,63 @@
                 <div class="filterDataBorder">
                     <div style="display: block;">
                         <div class="boxButtonCheckBox">
-                            <button class="checkBoxNone" (click)="ngCheckMath()" (click)="ngCheckselectSubject()"
-                                [ngClass]="{'checkedBox': statusMath,'checkBoxNone':!statusMath}">
-                                <p class="checkBoxtext" style="top: -5px; position: relative;">Math</p>
+                            <button class="checkBoxNone" (click)="ngCheck1()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status1,'checkBoxNone':!status1}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">สำนักวิชาวิทยาศาสตร์</p>
                             </button>
                         </div>
                         <div class="boxButtonCheckBox">
-                            <button class="checkBoxNone" (click)="ngCheckEnglish()" (click)="ngCheckselectSubject()"
-                                [ngClass]="{'checkedBox': statusEnglish,'checkBoxNone':!statusEnglish}">
-                                <p class="checkBoxtext" style="top: -5px; position: relative;">English</p>
+                            <button class="checkBoxNone" (click)="ngCheck2()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status2,'checkBoxNone':!status2}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">สำนักวิชาเทคโนโลยีสังคม</p>
                             </button>
                         </div>
                         <div class="boxButtonCheckBox">
-                            <button class="checkBoxNone" (click)="ngCheckScience()" (click)="ngCheckselectSubject()"
-                                [ngClass]="{'checkedBox': statusScience,'checkBoxNone':!statusScience}">
-                                <p class="checkBoxtext" style="top: -5px; position: relative;">Science</p>
+                            <button class="checkBoxNone" (click)="ngCheck3()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status3,'checkBoxNone':!status3}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">สำนักวิชาเทคโนโลยีการเกษตร</p>
                             </button>
                         </div>
                         <div class="boxButtonCheckBox">
-                            <button class="checkBoxNone" (click)="ngCheckHistory()" (click)="ngCheckselectSubject()"
-                                [ngClass]="{'checkedBox': statusHistory,'checkBoxNone':!statusHistory}">
-                                <p class="checkBoxtext" style="top: -5px; position: relative;">History</p>
+                            <button class="checkBoxNone" (click)="ngCheck4()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status4,'checkBoxNone':!status4}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">สำนักวิชาวิศวกรรมศาสตร์</p>
+                            </button>
+                        </div>
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheck5()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status5,'checkBoxNone':!status5}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">สำนักวิชาแพทยศาสตร์</p>
+                            </button>
+                        </div>
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheck6()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status6,'checkBoxNone':!status6}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">สำนักวิชาพยาบาลศาสตร์</p>
+                            </button>
+                        </div>
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheck7()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status7,'checkBoxNone':!status7}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">สำนักวิชาทันตแพทยศาสตร์</p>
+                            </button>
+                        </div>
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheck8()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status8,'checkBoxNone':!status8}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">สำนักวิชาสาธารณสุขศาสตร์</p>
+                            </button>
+                        </div>
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheck9()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status9,'checkBoxNone':!status9}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">สำนักวิชาศาสตร์และศิลป์ดิจิทัล</p>
+                            </button>
+                        </div>
+                        <div class="boxButtonCheckBox">
+                            <button class="checkBoxNone" (click)="ngCheck10()" (click)="ngCheckselectSubject()"
+                                [ngClass]="{'checkedBox': status10,'checkBoxNone':!status10}">
+                                <p class="checkBoxtext" style="top: -5px; position: relative;">อื่นๆ</p>
                             </button>
                         </div>
 
@@ -43,20 +79,17 @@
         <div class="borderQuestions">
             <table class="table">
                 <tbody style="align-items: center; ">
-                    <tr class="questionsTable" *ngFor="let question of questions">
-                        <td class="noneSelectQuestion1" scope="row"></td>
-                        <td></td>
-                        <td class="noneSelectQuestion2">{{question.title}} </td>
-                        <td class="noneSelectQuestion3">{{question.tags}}</td>
-                        <td class="noneSelectQuestion4">
-                            <p style="display: flex; justify-content: center;"></p>
-                        </td>
-                        <td class="noneSelectQuestion5">
-                            <div class="editDeleteBTN">
-                                <button (click)="editQuestion(question._id)" class="fa fa-edit" ></button>
-                                <button (click)="deleteQuestion(question._id)" class="fa fa-trash" ></button>
-                            </div>
-                        </td>
+                    <tr class="questionsTable" *ngFor="let question of selectedSubject">
+                            <td class="noneSelectQuestion2">
+                                <p class="controlTextTitle">{{question.title}}</p>
+                            </td>
+                            <td class="noneSelectQuestion3">{{question.tags}}</td>
+                            <td class="noneSelectQuestion5">
+                                <div class="editDeleteBTN">
+                                    <button (click)="editQuestion(question._id)" class="fa fa-edit" ></button>
+                                    <button (click)="deleteQuestion(question._id)" class="fa fa-trash" ></button>
+                                </div>
+                            </td>
                     </tr>
                 </tbody>
             </table>
