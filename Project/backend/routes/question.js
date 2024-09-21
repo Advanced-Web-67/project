@@ -102,7 +102,8 @@ router.get('/byUser/:user_id', async (req, res) => {
     res.status(200).json({ questions });
   } catch (error) {
     res.status(500).json({ message: 'Error fetching questions', error: error.message });
-
+}
+});
 // Get questions by tag (renamed to filterQuestions)
 router.get('/filter', async (req, res) => {
   try {
