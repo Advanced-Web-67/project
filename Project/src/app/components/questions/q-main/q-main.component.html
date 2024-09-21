@@ -5,22 +5,24 @@
     <div class="card small-card mb-3">
       <div class="card">
         <div class="d-flex justify-content-between align-items-center">
-          <div class="cardQ">
-            <h5>คำถามทั้งหมด</h5>
-          </div>
-          <div class="d-flex justify-content-between align-items-center">
-            <button routerLink="/questions/main/create" class="btn btn-orange">Ask question</button>
+          <div class="d-flex align-items-center">
+            <div class="cardQ">
+              <h5>คำถามทั้งหมด</h5>
+            </div>
+            <!-- ปุ่ม filter อยู่ต่อจาก คำถามทั้งหมด -->
             <button
-              class="btn btn-link ml-auto"
+              class="btn btn-link"
               data-toggle="collapse"
               data-target="#collapseCard"
               aria-expanded="false"
               aria-controls="collapseCard"
-              style="color: #ff6500"
+              style="color: #ff6500; margin-left: 5px"
             >
-              <i class="fa fa-filter" style="font-size: 24px"></i>
+              <i class="fa fa-filter" style="font-size: 20px"></i>
             </button>
           </div>
+          <!-- ปุ่ม Ask question -->
+          <button routerLink="/questions/main/create" class="btn btn-orange" style="margin-right: 10px;">Ask question</button>
         </div>
 
         <div id="collapseCard" class="collapse">
