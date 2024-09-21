@@ -1,23 +1,35 @@
-<div class="container mt-4">
+<div class="container mt-4 " style="font-family: MyCustomFont;">
     <div class="row">
         <div class="col-md-12">
-            <h2>Dashboard</h2>
-            <div class="btn-group" role="group" aria-label="Select Period">
-                <button type="button" class="btn btn-info" (click)="fetchQuestions('day')">Today</button>
-                <button type="button" class="btn btn-primary" (click)="fetchQuestions('week')">This Week</button>
-                <button type="button" class="btn btn-secondary" (click)="fetchQuestions('month')">This Month</button>
-            </div>
-            <div class="container mt-4">
-                <h2>Questions</h2>
-                <div *ngIf="questions.length === 0">No questions available.</div>
-                <div *ngFor="let question of questions" class="card mb-3">
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="/questions/{{question._id}}">{{ question.title }}</a></h5>
-                    <p class="card-text">{{ question.body }}</p>
-                  </div>
-                  <div class="tags ml-3">
-                    <span class="card-text">Tag: {{question.tags }}</span>
+            <div class="card mb-4">
+                <h2 style="font-family: MyCustomFont;font-size: 54px">Dashboard</h2>
+                <div class="btn-group" role="group" aria-label="Select Period">
+                    <button type="button" class="btn btn-info" style="font-size: 34px;" (click)="fetchQuestions('day')">
+                        Today
+                    </button>
+                    <button type="button" class="btn btn-primary" style="font-size: 34px" (click)="fetchQuestions('week')">
+                        This Week
+                    </button>
+                    <button type="button" class="btn btn-secondary"style="font-size: 34px" (click)="fetchQuestions('month')">
+                        This Month
+                    </button>
                 </div>
+            </div>
+            <div class="card mb-4">
+                <div class="container mt-4">
+                    <h2 style="font-family: MyCustomFont;">Questions</h2>
+                    <div *ngIf="questions.length === 0">No questions available.</div>
+                    <div *ngFor="let question of questions" class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-family: MyCustomFont; font-size: 56px;">
+                                <a href="/questions/{{ question._id }}">{{ question.title }}</a>
+                            </h5>
+                            <p class="card-text" style="font-size: 34px">{{ question.body }}</p>
+                        </div>
+                        <div class="tags ml-3">
+                            <span class="card-text" style="font-size: 26px">Tag: {{ question.tags }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

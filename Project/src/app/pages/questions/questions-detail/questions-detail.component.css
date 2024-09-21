@@ -46,3 +46,8 @@
     outline: none;
     background-color: #003f7f;
   }
+
+  .modal-body{
+    border-radius: 20px;
+    height: 30vh;
+  }

@@ -6,7 +6,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex align-items-center">
             <div class="cardQ">
-              <h5>คำถามทั้งหมด</h5>
+              <h5 style="font-family: MyCustomFont; font-size: 48;">คำถามทั้งหมด</h5>
             </div>
             <!-- Filter Button -->
             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseCard" aria-expanded="false"
@@ -14,14 +14,17 @@
               <i class="fa fa-filter" style="font-size: 20px"></i>
             </button>
           </div>
-          <button routerLink="/questions/main/create" class="btn btn-orange" style="margin-right: 10px">Ask question</button>
-          <button class="btn btn-secondary" (click)="resetFilter()" style="margin-right: 10px">Reset Filter</button>
+          <button routerLink="/questions/main/create" class="btn btn-orange" style="margin-right: 10px;font-family: MyCustomFont; font-size: 48;">Ask question</button>
+          
         </div>
 
         <div id="collapseCard" class="collapse">
           <div class="card-body">
             <!-- Filter Options -->
             <ul class="list-group">
+              <li class="list-group-item" (click)="resetFilter()">
+                ทั้งหมด
+              </li>
               <li class="list-group-item" (click)="onFilter('สำนักวิชาวิทยาศาสตร์')">
                 สำนักวิชาวิทยาศาสตร์
               </li>
@@ -60,7 +63,7 @@
       <div *ngFor="let question of filteredQuestions" class="card big-card mb-3" style="border-radius: 10px">
         <div class="card-body" style="border-radius: 10px">
           <h1>
-            <a [routerLink]="['/questions', question._id]" class="topic-link" style="color: #ff6500">{{ question.title }}</a>
+            <a [routerLink]="['/questions', question._id]" class="topic-link" style="color: #ff6500;font-family: MyCustomFont; font-size: 48;">{{ question.title }}</a>
           </h1>
           <p>{{ question.body | slice : 0 : 200 }}{{ question.body.length > 200 ? "..." : "" }}</p>
         </div>
@@ -69,7 +72,7 @@
 
     <!-- Show this if no filtered questions are found -->
     <div *ngIf="filteredQuestions.length === 0">
-      <p>No questions found for this filter.</p>
+      <p>ไม่มีคำถามจากสำนักนี้.</p>
     </div>
   </div>
 </div>
