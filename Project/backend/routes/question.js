@@ -32,6 +32,55 @@ router.post('/create', authorization, async (req, res) => {
   }
 });
 
+// Update a question by ID
+router.put('/update/:id', authorization, async (req, res) => {
+  try {
+    const { id } = req.params; // Get the ID from the request parameters
+    const { title, body, tags, image } = req.body; // Get the updated data from the request body
+    const user_id = req.user.id; // Assuming the user ID comes from the token after authorization
+
+    // Validate if the image is in base64 format (if provided)
+    if (image && !image.startsWith('data:image')) {
+      return res.status(400).json({ message: 'Invalid image format' });
+    }
+
+    // Find the question by ID and update it
+    const updatedQuestion = await Question.findByIdAndUpdate(
+      id,
+      { title, body, tags, image, user_id }, // Update fields
+      { new: true, runValidators: true } // Return the updated document and run validators
+    );
+
+    if (!updatedQuestion) {
+      return res.status(404).json({ message: 'Question not found' });
+    }
+
+    res.status(200).json({ message: 'Question updated successfully', question: updatedQuestion });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating question', error });
+  }
+});
+
+// Delete a question by ID
+router.delete('/delete/:id', authorization, async (req, res) => {
+  try {
+    const { id } = req.params; // Get the ID from the request parameters
+
+    // Find the question by ID and delete it
+    const deletedQuestion = await Question.findByIdAndDelete(id);
+
+    if (!deletedQuestion) {
+      return res.status(404).json({ message: 'Question not found' });
+    }
+
+    res.status(200).json({ message: 'Question deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting question', error });
+  }
+});
+
+
+
 // Get all questions
 router.get('/all', async (req, res) => {
   try {

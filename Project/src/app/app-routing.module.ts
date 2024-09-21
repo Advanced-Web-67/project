@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { AllusersComponent } from './pages/allusers/allusers.component';
+import { QuestionsEditComponent } from './pages/questions/questions-edit/questions-edit.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,7 @@ const routes: Routes = [
   { path: 'questions', component: QMainComponent },
   { path: 'questions/:id', component: QuestionsDetailComponent },
   { path: 'questions/main/create', component: QuestionsCreateComponent },
-  
+  { path: 'questions/edit/:id', component: QuestionsEditComponent },
   { path: '', component: DashboardComponent },
 
   { path: 'aboutus', component: AboutusComponent },

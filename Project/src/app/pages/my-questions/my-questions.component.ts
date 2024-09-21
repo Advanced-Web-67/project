@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { QuestionService } from '../../services/question/question.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-questions',
@@ -18,7 +19,7 @@ export class MyQuestionsComponent implements OnInit{
   questions: any[] = []; 
   user_id!: string  // Replace with the actual user ID
 
-  constructor(private questionService: QuestionService, private toastr: ToastrService) {}
+  constructor(private questionService: QuestionService, private toastr: ToastrService,private router: Router) {}
 
   ngOnInit(): void {
     if (typeof localStorage !== 'undefined') {
@@ -44,6 +45,26 @@ export class MyQuestionsComponent implements OnInit{
         console.error('Error loading questions', error);
       }
     );
+  }
+
+  editQuestion(questionId: string): void {
+    this.router.navigate(['/questions/edit', questionId]); // Navigate to the edit page with the question ID
+  }
+
+  deleteQuestion(questionId: string): void {
+    if (confirm('Are you sure you want to delete this question?')) {
+      this.questionService.deleteQuestion(questionId).subscribe(
+        response => {
+          this.toastr.success('Question deleted successfully!', 'Success');
+          // Reload the questions after deletion
+          this.loadUserQuestions();
+        },
+        error => {
+          this.toastr.error('Error deleting question', 'Error');
+          console.error('Error:', error);
+        }
+      );
+    }
   }
 
   ngCheckMath() {

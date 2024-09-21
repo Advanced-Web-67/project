@@ -53,20 +53,15 @@
                         </td>
                         <td class="noneSelectQuestion5">
                             <div class="editDeleteBTN">
-                                <button class="fa fa-edit" ></button>
-                                <button class="fa fa-trash" ></button>
+                                <button (click)="editQuestion(question._id)" class="fa fa-edit" ></button>
+                                <button (click)="deleteQuestion(question._id)" class="fa fa-trash" ></button>
                             </div>
                         </td>
-
                     </tr>
                 </tbody>
             </table>
         </div>
-        
-
-
-
-
     </div>
 
 </div>
+
