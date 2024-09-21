@@ -43,7 +43,7 @@ export class QuestionsCreateComponent implements OnInit {
   onSubmit(): void {
     if (this.createQuestionForm.valid) {
       const { title, body, tags } = this.createQuestionForm.value;
-      
+      console.log(tags)
       // ตรวจสอบว่า token มีอยู่หรือไม่
       const token = localStorage.getItem('token');
       if (!token) {

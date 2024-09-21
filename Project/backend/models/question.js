@@ -9,7 +9,10 @@ const questionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  tag: [String],
+  tags: {
+    type :String,
+    required: true
+  },
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     required: true
