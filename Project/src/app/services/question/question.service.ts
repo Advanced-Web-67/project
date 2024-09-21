@@ -34,4 +34,24 @@ export class QuestionService {
     return this.http.get<{ questions: any[] }>(`${this.apiUrl}/byUser/${user_id}`);
   }
 
+
+
+  filterQuestions(tag: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/questions/filter?tag=${tag}`);
+  }
+
+  updateQuestion(id: string, questionData: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+    return this.http.put(`${this.apiUrl}/update/${id}`, questionData, { headers });
+  }
+
+  deleteQuestion(id: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    });
+    return this.http.delete(`${this.apiUrl}/delete/${id}`, { headers });
+  }
+
 }

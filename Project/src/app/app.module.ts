@@ -33,6 +33,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { AllusersComponent } from './pages/allusers/allusers.component';
+import { QuestionsEditComponent } from './pages/questions/questions-edit/questions-edit.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { AllusersComponent } from './pages/allusers/allusers.component';
     DashboardComponent,
     AboutusComponent,
     AllusersComponent,
+    QuestionsEditComponent,
   ],
   imports: [
     BrowserModule,
