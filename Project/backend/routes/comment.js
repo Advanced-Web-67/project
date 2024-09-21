@@ -47,5 +47,31 @@ router.delete('/delete/:id', async (req, res) => {
   }
 });
 
+router.put('/update/:user_comment_id', async (req, res) => {
+  try {
+    const { user_comment_id } = req.params;
+    const { picture } = req.body;
+
+    if (!picture) {
+      return res.status(400).send('Picture field is required for updating.');
+    }
+
+    // Update the "picture" field for all comments with the same user_comment_id
+    const result = await Comment.updateMany(
+      { "user_comment_id": user_comment_id }, // Match all comments with this user_comment_id
+      { $set: { picture: picture } } // Only update the "picture" field
+    );
+
+    if (result.matchedCount === 0) {
+      return res.status(404).send('No comments found with the provided user_comment_id');
+    }
+
+    res.json({ message: `${result.modifiedCount} comments updated successfully` });
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+
 
 module.exports = router;

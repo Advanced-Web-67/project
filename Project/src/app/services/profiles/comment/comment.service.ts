@@ -22,4 +22,11 @@ export class CommentService {
     return this.http.delete(`${this.apiUrl}/delete/${commentId}`);
   }
 
+  // New method for updating the picture of a comment by user_comment_id
+  updateCommentPicture(userCommentId: string|null, picture: string|null|undefined): Observable<any> {
+    const url = `${this.apiUrl}/update/${userCommentId}`;
+    const body = { picture }; // Sending only the picture field in the body
+    return this.http.put(url, body);
+  }
+
 }
