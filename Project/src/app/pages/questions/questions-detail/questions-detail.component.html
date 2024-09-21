@@ -2,10 +2,17 @@
   <div *ngIf="question" class="card-detail" style="position: relative">
     <div class="card-body">
       <h1>{{ question.title }}</h1>
+
       <p>ถามเมื่อ {{ question.createdAt }}</p>
       <hr class="hr" />
       <p>{{ question.body }}</p>
-
+      <img
+  [src]="question.image"
+  alt="Question Image"
+  style="max-width: 100%; height: auto; margin-top: 10px"
+  loading="lazy"
+/>
+      <p class="ml-auto">ถามโดย {{ username }}</p>
       <div class="card-body">
         <div *ngIf="answers.length === 0">
           <h5>No answers yet. Be the first to answer!</h5>
@@ -17,78 +24,67 @@
           <div class="d-flex justify-content-between align-items-center">
             <p class="text-muted mb-0">Answered by {{ answer.user_id.username }}</p>
             <div *ngIf="answer.user_id._id === user_id ">
-              <button (click)="openEditModal(answer)" class="btn btn-link" >
-                <i
-                  class="far fa-edit"
-                  style="font-size: 24px; color: orange"
-                ></i>
+              <button (click)="openEditModal(answer)" class="btn btn-link">
+                <i class="far fa-edit" style="font-size: 24px; color: orange"></i>
               </button>
               <button class="btn btn-link" (click)="deleteAnswer(answer._id)">
-                <i
-                  class="far fa-trash-alt"
-                  style="font-size: 24px; color: orange"
-                ></i>
+                <i class="far fa-trash-alt" style="font-size: 24px; color: orange"></i>
               </button>
             </div>
           </div>
         </div>
       </div>
-      
-    
+
+
       <h1 style="margin-top: 50px">Your answer</h1>
       <form [formGroup]="createAnswerForm" (ngSubmit)="onSubmit()" style="position: relative">
         <div class="form-group" style="display: flex; align-items: center">
-          <textarea
-            class="form-control"
-            formControlName="answertext"
-            placeholder="You can answer here!!!"
-            style="flex: 1; height: 100px; border-radius: 20px"
-          ></textarea>
-          
-          <button
-            type="submit"
-            class="btn-submit"
+          <textarea class="form-control" formControlName="answertext" placeholder="You can answer here!!!"
+            style="flex: 1; height: 100px; border-radius: 20px"></textarea>
+
+          <button type="submit" class="btn-submit"
             style="margin-left: 10px; display: table-cell; max-width: 600px; height: 100px; border-radius: 20px"
-            [disabled]="createAnswerForm.invalid"
-          >
+            [disabled]="createAnswerForm.invalid">
             เพิ่มคำตอบของคุณ
           </button>
         </div>
         <!-- Validation Messages -->
-        
+
       </form>
 
-      
+
     </div>
   </div>
 
-  
 
 
-<!-- Edit Answer Modal -->
-<div *ngIf="showEditModal" class="modal fade show" style="display: block;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Edit Answer</h5>
-        <button type="button" class="close" (click)="showEditModal = false">
-          <span>&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="editAnswerForm" (ngSubmit)="onEditSubmit()">
-          <div class="form-group">
-            <textarea formControlName="answertext" class="form-control" placeholder="Edit your answer here..."></textarea>
-            <div *ngIf="editAnswerForm.get('answertext')?.invalid && editAnswerForm.get('answertext')?.touched" class="text-danger">
-              Answer is required and must be at least 10 characters long.
+
+  <!-- Edit Answer Modal -->
+  <div *ngIf="showEditModal" class="modal fade show" style="display: block;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Answer</h5>
+          <button type="button" class="close" (click)="showEditModal = false">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="editAnswerForm" (ngSubmit)="onEditSubmit()">
+            <div class="form-group">
+              <textarea formControlName="answertext" class="form-control"
+                placeholder="Edit your answer here..."></textarea>
+              <div *ngIf="editAnswerForm.get('answertext')?.invalid && editAnswerForm.get('answertext')?.touched"
+                class="text-danger">
+                Answer is required and must be at least 10 characters long.
+              </div>
             </div>
-          </div>
-          <button type="submit" class="btn btn-primary" [disabled]="editAnswerForm.invalid">Save Changes</button>
-        </form>
+            <button type="submit" class="btn btn-primary" [disabled]="editAnswerForm.invalid">Save Changes</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
 
@@ -125,7 +121,7 @@
 
 
 
-      <!-- <form
+  <!-- <form
         [formGroup]="createAnswerForm"
         (ngSubmit)="onSubmit()"
         style="position: relative"
@@ -185,4 +181,3 @@
   <div *ngIf="!question.answers?.length">
     <p>No answers yet. Be the first to answer!</p>
   </div> -->
-
