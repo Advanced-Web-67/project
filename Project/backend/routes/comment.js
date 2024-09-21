@@ -36,5 +36,16 @@ router.get('/comment/:user_id', async (req, res) => {
   }
 });
 
+// Delete comment by ID
+router.delete('/delete/:id', async (req, res) => {
+  try {
+    const commentId = req.params.id;
+    await Comment.findByIdAndDelete(commentId);
+    res.status(200).json({ message: 'Comment deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting comment', error });
+  }
+});
+
 
 module.exports = router;

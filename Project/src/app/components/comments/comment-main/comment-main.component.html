@@ -4,7 +4,7 @@
     <div class="form-group">
       <textarea class="form-control" formControlName="commentText" placeholder="Add a comment..." rows="3"></textarea>
       <small *ngIf="commentForm.controls['commentText'].invalid && commentForm.controls['commentText'].touched" class="form-text text-danger">
-        Comment must be at least 4 characters.
+        คอมเมนต์ต้องมี 4 ตัวอักษรขึ้นไป
       </small>
     </div>
     <button type="submit" class="btn btn-primary mt-2" [disabled]="commentForm.invalid">Submit</button>
@@ -12,12 +12,13 @@
 
   <!-- Display list of comments -->
   <div class="comments-list">
-    <div *ngFor="let comment of comments" class="comment-display media mb-4">
+    <div *ngFor="let comment of comments; let i = index" class="comment-display media mb-4">
       <img [src]="comment.picture" alt="User's picture" class="mr-3 rounded-circle user-pic" />
       <div class="media-body">
         <h5 class="mt-0">{{ comment.username }}</h5>
         <p class="comment-text">{{ comment.commentText }}</p>
       </div>
+      <button (click)="deleteComment(comment._id, i)" class="btn btn-danger btn-sm ml-auto" *ngIf="comment.user_comment_id === logedUserId">Delete</button>
     </div>
   </div>
 </div>
