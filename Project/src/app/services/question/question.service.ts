@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class QuestionService {
   private apiUrl = 'http://localhost:3000/question'; // Backend URL
+  private baseUrl: string = 'http://localhost:4200/api';
 
   constructor(private http: HttpClient) {}
 
@@ -27,5 +28,9 @@ export class QuestionService {
 
   fetchQuestions(period: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/period/${period}`);
+  }
+
+  filterQuestions(tag: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/questions/filter?tag=${tag}`);
   }
 }
