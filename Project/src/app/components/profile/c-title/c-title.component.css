@@ -19,6 +19,7 @@
 
 .button-layout {
     margin-right: 5vh;
+
 }
 
 .button {
@@ -26,12 +27,26 @@
     border-width: 2px;
     border-color: #FF6500;
     color: #FF6500;
+    margin: 5px;
 }
 
 .button:hover {
     background-color: #FF6500;
     border-width: 2px;
     color: white;
+}
+
+.button-to-my-questions{
+    background-color: #ff7519;
+    border-color: #ff7519;
+    color: #ffffff;
+    margin: 5px;
+}
+.button-to-my-questions:hover{
+    background-color: #c94000;
+    border-color: #c94000;
+    color: #ffffff;
+    
 }
 
 img {
