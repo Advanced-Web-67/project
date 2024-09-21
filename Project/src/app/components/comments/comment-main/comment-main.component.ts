@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CommentService } from '../../../services/profiles/comment/comment.service';
 import { UserdataService } from '../../../services/profiles/userdata/userdata.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-comment-main',
@@ -13,7 +14,7 @@ export class CommentMainComponent implements OnInit {
   userPicture: string = '';
   commentForm: FormGroup;
   comments: Array<{
-    _id:string;
+    _id: string;
     commentText: string;
     user_id: string;
     user_comment_id: string;
@@ -22,12 +23,16 @@ export class CommentMainComponent implements OnInit {
   }> = [];
   commentUserId: string = '';
   logedUserId: string | null = '';
+  commentToDeleteId: string = ''; // Store comment ID to delete
+  commentIndexToDelete: number = -1; // Store index of comment to delete
+  modals!: any;
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private commentService: CommentService,
-    private userService: UserdataService
+    private userService: UserdataService,
+    private toastr: ToastrService
   ) {
     this.commentForm = this.fb.group({
       commentText: ['', [Validators.required, Validators.minLength(4)]]
@@ -44,19 +49,21 @@ export class CommentMainComponent implements OnInit {
     this.logedUserId = localStorage.getItem('userid');
     this.loadComments();
     this.getUserPicture(localStorage.getItem('userid'));
+
+    const modal = new (window as any).bootstrap.Modal(document.getElementById('deleteModal'));
+    this.modals = modal;
   }
 
-  getUserPicture(userId: string|null): void {
+  getUserPicture(userId: string | null): void {
     this.userService.getUserPictures(userId).subscribe(
       (user) => {
-        this.userPicture = user.picture; // Wrap the picture string in an array
+        this.userPicture = user.picture;
       },
       (error) => {
         console.error('Error fetching user picture:', error);
       }
     );
   }
-  
 
   onSubmit(): void {
     if (this.commentForm.valid) {
@@ -64,13 +71,13 @@ export class CommentMainComponent implements OnInit {
         commentText: this.commentForm.value.commentText,
         user_id: this.commentUserId,
         picture: this.userPicture,
-        username: localStorage.getItem('username'), 
+        username: localStorage.getItem('username'),
         user_comment_id: localStorage.getItem('userid')
       };
-      console.log(commentData);
       this.commentService.createComment(commentData).subscribe(
         (response) => {
           this.comments.push(response);
+          this.toastr.success('แสดงความคิดเห็นสำเร็จ', 'Success');
           this.commentForm.reset();
         },
         (error) => {
@@ -91,15 +98,24 @@ export class CommentMainComponent implements OnInit {
     );
   }
 
-  deleteComment(commentId: string, index: number): void {
-    this.commentService.deleteComment(commentId).subscribe(
-      (response) => {
-        this.comments.splice(index, 1); // Remove comment from array after successful deletion
-        alert("Remove Success");
-      },
-      (error) => {
-        console.error('Error deleting comment:', error);
-      }
-    );
+  openDeleteModal(commentId: string, index: number): void {
+    this.commentToDeleteId = commentId;
+    this.commentIndexToDelete = index;
+    this.modals.show();
+  }
+
+  confirmDelete(): void {
+    if (this.commentToDeleteId) {
+      this.commentService.deleteComment(this.commentToDeleteId).subscribe(
+        (response) => {
+          this.comments.splice(this.commentIndexToDelete, 1); // Remove comment from array
+          this.modals.hide();
+          this.toastr.error('ลบความคิดเห็นสำเร็จ', 'Success');
+        },
+        (error) => {
+          console.error('Error deleting comment:', error);
+        }
+      );
+    }
   }
 }
