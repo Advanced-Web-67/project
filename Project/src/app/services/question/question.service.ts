@@ -34,10 +34,8 @@ export class QuestionService {
     return this.http.get<{ questions: any[] }>(`${this.apiUrl}/byUser/${user_id}`);
   }
 
-
-
   filterQuestions(tag: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/questions/filter?tag=${tag}`);
+    return this.http.get<any[]>(`${this.apiUrl}/questions/filter?tag=${tag}`);
   }
 
   updateQuestion(id: string, questionData: any): Observable<any> {
