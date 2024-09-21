@@ -5,6 +5,22 @@
       <h1 style="font-family: 'MyCustomFont'; font-size: 56px;">{{ question.title }}</h1>
       <p style=" font-size: 28px;">ถามเมื่อ {{ question.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
       <hr class="hr" />
+
+      <p>{{ question.body }}</p>
+      <div *ngIf="question.image">
+        <img
+          [src]="question.image"
+          alt="Question Image"
+          style="max-width: 100%; height: auto; margin-top: 10px"
+          loading="lazy"
+        />
+      </div>
+      <p class="ml-auto">ถามโดย {{ username }}</p>
+      <div class="card-body">
+        <div *ngIf="answers.length === 0">
+          <h5>No answers yet. Be the first to answer!</h5>
+        </div>
+
       <p style=" font-size: 28px;">{{ question.body }}</p>
     </div>
   </div>
@@ -15,6 +31,7 @@
       <h2 style=" font-family: 'MyCustomFont';font-size: 48px;">คำตอบทั้งหมด</h2>
       <div *ngIf="answers.length === 0">
         <p style="font-size: 28px;">ยังไม่มีคำตอบ. คุณก็สามารถเป็นคนตอบคนแรกได้!</p>
+
       </div>
       <div *ngFor="let answer of answers" class="card mt-3">
         <div class="card-body">
