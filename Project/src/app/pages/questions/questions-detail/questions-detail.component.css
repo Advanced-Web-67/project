@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/assets/fonts/THSarabun.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .container-detail {
     margin-top: 20px;
     display: flex;
@@ -23,7 +30,7 @@
 }
 
 .btn-submit {
-    background-color: #007bff;
+    background-color: #FF8A08;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -32,7 +39,7 @@
   }
   
   .btn-submit:hover {
-    background-color: #0056b3;
+    background-color: #FF6500;
   }
   
   .btn-submit:focus {

@@ -10,12 +10,18 @@
 .noneSelectQuestion1 {
     font-size: 0.9vw;
     width: 30px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .noneSelectQuestion2 {
     align-content: center;
     font-size: 1.4vw;
     transition: 0.2s;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .noneSelectQuestion3 {
@@ -23,6 +29,9 @@
     align-content: center;
     font-size: 1.2vw;
     transition: 0.2s;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .noneSelectQuestion4 {
@@ -30,11 +39,40 @@
     color: rgb(109, 106, 106);
     align-content: center;
     transition: 0.2s;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+.noneSelectQuestion5 {
+    font-size: 1.3vw;
+    color: rgb(150, 150, 150);
+    align-content: center;
+    transition: 0.2s;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.fa-edit {
+    background-color: rgb(255, 198, 40); color: #333333; border: none; margin: 5px; padding: 3px; width: 1.5rem; height: 1.5rem; border-radius: 0.3rem;font-size: 1rem;transition: 0.1s;
+}
+.fa-trash {
+    background-color: rgb(255, 94, 82); color: #333333; border: none; margin: 5px; padding: 3px; width: 1.5rem; height: 1.5rem; border-radius: 0.3rem;font-size: 1rem;transition: 0.1s;
+}
+.fa-edit:hover {
+    background-color: #d89c1a;
+    scale: 0.95;
+}
+.fa-trash:hover {
+    scale: 0.95;
+    background-color: #da4242;
+}
+
+
 
 .toppic {
     min-height: 97vh;
-    width: 18%;
+    width: 18vw;
     padding-left: 2%;
     margin-top: 2vw;
     display: flex;
@@ -161,16 +199,19 @@
         font-size: 1.4vw;
     }
     .noneSelectQuestion1 {
-        font-size: 1.5vw;
+        font-size: 1.2vw;
     }
     .noneSelectQuestion2 {
-        font-size: 2.4vw;
+        font-size: 2.3vw;
     }
     .noneSelectQuestion3 {
-        font-size: 1.7vw;
+        font-size: 1.5vw;
     }
     .noneSelectQuestion4 {
-        font-size: 1.4vw;
+        font-size: 1.2vw;
+    }
+    .noneSelectQuestion5 {
+        font-size: 1.2vw;
     }
 }
 
@@ -215,7 +256,7 @@
     .noneSelectQuestion {
         font-size: 10vw;
     }
-    .checkBoxNone,
+    
     .checkedBox {
         width: 3.8vw;
         height: 3.8vw;
@@ -230,6 +271,9 @@
         font-size: 3vw;
     }
     .noneSelectQuestion4 {
+        font-size: 2.4vw;
+    }
+    .noneSelectQuestion5 {
         font-size: 2.4vw;
     }
 }
