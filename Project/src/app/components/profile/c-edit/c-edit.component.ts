@@ -86,6 +86,12 @@ export class CEditComponent implements OnInit{
   this.imageService.changeUsername(newUsername);  // Send updated username to the service
   }
 
+  onEmailChange(event: any) {
+    const newEmail = event.target.value;
+  this.profileForm.get('email')?.setValue(newEmail);  // Update form control value
+  this.imageService.changeEmail(newEmail);  // Send updated username to the service
+  }
+
   openModal() {
     this.modals.show();
   }

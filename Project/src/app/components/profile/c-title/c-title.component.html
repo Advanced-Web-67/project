@@ -4,6 +4,9 @@
         <div>
             {{displayName }}
         </div>
+        <div>
+            {{displayEmail }}
+        </div>
         <div class="button-layout">
             <button class="btn button-to-my-questions" routerLink="/myQuestions" *ngIf="useridfromparant === tempuserid">คำถามของฉัน</button>
             <button class="btn button" routerLink="/profile/edit" *ngIf="useridfromparant === tempuserid">แก้ไขข้อมูล</button>

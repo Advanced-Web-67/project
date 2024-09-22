@@ -12,6 +12,9 @@ export class ImageService {
   private UsernameSource = new BehaviorSubject<string>('');  // Observable for Display Name
   currentUsername = this.UsernameSource.asObservable();
 
+  private EmailSource = new BehaviorSubject<string>('');  // Observable for Display Email
+  currentEmail = this.EmailSource.asObservable();
+
   constructor() { }
 
   // Set image
@@ -22,5 +25,10 @@ export class ImageService {
   // Set username
   changeUsername(username: string) {
     this.UsernameSource.next(username);
+  }
+
+  // Set email
+  changeEmail(emailname: string) {
+    this.EmailSource.next(emailname);
   }
 }

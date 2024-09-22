@@ -41,7 +41,7 @@
                 <h4 class="title">ข้อมูลส่วนตัว</h4>
                 <div class="form-group email mt-3">
                     <label for="private-email">อีเมล (Email)</label>
-                    <input type="text" class="form-control" id="email" formControlName="email">
+                    <input type="text" class="form-control" id="email" formControlName="email" (input)="onEmailChange($event)">
                     <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched">
                       <small class="text-danger">อีเมลไม่ถูกต้อง</small>
                     </div>
