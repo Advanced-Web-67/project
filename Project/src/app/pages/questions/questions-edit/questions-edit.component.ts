@@ -71,7 +71,7 @@ export class QuestionsEditComponent implements OnInit {
       this.questionService.updateQuestion(this.questionId, this.editQuestionForm.value).subscribe(
         response => {
           this.toastr.success('Updated successfully!', 'Success');
-          this.router.navigate(['/questions']); // Redirect after successful update
+          this.router.navigate(['/myQuestions']); // Redirect after successful update
         },
         error => {
           this.toastr.error('Error updating question', 'Error');

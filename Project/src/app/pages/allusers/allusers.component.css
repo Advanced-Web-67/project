@@ -94,6 +94,13 @@
   }
 }
 
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/assets/fonts/THSarabun.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @media (max-width: 576px) {
   .user-grid {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Adjust for small screens */

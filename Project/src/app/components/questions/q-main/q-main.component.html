@@ -63,7 +63,7 @@
       <div *ngFor="let question of filteredQuestions" class="card big-card mb-3" style="border-radius: 10px">
         <div class="card-body" style="border-radius: 10px">
           <h1>
-            <a [routerLink]="['/questions', question._id]" class="topic-link" style="color: #ff6500;font-family: MyCustomFont; font-size: 48;">{{ question.title }}</a>
+            <a [routerLink]="['/questions', question._id]" class="topic-link">{{ question.title }}</a>
           </h1>
           <p>{{ question.body | slice : 0 : 200 }}{{ question.body.length > 200 ? "..." : "" }}</p>
         </div>

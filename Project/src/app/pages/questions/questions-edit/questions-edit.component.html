@@ -1,9 +1,9 @@
 <div class="question-create-container">
-    <h2 style="font-family: 'Sarabun';">แก้ไขคำถาม</h2>
+    <h2 style="font-family: 'Sarabun'; margin-bottom: 6vh;">แก้ไขคำถาม</h2>
     <form [formGroup]="editQuestionForm" (ngSubmit)="onSubmit()">
       <!-- หัวข้อคำถาม -->
       <div class="form-group">
-        <label for="title">หัวข้อคำถาม:</label>
+        <label for="title" style="color: #FF6500;">หัวข้อคำถาม:</label>
         <input id="title" formControlName="title" type="text" class="form-control" placeholder="ตั้งคำถามให้ชัดเจนและกระชับ" required>
         <div *ngIf="editQuestionForm.get('title')?.invalid && editQuestionForm.get('title')?.touched" class="error">
           หัวข้อคำถามต้องมีความยาวอย่างน้อย 10 ตัวอักษร
@@ -12,7 +12,7 @@
   
       <!-- คำอธิบายคำถาม (body) -->
       <div class="form-group">
-        <label for="body">คำอธิบาย:</label>
+        <label for="body"style="color: #FF6500;">คำอธิบาย:</label>
         <textarea id="body" formControlName="body" rows="6" class="form-control" placeholder="อธิบายคำถามของคุณโดยละเอียด" required></textarea>
         <div *ngIf="editQuestionForm.get('body')?.invalid && editQuestionForm.get('body')?.touched" class="error">
           คำอธิบายต้องมีความยาวอย่างน้อย 30 ตัวอักษร
@@ -21,7 +21,7 @@
   
       <!-- Show existing image -->
       <div class="mb-3">
-        <label>รูปภาพปัจจุบัน:</label>
+        <label style="color: #7a7a7a;">รูปภาพปัจจุบัน</label>
         <div *ngIf="existingImage">
           <img [src]="existingImage" alt="Existing Image" style="max-width: 100%; height: auto;"/>
         </div>
@@ -29,13 +29,13 @@
   
       <!-- Upload New Image -->
       <div class="mb-3">
-        <label for="image" class="form-label">เลือกรูปภาพใหม่:</label>
+        <label for="image" class="form-label" style="color: #FF6500;">เลือกรูปภาพใหม่:</label>
         <input style="height: 50px;" class="form-control" type="file" id="image" (change)="onFileChange($event)">
       </div>
   
       <!-- แท็ก -->
       <div class="form-group">
-        <label for="tags">แท็ก:</label>
+        <label for="tags" style="color: #FF6500;">แท็ก:</label>
         <select style="height: 50px;" id="tags" formControlName="tags" class="form-control" required>
           <option value="">เลือกแท็ก</option>
           <option value="สำนักวิชาวิทยาศาสตร์" [selected]="editQuestionForm.get('tags')?.value === 'สำนักวิชาวิทยาศาสตร์'">สำนักวิชาวิทยาศาสตร์</option>
@@ -47,7 +47,7 @@
           <option value="สำนักวิชาทันตแพทยศาสตร์" [selected]="editQuestionForm.get('tags')?.value === 'สำนักวิชาทันตแพทยศาสตร์'">สำนักวิชาทันตแพทยศาสตร์</option>
           <option value="สำนักวิชาสาธารณสุขศาสตร์" [selected]="editQuestionForm.get('tags')?.value === 'สำนักวิชาสาธารณสุขศาสตร์'">สำนักวิชาสาธารณสุขศาสตร์</option>
           <option value="สำนักวิชาศาสตร์และศิลป์ดิจิทัล" [selected]="editQuestionForm.get('tags')?.value === 'สำนักวิชาศาสตร์และศิลป์ดิจิทัล'">สำนักวิชาศาสตร์และศิลป์ดิจิทัล</option>
-          <option value="อิ่นๆ" [selected]="editQuestionForm.get('tags')?.value === 'อิ่นๆ'">อื่นๆ</option>
+          <option value="อื่นๆ" [selected]="editQuestionForm.get('tags')?.value === 'อื่นๆ'">อื่นๆ</option>
         </select>
         <div *ngIf="editQuestionForm.get('tags')?.invalid && editQuestionForm.get('tags')?.touched" class="error">
           โปรดเลือกแท็กสำหรับคำถามของคุณ

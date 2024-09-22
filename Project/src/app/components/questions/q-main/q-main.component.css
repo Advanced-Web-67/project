@@ -3,10 +3,10 @@
   src: url('/assets/fonts/THSarabun.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
-
+} 
 
 .layout-question {
+
     display: flex;
     flex-direction: column;
   }
@@ -58,7 +58,7 @@
 
   
 .container-qmain{
-  height: 100vh;
+  height: fit-content;
   z-index: 200;
   font-family: 'MyCustomFont';
   font-size: 24px;
@@ -67,6 +67,8 @@
 .topic-link {
   color: #007bff; /* สีฟ้า */
   text-decoration: none; /* ลบเส้นขีดใต้ลิงก์ */
+  color: #ff6500;font-family: MyCustomFont; 
+  font-size: 3.2rem;
 }
 
 .topic-link:hover {
@@ -83,3 +85,8 @@
   background-color: #f0f0f0; /* เปลี่ยนสีพื้นหลังเมื่อ hover */
 }
 
+@media screen and (max-width: 600px){
+  .topic-link {
+    font-size: 2rem;
+  }
+}

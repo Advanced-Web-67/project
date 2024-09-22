@@ -1,13 +1,18 @@
 <div class="container-fluid layout-title">
     <div class="profile-display">
-        <img [src]="image" width="80vh" height="80vh" alt="Uploaded Image">
-        <div>
-            {{displayName }}
+        <div class="profileInfo">
+            <img [src]="image" width="80vh" height="80vh" alt="Uploaded Image">
+            <div class="userandemail">
+                <div style="font-size: 1.6rem; color: rgb(52, 119, 177);margin-bottom: 0.3vw;">
+                    {{displayName }}
+                </div>
+                <div style="font-size: 1.1rem; color: rgb(128, 126, 126);">
+                    {{displayEmail }}
+                </div>
+            </div>
         </div>
-        <div>
-            {{displayEmail }}
-        </div>
-        <div class="button-layout">
+        
+        <div class="button-layout" >
             <button class="btn button-to-my-questions" routerLink="/myQuestions" *ngIf="useridfromparant === tempuserid">คำถามของฉัน</button>
             <button class="btn button" routerLink="/profile/edit" *ngIf="useridfromparant === tempuserid">แก้ไขข้อมูล</button>
         </div>

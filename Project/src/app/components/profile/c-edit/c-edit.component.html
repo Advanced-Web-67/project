@@ -1,85 +1,91 @@
 <div class="container-fluid mt-4 layout-edit">
-    <form [formGroup]="profileForm" (ngSubmit)="openModal()">
-        <div class="row align-items-center layout-edit-text">
-            <div class="col-md-6">
-                <h2 class="edit-text">แก้ไขข้อมูลของคุณ</h2>
+  <form [formGroup]="profileForm" (ngSubmit)="openModal()">
+    <div class="row align-items-center layout-edit-text">
+      <div class="col-md-6">
+        <h2 class="edit-text">แก้ไขข้อมูลของคุณ</h2>
+      </div>
+      <div class="col-md-6 d-flex justify-content-end">
+        <button type="button" class="btn button-edit btn-lg" (click)="openModal()">ยืนยัน</button>
+      </div>
+    </div>
+    <div class="row layout-data mt-3">
+      <!-- Public Data Section -->
+      <div class="col-md-6">
+        <div class="card public-data p-3">
+          <div class="layout-picture">
+            <div>
+              <h4 class="title ">ข้อมูลที่แสดง</h4>
+              <div class="form-group image-input mt-3">
+                <label for="public-image" style="color: rgb(228, 102, 0);">เลือกรูปภาพ</label>
+                <input type="file" class="form-control-file" id="picture" (change)="onImageSelected($event)">
+              </div>
             </div>
-            <div class="col-md-6 d-flex justify-content-end">
-                <button type="button" class="btn button-edit btn-lg" (click)="openModal()">ยืนยัน</button>
+            <div *ngIf="profileForm.get('picture')?.value">
+              <img [src]="profileForm.get('picture')?.value" alt="Profile Image" class="img-fluid mt-3" width="100"
+                height="100">
             </div>
+          </div>
+          <div class="form-group username mt-1">
+            <label for="public-username" style="color: rgb(228, 102, 0);">ชื่อผู้ใช้งาน</label>
+            <input type="text" class="form-control" id="public-username" formControlName="username"
+              (input)="onUsernameChange($event)">
+          </div>
+          <div class="form-group about mt-1" style="margin-bottom: 0px;">
+            <label for="public-about" style="color: rgb(228, 102, 0);">เกี่ยวกับตัวเอง</label>
+            <textarea class="form-control" id="public-about" style="height: 10.5vw; resize: none;"
+              formControlName="about"></textarea>
+          </div>
         </div>
-        <div class="row layout-data mt-3">
-            <!-- Public Data Section -->
-            <div class="col-md-6">
-                <div class="card public-data p-3">
-                  <div class="layout-picture">
-                    <div>
-                      <h4 class="title ">ข้อมูลที่แสดง</h4>
-                      <div class="form-group image-input mt-3">
-                          <label for="public-image">เลือกรูปภาพ</label>
-                          <input type="file" class="form-control-file" id="picture" (change)="onImageSelected($event)">
-                      </div>
-                    </div>
-                    <div *ngIf="profileForm.get('picture')?.value">
-                      <img [src]="profileForm.get('picture')?.value" alt="Profile Image" class="img-fluid mt-3" width="100"height="100">
-                    </div>
-                  </div>
-                <div class="form-group username mt-1">
-                    <label for="public-username">ชื่อผู้ใช้งาน</label>
-                    <input type="text" class="form-control" id="public-username" formControlName="username" (input)="onUsernameChange($event)">
-                </div>
-                <div class="form-group about mt-1">
-                    <label for="public-about">เกี่ยวกับตัวเอง</label>
-                    <textarea class="form-control" id="public-about" style="height: 10.5vw; resize: none;" formControlName="about"></textarea>
-                </div>
-                </div>
+      </div>
+
+      <!-- Private Data Section -->
+      <div class="col-md-6">
+        <div class="card private-data p-3">
+          <h4 class="title">ข้อมูลส่วนตัว</h4>
+          <div class="form-group email mt-3">
+            <label for="private-email" style="color: rgb(0, 137, 228);">อีเมล (Email)</label>
+            <input type="text" class="form-control" id="email" formControlName="email" (input)="onEmailChange($event)">
+            <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched">
+              <small class="text-danger">อีเมลไม่ถูกต้อง</small>
             </div>
-        
-            <!-- Private Data Section -->
-            <div class="col-md-6">
-                <div class="card private-data p-3">
-                <h4 class="title">ข้อมูลส่วนตัว</h4>
-                <div class="form-group email mt-3">
-                    <label for="private-email">อีเมล (Email)</label>
-                    <input type="text" class="form-control" id="email" formControlName="email" (input)="onEmailChange($event)">
-                    <div *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched">
-                      <small class="text-danger">อีเมลไม่ถูกต้อง</small>
-                    </div>
-                </div>
-                <div class="form-group password mt-3">
-                    <label for="private-password">รหัสผ่านใหม่ (New Password)</label>
-                    <input type="password" class="form-control" id="newpassword" formControlName="newpassword">
-                    <div *ngIf="profileForm.get('newpassword')?.invalid && profileForm.get('newpassword')?.touched">
-                      <small class="text-danger">รหัสผ่านต้องมี 6 ตัวขึ้นไป</small>
-                    </div>
-                    <label for="private-confirm">ยืนยันรหัสผ่านใหม่ (Confrim New Password)</label>
-                    <input type="password" class="form-control" id="confirm" formControlName="confirm">
-                    <div *ngIf="(profileForm.get('confirm')?.errors?.['mismatch'] && profileForm.get('confirm')?.touched)">
-                      <small class="text-danger">รหัสผ่านไม่ตรงกัน</small>
-                    </div>
-                </div>
-                </div>
+          </div>
+          <div class="form-group password mt-3">
+            <label for="private-password" style="color: rgb(0, 137, 228);">รหัสผ่านใหม่ (New Password)</label>
+            <div class="psw-form">
+              <input type="password" class="form-control" id="newpassword" formControlName="newpassword">
+              <div *ngIf="profileForm.get('newpassword')?.invalid && profileForm.get('newpassword')?.touched">
+                <small class="text-danger">รหัสผ่านต้องมี 6 ตัวขึ้นไป</small>
+              </div>
             </div>
-        </div>
-        <!-- Modal HTML -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="customModal">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Confirmation</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>ต้องการแก้ไขข้อมูลของคุณใช่หรือไม่</p>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary" (click)="confirm()" data-dismiss="modal">ใช่</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+            <label for="private-confirm" style="color: rgb(0, 137, 228);">ยืนยันรหัสผ่านใหม่ (Confrim New
+              Password)</label>
+            <input type="password" class="form-control" id="confirm" formControlName="confirm">
+            <div *ngIf="(profileForm.get('confirm')?.errors?.['mismatch'] && profileForm.get('confirm')?.touched)">
+              <small class="text-danger">รหัสผ่านไม่ตรงกัน</small>
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
+    <!-- Modal HTML -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="customModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirmation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>ต้องการแก้ไขข้อมูลของคุณใช่หรือไม่</p>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" (click)="confirm()" data-dismiss="modal">ใช่</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
