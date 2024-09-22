@@ -9,6 +9,9 @@
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+    -webkit-user-select: none;      
+    -ms-user-select: none;                
+    user-select: none; 
 }
 
 .card-detail {
@@ -19,7 +22,7 @@
     margin-bottom: 20px;
 }
 
-.card-body h1 {
+/* .card-body h1 {
     font-size: 24px;
     color: #333;
 }
@@ -27,7 +30,7 @@
 .card-body p {
     font-size: 16px;
     color: #555;
-}
+} */
 
 .btn-submit {
     background-color: #FF8A08;
@@ -50,4 +53,119 @@
   .modal-body{
     border-radius: 20px;
     height: 30vh;
+  }
+
+  .textTitle{
+    margin-top: 1.6rem;
+    font-family: 'MyCustomFont'; 
+    font-size: 4rem;
+    color: #ff8800;
+    line-height: 1.1;
+  }
+
+  .dateQ{
+    font-size: 1.8rem;
+    color: #8a8a8a;
+    
+  }
+
+  .bodyQ{
+    font-size: 3rem;
+    color: #000000;
+    line-height: 0.9;
+  }
+
+  .text-userAsk{
+    
+    display: flex;
+    color: #0080ff;
+    font-size: 2rem;
+    position: relative;
+    margin-top: 5vh;
+  }
+
+  .noAnswer{
+    color: #e66767;
+    font-size: 1rem;
+  }
+
+  .allAnswer{
+    font-family: 'MyCustomFont';font-size: 3rem;
+  }
+
+  .askQ{
+    font-family: 'MyCustomFont';font-size: 3rem;
+  }
+
+  .boxAsk{
+    display: flex;
+  }
+
+  .btn-submit{
+  
+    height: 1vh;
+    margin-left: 10px; 
+    display: table-cell; 
+    max-width: 600px; 
+    height: 100px; 
+    border-radius: 20px ;
+    font-size: 28px;
+  }
+
+  .boxAsk{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+
+  @media screen and (max-width:600px){
+    .textTitle{
+      margin-top: 1.6rem;
+      font-family: 'MyCustomFont'; 
+      font-size: 3rem;
+      color: #ff8800;
+      line-height: 1.1;
+    }
+  
+    .dateQ{
+      font-size: 1rem;
+      color: #8a8a8a;
+      
+    }
+  
+    .bodyQ{
+      font-size: 2rem;
+      color: #000000;
+      line-height: 0.9;
+    }
+  
+    .text-userAsk{
+      
+      display: flex;
+      color: #0080ff;
+      font-size: 1.7rem;
+      position: relative;
+      margin-top: 5vh;
+    }
+  
+    .noAnswer{
+      color: #e66767;
+      font-size: 0.7rem;
+    }
+  
+    .allAnswer{
+      font-family: 'MyCustomFont';font-size: 2rem;
+    }
+  
+    .askQ{
+      font-family: 'MyCustomFont';font-size: 2rem;
+    }
+    .boxAsk{
+      display: block;
+      justify-content: right;
+    }
+    .btn-submit{
+      margin-top: 3vh;
+      height: 10vh;
+    }
   }

@@ -79,11 +79,11 @@
         <div class="borderQuestions">
             <table class="table">
                 <tbody style="align-items: center; ">
-                    <tr class="questionsTable" *ngFor="let question of selectedSubject">
-                            <td class="noneSelectQuestion2">
+                    <tr class="questionsTable" *ngFor="let question of selectedSubject" >
+                            <td class="noneSelectQuestion2"[routerLink]="['/questions', question._id]">
                                 <p class="controlTextTitle">{{question.title}}</p>
                             </td>
-                            <td class="noneSelectQuestion3">{{question.tags}}</td>
+                            <td class="noneSelectQuestion3"[routerLink]="['/questions', question._id]">{{question.tags}}</td>
                             <td class="noneSelectQuestion5">
                                 <div class="editDeleteBTN">
                                     <button (click)="editQuestion(question._id)" class="fa fa-edit" ></button>

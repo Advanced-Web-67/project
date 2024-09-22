@@ -65,10 +65,12 @@
 }
 
 .topic-link {
-  color: #007bff; /* สีฟ้า */
+
   text-decoration: none; /* ลบเส้นขีดใต้ลิงก์ */
   color: #ff6500;font-family: MyCustomFont; 
   font-size: 3.2rem;
+  line-height: 0.01;
+  
 }
 
 .topic-link:hover {
