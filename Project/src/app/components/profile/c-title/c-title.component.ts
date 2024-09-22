@@ -14,6 +14,9 @@ export class CTitleComponent implements OnInit{
   private user_id: string | null = null;
   username: string = '';
 
+  email: string = '';
+  displayEmail: string = this.email;
+
   image: string | ArrayBuffer | null = '';  // Image to display
   defaultImage: string | ArrayBuffer | null = this.image;  // Default image URL
 
@@ -33,6 +36,9 @@ export class CTitleComponent implements OnInit{
     this.userdata.getUser(this.user_id).subscribe(user => {
       this.username = user.username;
       this.image = user.picture; // Assuming picture is stored as a base64 string
+      this.email = user.email;
+
+      this.displayEmail = user.email;
       this.defaultImage = user.picture;
       this.displayName = user.username;
     });
@@ -43,6 +49,10 @@ export class CTitleComponent implements OnInit{
     // Subscribe to display name observable
     this.imageService.currentUsername.subscribe(username => {
       this.displayName = username ? username : this.displayName;  // Default to 'Name' if no display name is provided
+    });
+    // Subscribe to display email observable
+    this.imageService.currentEmail.subscribe(emailname => {
+      this.displayEmail = emailname ? emailname : this.displayEmail;  // Default to 'Name' if no display name is provided
     });
   }
 
