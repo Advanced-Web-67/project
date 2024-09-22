@@ -1,20 +1,83 @@
 .btn-group {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.mb-4 {
+  padding: 25px;
+}
+.mb-44 {
+  padding: 25px;
+}
+.mb-45 {
+  padding: 25px;
+}
+
+.btn-info {
+  font-size: 2rem;
+}
+
+.btn-primary {
+  font-size: 2rem;
+}
+
+.btn-secondary {
+  font-size: 2rem;
+}
+.card-title{
+  font-family: MyCustomFont;
+  font-size: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 95%;
+  white-space: nowrap;  
   
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
+}
+.ml-3{
+  margin-bottom: 20px;
+}
+
+.card-text{
+  font-size: 2rem;
+}
+
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('/assets/fonts/THSarabun.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (max-width: 600px) {
+  .card-title{
+    font-family: MyCustomFont;
+    font-size: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 95%;
+    white-space: nowrap;  
   }
 
-  @font-face {
-    font-family: 'MyCustomFont';
-    src: url('/assets/fonts/THSarabun.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  .mb-3 {
+    padding: 0.1vw;
   }
-  
+
+  .mb-44{
+    padding: 0px;
+  }
+  .mb-45{
+    padding: 0px;
+  }
+
+  .card-text{
+    font-size: 1.7rem;
+  }
+}

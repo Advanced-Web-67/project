@@ -119,7 +119,9 @@
 }
 
 
-
+.spaceBetweenToppicAndQ{
+    width: 15vw;
+}
 
 .checkBoxNone {
     margin-top: 1vi;
@@ -212,7 +214,29 @@
     }
 }
 
-@media screen and (max-width: 600px), screen and (min-height: 1500px) {
+@media screen and (max-width: 830px){
+    .toppic{
+        padding-left: 0px;
+        margin-top: -1vw;
+    }
+    .spaceBetweenToppicAndQ{
+        width: 10vw;
+        
+    }
+    .filterDataBorder{
+        margin-top: 6vh;
+    }
+    .borderQuestions {
+        padding: 0px;    
+    }
+    .questionsTable {
+        height: 10vh;
+        width: 10vw;
+    }
+    
+}
+
+@media screen and (max-width: 600px){
     .toppic {
         min-height: 100px;
         width: 100%;
@@ -255,10 +279,7 @@
         font-size: 10vw;
     }
     
-    .checkedBox {
-        width: 3.8vw;
-        height: 3.8vw;
-    }
+    
     .noneSelectQuestion1 {
         font-size: 2.5vw;
     }
@@ -273,5 +294,18 @@
     }
     .boxButtonCheckBox {
         height: 6vw;
+    }
+    .controlTextTitle{
+        display: block;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 20vw;
+        white-space: nowrap; 
+        height: 6vw;  
+        margin-top: 1vw;
+        align-content: center;
     }
 }

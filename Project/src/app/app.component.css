@@ -8,6 +8,8 @@
     display: flex;
     width: 100%;
     background-color: #F6F7FC;
+    min-height: 100vh;
+    height: fit-content;
 
     
 }
