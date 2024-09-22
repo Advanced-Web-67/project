@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommentService } from '../../../services/profiles/comment/comment.service';
 import { UserdataService } from '../../../services/profiles/userdata/userdata.service';
 import { ToastrService } from 'ngx-toastr';
@@ -32,7 +32,8 @@ export class CommentMainComponent implements OnInit {
     private route: ActivatedRoute,
     private commentService: CommentService,
     private userService: UserdataService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.commentForm = this.fb.group({
       commentText: ['', [Validators.required, Validators.minLength(4)]]
@@ -66,6 +67,14 @@ export class CommentMainComponent implements OnInit {
   }
 
   onSubmit(): void {
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+      // ถ้าไม่มี token, นำทางไปที่หน้า login
+      this.router.navigate(['/login']);
+      return;
+    }
+
     if (this.commentForm.valid) {
       const commentData = {
         commentText: this.commentForm.value.commentText,
