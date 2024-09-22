@@ -17,8 +17,9 @@
 @media screen and (max-width:600px) {
     .webbg{
         display: block;
-        height: 12vw;
         min-width: 376px;
+        min-height: 100vh;
+        height: fit-content;
     }
     .content {
         width: 100%;
