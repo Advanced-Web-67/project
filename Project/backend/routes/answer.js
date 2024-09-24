@@ -34,10 +34,6 @@ router.get('/byQuestion/:question_id', async (req, res) => {
     // Find answers by question ID
     const answers = await Answer.find({ question_id }).populate('user_id', 'username'); // Populate user info if necessary
 
-    if (answers.length === 0) {
-      return res.status(404).json({ message: 'No answers found for this question' });
-    }
-
     res.status(200).json({ message: 'Answers retrieved successfully', answers });
   } catch (error) {
     console.error('Error retrieving answers:', error); // Log the error for debugging

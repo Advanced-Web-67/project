@@ -99,11 +99,6 @@ currentAnswerId!: string; // To hold the ID of the answer being edited
         // Ensure that answers is initialized correctly
         this.answers = response.answers || []; // Use an empty array if undefined
       },
-      (error) => {
-        // You can log the error or handle it as needed
-        console.error('Error loading answers:', error);
-        // No toastr error for missing answers
-      }
     );
   }
   onEditSubmit(): void {
