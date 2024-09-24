@@ -1,18 +1,23 @@
-<!-- Navbar ก่อน login -->
-<app-navbar *ngIf="!isLoggedIn && !isLoginPage && !isRegisterPage"></app-navbar>
-
-<!-- Navbar หลัง login -->
-<app-navbar-after-login *ngIf="isLoggedIn && !isLoginPage && !isRegisterPage"></app-navbar-after-login>
-
-<div class="webbg" *ngIf="!isLoginPage && !isRegisterPage">
-    <app-sidebar></app-sidebar>
-    <div class="content">
-        <router-outlet></router-outlet>
-    </div>
-</div>
-
-<!-- For login page -->
-<router-outlet *ngIf="isLoginPage"></router-outlet>
-
-<!-- For register page -->
-<router-outlet *ngIf="isRegisterPage"></router-outlet>
+<div [ngSwitch]="getNavbarState()">
+  
+    <!-- Navbar before login -->
+    <app-navbar *ngSwitchCase="'beforeLogin'"></app-navbar>
+  
+    <!-- Navbar after login -->
+    <app-navbar-after-login *ngSwitchCase="'afterLogin'"></app-navbar-after-login>
+  
+  </div>
+  
+  <div class="webbg" *ngIf="!isLoginPage && !isRegisterPage">
+      <app-sidebar></app-sidebar>
+      <div class="content">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+  
+  <!-- For login page -->
+  <router-outlet *ngIf="isLoginPage"></router-outlet>
+  
+  <!-- For register page -->
+  <router-outlet *ngIf="isRegisterPage"></router-outlet>
+  
