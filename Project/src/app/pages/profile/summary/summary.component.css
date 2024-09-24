@@ -1,0 +1,38 @@
+/* Keyframes for sliding in from the top */
+@keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Keyframes for sliding in from the bottom */
+  @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Animation classes */
+  .slide-in-top {
+    animation: slideInFromTop 0.5s ease forwards; /* Change duration as needed */
+  }
+  
+  .slide-in-bottom {
+    animation: slideInFromBottom 0.5s ease forwards; /* Change duration as needed */
+  }
+  
+  /* Optional: hide elements initially */
+  .hide {
+    opacity: 0; /* Ensures they are hidden before animation starts */
+  }
+  

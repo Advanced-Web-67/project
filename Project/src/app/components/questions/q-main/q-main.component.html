@@ -59,7 +59,7 @@
 
     <!-- Display Questions -->
     <div *ngIf="filteredQuestions.length > 0">
-      <div *ngFor="let question of filteredQuestions" class="card big-card mb-3" style="border-radius: 10px">
+      <div *ngFor="let question of filteredQuestions" class="card big-card mb-3 slide-in-bottom" style="border-radius: 10px">
         <div class="card-body" style="border-radius: 10px">
           <h1>
             <a [routerLink]="['/questions', question._id]" class="topic-link" >{{ question.title }}</a>

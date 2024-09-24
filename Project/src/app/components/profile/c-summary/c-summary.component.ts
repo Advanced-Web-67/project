@@ -16,13 +16,13 @@ export class CSummaryComponent implements OnInit{
   constructor(private qadata: QadataService){} 
   ngOnInit(): void {
       this.status = false;
-      this.qadata.getQuestions().subscribe(data => {
-        this.questions = data;
-      });
+      // this.qadata.getQuestions().subscribe(data => {
+      //   this.questions = data;
+      // });
   
-      this.qadata.getAnswers().subscribe(data => {
-        this.answers = data;
-      });
+      // this.qadata.getAnswers().subscribe(data => {
+      //   this.answers = data;
+      // });
   }
 
   ngShowMore() {

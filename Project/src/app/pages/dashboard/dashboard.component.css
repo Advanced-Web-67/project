@@ -95,7 +95,6 @@ li {
 
 .slide-in {
   opacity: 0;
-  animation: slideIn 1s forwards ease-out;
+  animation: slideIn 0.5s forwards ease-out;
   /* Adjust this as needed */
-  animation-delay: 0.5s; /* Optional: delay to make it feel smoother */
 }
