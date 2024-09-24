@@ -1,5 +1,4 @@
 # project
--npm install express mongoose\n
 ```bash
 -npm install -g nodemon
 ```
