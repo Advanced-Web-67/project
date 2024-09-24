@@ -37,12 +37,14 @@
             <div class="d-flex justify-content-between align-items-center">
               <p class="text-muted mb-0" style="font-size: 24px;">Answered by {{ answer.user_id.username }}</p>
               <div *ngIf="answer.user_id._id === user_id">
-                <button (click)="openEditModal(answer)" class="btn btn-link">
-                  <i class="far fa-edit" style="font-size: 24px; color: orange"></i>
-                </button>
-                <button class="btn btn-link" (click)="deleteAnswer(answer._id)">
-                  <i class="far fa-trash-alt" style="font-size: 24px; color: orange"></i>
-                </button>
+                <div class="responRight">
+                  <button (click)="openEditModal(answer)" class="btn btn-link">
+                    <i class="far fa-edit" style="font-size: 24px; color: orange"></i>
+                  </button>
+                  <button class="btn btn-link" (click)="deleteAnswer(answer._id)">
+                    <i class="far fa-trash-alt" style="font-size: 24px; color: orange"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -102,7 +104,7 @@
           </form>
         </div>
       </div>
-    </div>
+    
   </div>
 
 
