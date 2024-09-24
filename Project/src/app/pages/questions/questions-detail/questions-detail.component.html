@@ -1,41 +1,49 @@
 <div class="container-detail">
   <!-- Card ที่ 1: คำถาม -->
   <div *ngIf="question" class="card-detail card mb-4"
-    style="position: relative; border-radius: 10px; font-family: 'MyCustomFont';">
+    style="position: relative; border-radius: 10px; font-family: 'MyCustomFont'">
     <div class="card-body">
       <p class="textTitle">{{ question.title }}</p>
-      <p class="dateQ">ถามเมื่อ {{ question.createdAt | date:'dd/MM/yyyy HH:mm' }}</p>
+      <p class="dateQ">
+        ถามเมื่อ {{ question.createdAt | date : "dd/MM/yyyy HH:mm" }}
+      </p>
       <hr class="hr" />
-      <p class="bodyQ">{{ question.body }}</p>
+      <p class="bodyQ" style=" font-family: 'MyCustomFont'; font-size: 36px;">{{ question.body }}</p>
       <div *ngIf="question.image">
-        <img [src]="question.image" alt="Question Image"
-          style="max-width: 100%; height: auto; margin-top: 10px; min-width: 13.5vw; border-radius: 0.4rem;" loading="lazy" />
+        <img [src]="question.image" alt="Question Image" style="
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            min-width: 13.5vw;
+            border-radius: 0.4rem;
+          " loading="lazy" />
       </div>
-      <div style="display: flex;">
-        <div class="text-userAsk" style="color: rgb(71, 71, 71);margin-right: 10px;">ถามโดย</div>
-        <div class="text-userAsk" [routerLink]="['/user/look/', user_question_id]" style="cursor: pointer;">{{ username }}</div>
-      </div>
-      <div class="card-body">
-        <div *ngIf="answers.length === 0">
-          <h5 class="noAnswer">No answers yet. Be the first to answer!</h5>
+      <div style="display: flex">
+        <div class="text-userAsk" style="color: rgb(71, 71, 71); margin-right: 10px">
+          ถามโดย
         </div>
-
+        <div class="text-userAsk" [routerLink]="['/user/look/', user_question_id]" style="cursor: pointer">
+          {{ username }}
+        </div>
       </div>
     </div>
 
     <!-- Card ที่ 2: คำตอบ -->
-    <div class="card-answer card mb-4" style="border-radius: 10px;  font-family: 'MyCustomFont';">
+    <div class="card-answer card mb-4" style="border-radius: 10px; font-family: 'MyCustomFont'">
       <div class="card-body">
-        <h2 class="allAnswer"style="color: rgb(0, 0, 0);">คำตอบทั้งหมด</h2>
+        <h2 class="allAnswer" style="color: rgb(255, 123, 0)">คำตอบทั้งหมด</h2>
         <div *ngIf="answers.length === 0">
-          <p style="font-size: 28px; color: #5e5e5e;">ยังไม่มีคำตอบ. คุณก็สามารถเป็นคนตอบคนแรกได้!</p>
-
+          <p style="font-size: 28px; color: #5e5e5e">
+            ยังไม่มีคำตอบ. คุณก็สามารถเป็นคนตอบคนแรกได้!
+          </p>
         </div>
         <div *ngFor="let answer of answers" class="card mt-3">
           <div class="card-body">
-            <p style="font-size: 28px;">{{ answer.answertext }}</p>
+            <p style="font-size: 28px">{{ answer.answertext }}</p>
             <div class="d-flex justify-content-between align-items-center">
-              <p class="text-muted mb-0" style="font-size: 24px;">Answered by {{ answer.user_id.username }}</p>
+              <p class="text-muted mb-0" style="font-size: 24px">
+                Answered by {{ answer.user_id.username }}
+              </p>
               <div *ngIf="answer.user_id._id === user_id">
                 <div class="responRight">
                   <button (click)="openEditModal(answer)" class="btn btn-link">
@@ -53,38 +61,41 @@
     </div>
 
     <!-- Card ที่ 3: ช่องเพิ่มคำตอบ -->
-    <div class="card mb-4" style="border-radius: 10px;  font-family: 'MyCustomFont';">
+    <div class="card mb-4" style="border-radius: 10px; font-family: 'MyCustomFont'">
       <div class="card-body">
-        <h2 class="askQ"style=" color: rgb(255, 123, 0);">เพิ่มคำตอบของคุณ</h2>
+        <h2 class="askQ" style="color: rgb(255, 123, 0)">เพิ่มคำตอบของคุณ</h2>
         <form [formGroup]="createAnswerForm" (ngSubmit)="onSubmit()" style="position: relative">
           <div class="boxAsk">
             <textarea class="form-control" formControlName="answertext"
-              placeholder="โปรดเพิ่มเฉพาะสิ่งที่เป็นประโยชน์ต่อสังคม!!!"
-              style="flex: 1; height: 100px; border-radius: 20px; font-size: 28px;"></textarea>
-              
-              <div *ngIf="createAnswerForm.get('answertext')?.invalid && createAnswerForm.get('answertext')?.touched"
-                class="text-danger">
-                Answer is required and must be at least 10 characters long.
-              </div>
+              placeholder="โปรดเพิ่มเฉพาะสิ่งที่เป็นประโยชน์ต่อสังคม!!!" style="
+                flex: 1;
+                height: 100px;
+                border-radius: 20px;
+                font-size: 28px;
+              "></textarea>
 
-            <button type="submit" class="btn-submit"
-              [disabled]="createAnswerForm.invalid">
+            <button type="submit" class="btn-submit" [disabled]="createAnswerForm.invalid" style="margin-top: 10px">
               เพิ่มคำตอบ
             </button>
-            
+          </div>
+          <!-- ข้อความแจ้งเตือนแสดงใต้ textarea -->
+          <div *ngIf="
+              createAnswerForm.get('answertext')?.invalid &&
+              createAnswerForm.get('answertext')?.touched
+            " class="text-danger mt-2" style="font-family: MyCustomFont; font-size: 20px">
+            Answer is required and must be at least 10 characters long.
           </div>
         </form>
       </div>
     </div>
   </div>
 
-
   <!-- Edit Answer Modal -->
-  <div *ngIf="showEditModal" class="modal fade show" style="display: block;">
+  <div *ngIf="showEditModal" class="modal fade show" style="display: block">
     <div class="modal-dialog">
-      <div class="modal-content" style="box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); border-radius: 10px;">
+      <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" style="font-family: MyCustomFont;">แก้ไขคำตอบ</h5>
+          <h5 class="modal-title">แก้ไขคำตอบ</h5>
           <button type="button" class="close" (click)="showEditModal = false">
             <span>&times;</span>
           </button>
@@ -95,55 +106,18 @@
               <textarea formControlName="answertext" class="form-control" placeholder="Edit your answer here..."
                 style="height: 20vh;"></textarea>
               <div *ngIf="editAnswerForm.get('answertext')?.invalid && editAnswerForm.get('answertext')?.touched"
-                class="text-danger" style="font-family: MyCustomFont;">
+                class="text-danger">
                 Answer is required and must be at least 10 characters long.
               </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="background-color: #FF6500;border-color: white;font-family: MyCustomFont; font-size: 24px;" 
+            <button type="submit" class="btn btn-primary" style="background-color: #FF6500;border-color: white;;"
               [disabled]="editAnswerForm.invalid">บันทึกข้อมูล</button>
           </form>
         </div>
       </div>
-    
-  </div>
+    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- <form
+    <!-- <form
         [formGroup]="createAnswerForm"
         (ngSubmit)="onSubmit()"
         style="position: relative"
@@ -203,3 +177,5 @@
   <div *ngIf="!question.answers?.length">
     <p>No answers yet. Be the first to answer!</p>
   </div> -->
+  </div>
+</div>
