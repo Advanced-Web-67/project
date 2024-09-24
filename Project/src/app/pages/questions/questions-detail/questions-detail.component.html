@@ -37,12 +37,14 @@
             <div class="d-flex justify-content-between align-items-center">
               <p class="text-muted mb-0" style="font-size: 24px;">Answered by {{ answer.user_id.username }}</p>
               <div *ngIf="answer.user_id._id === user_id">
-                <button (click)="openEditModal(answer)" class="btn btn-link">
-                  <i class="far fa-edit" style="font-size: 24px; color: orange"></i>
-                </button>
-                <button class="btn btn-link" (click)="deleteAnswer(answer._id)">
-                  <i class="far fa-trash-alt" style="font-size: 24px; color: orange"></i>
-                </button>
+                <div class="responRight">
+                  <button (click)="openEditModal(answer)" class="btn btn-link">
+                    <i class="far fa-edit" style="font-size: 24px; color: orange"></i>
+                  </button>
+                  <button class="btn btn-link" (click)="deleteAnswer(answer._id)">
+                    <i class="far fa-trash-alt" style="font-size: 24px; color: orange"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -79,30 +81,32 @@
 
   <!-- Edit Answer Modal -->
   <div *ngIf="showEditModal" class="modal fade show" style="display: block;">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">แก้ไขคำตอบ</h5>
-          <button type="button" class="close" (click)="showEditModal = false">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form [formGroup]="editAnswerForm" (ngSubmit)="onEditSubmit()">
-            <div class="form-group">
-              <textarea formControlName="answertext" class="form-control" placeholder="Edit your answer here..."
-                style="height: 20vh;"></textarea>
-              <div *ngIf="editAnswerForm.get('answertext')?.invalid && editAnswerForm.get('answertext')?.touched"
-                class="text-danger">
-                Answer is required and must be at least 10 characters long.
+    
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">แก้ไขคำตอบ</h5>
+            <button type="button" class="close" (click)="showEditModal = false">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="editAnswerForm" (ngSubmit)="onEditSubmit()">
+              <div class="form-group">
+                <textarea formControlName="answertext" class="form-control" placeholder="Edit your answer here..."
+                  style="height: 20vh;"></textarea>
+                <div *ngIf="editAnswerForm.get('answertext')?.invalid && editAnswerForm.get('answertext')?.touched"
+                  class="text-danger">
+                  Answer is required and must be at least 10 characters long.
+                </div>
               </div>
-            </div>
-            <button type="submit" class="btn btn-primary" style="background-color: #FF6500;border-color: white;;"
-              [disabled]="editAnswerForm.invalid">บันทึกข้อมูล</button>
-          </form>
+              <button type="submit" class="btn btn-primary" style="background-color: #FF6500;border-color: white;;"
+                [disabled]="editAnswerForm.invalid">บันทึกข้อมูล</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    
   </div>
 
 

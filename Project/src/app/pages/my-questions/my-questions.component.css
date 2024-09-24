@@ -25,10 +25,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 2vw;
-    white-space: nowrap;    
-    
+    white-space: nowrap;
+
 }
-.controlTextTitle{
+
+.controlTextTitle {
     display: block;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -36,8 +37,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     width: 20vw;
-    white-space: nowrap; 
-    height: 3vw;  
+    white-space: nowrap;
+    height: 3vw;
     margin-top: 1vw;
     align-content: center;
 }
@@ -51,6 +52,7 @@
     -ms-user-select: none;
     user-select: none;
 }
+
 .noneSelectQuestion5 {
     font-size: 1.3vw;
     color: rgb(150, 150, 150);
@@ -62,15 +64,36 @@
 }
 
 .fa-edit {
-    background-color: rgb(255, 198, 40); color: #333333; border: none; margin: 5px; padding: 3px; width: 1.5rem; height: 1.5rem; border-radius: 0.3rem;font-size: 1rem;transition: 0.1s;
+    background-color: rgb(255, 198, 40);
+    color: #333333;
+    border: none;
+    margin: 5px;
+    padding: 3px;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    transition: 0.1s;
 }
+
 .fa-trash {
-    background-color: rgb(255, 94, 82); color: #333333; border: none; margin: 5px; padding: 3px; width: 1.5rem; height: 1.5rem; border-radius: 0.3rem;font-size: 1rem;transition: 0.1s;
+    background-color: rgb(255, 94, 82);
+    color: #333333;
+    border: none;
+    margin: 5px;
+    padding: 3px;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    transition: 0.1s;
 }
+
 .fa-edit:hover {
     background-color: #d89c1a;
     scale: 0.95;
 }
+
 .fa-trash:hover {
     scale: 0.95;
     background-color: #da4242;
@@ -119,7 +142,7 @@
 }
 
 
-.spaceBetweenToppicAndQ{
+.spaceBetweenToppicAndQ {
     width: 15vw;
 }
 
@@ -178,71 +201,85 @@
     transition: 0.1s;
 }
 
-@media screen and (max-width: 1100px), screen and (min-height: 1000px) {
+@media screen and (max-width: 1100px),
+screen and (min-height: 1000px) {
     .filterDataBorder {
         width: 20vw;
     }
+
     .checkBoxNone {
         margin-top: 2vi;
         width: 2vw;
         height: 2.2vw;
     }
+
     .checkedBox {
         margin-top: 2vi;
         width: 2vw;
         height: 2.2vw;
     }
+
     .checkBoxtext {
-        
+
         width: 15vw;
         font-size: 1.0vw;
     }
+
     .noneSelectQuestion1 {
         font-size: 1.2vw;
     }
+
     .noneSelectQuestion2 {
         font-size: 2.3vw;
     }
+
     .noneSelectQuestion3 {
         font-size: 1.5vw;
     }
+
     .noneSelectQuestion5 {
         font-size: 1.2vw;
     }
+
     .boxButtonCheckBox {
         height: 4vw;
     }
 }
 
-@media screen and (max-width: 830px){
-    .toppic{
+@media screen and (max-width: 830px) {
+    .toppic {
         padding-left: 0px;
         margin-top: -1vw;
     }
-    .spaceBetweenToppicAndQ{
+
+    .spaceBetweenToppicAndQ {
         width: 10vw;
-        
+
     }
-    .filterDataBorder{
+
+    .filterDataBorder {
         margin-top: 6vh;
     }
+
     .borderQuestions {
-        padding: 0px;    
+        padding: 0px;
     }
+
     .questionsTable {
         height: 10vh;
         width: 10vw;
     }
-    
+
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
     .toppic {
         min-height: 100px;
         width: 100%;
         position: relative;
         justify-content: center;
     }
+
     .bordertoppic {
         position: relative;
         min-width: 170px;
@@ -252,50 +289,62 @@
         margin-top: 0.5vw;
         font-size: 5vw;
     }
+
     .filterDataBorder {
         position: relative;
         width: 90vw;
         margin-top: 2vw;
     }
+
     .myQuestionInBody {
         display: inline;
         justify-content: space-between;
     }
+
     .checkBoxtext {
         width: 90vw;
         font-size: 3vw;
         margin-left: 4vw;
     }
+
     .questions {
         width: 100%;
     }
+
     .borderQuestions {
         width: 100%;
     }
+
     .questionsTable {
         height: 10vh;
     }
+
     .noneSelectQuestion {
         font-size: 10vw;
     }
-    
-    
+
+
     .noneSelectQuestion1 {
         font-size: 2.5vw;
     }
+
     .noneSelectQuestion2 {
         font-size: 4vw;
     }
+
     .noneSelectQuestion3 {
         font-size: 3vw;
     }
+
     .noneSelectQuestion5 {
         font-size: 2.4vw;
     }
+
     .boxButtonCheckBox {
         height: 6vw;
     }
-    .controlTextTitle{
+
+    .controlTextTitle {
         display: block;
         -webkit-user-select: none;
         -ms-user-select: none;
@@ -303,9 +352,27 @@
         overflow: hidden;
         text-overflow: ellipsis;
         width: 20vw;
-        white-space: nowrap; 
-        height: 6vw;  
+        white-space: nowrap;
+        height: 6vw;
         margin-top: 1vw;
         align-content: center;
     }
 }
+
+
+@keyframes borderQuestions {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.borderQuestions {
+    animation: borderQuestions 0.5s ease forwards; /* Change duration as needed */
+  }
+ 

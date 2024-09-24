@@ -38,14 +38,12 @@ export class MyQuestionsComponent implements OnInit{
         return; // Exit if not authorized
       }
     }
-    console.log(this.user_id)
     this.loadUserQuestions();
   }
 
   loadUserQuestions(): void {
     this.questionService.getQuestionsByUserId(this.user_id).subscribe(
       (response: { questions: any[] }) => {
-        console.log('Loaded questions:', response);
         this.questions = response.questions || []; // ตรวจสอบให้แน่ใจว่า questions มีค่าเป็น Array
         this.ngCheckselectSubject();
       },
