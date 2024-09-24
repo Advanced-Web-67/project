@@ -1,22 +1,42 @@
 <div class="container">
-    <h2 style="font-family: MyCustomFont;">ผู้ใช้งานทั้งหมด</h2>
-  
-    <!-- Search box -->
-    <div class="search-box">
-      <input type="text" [(ngModel)]="searchQuery" placeholder="ค้นหาด้วยชื่อผู้ใช้" class="form-control">
-    </div>
-  
-    <!-- Grid layout for users -->
-    <div class="user-grid slide-in-bottom">
-      <div class="user-card" *ngFor="let user of filteredUsers() let i = index">
-        <img [src]="user.picture" alt="{{ user.username }}'s picture" class="user-picture">
-        <div class="user-info">
-          <h5><a href="user/{{user._id}}">{{ user.username }}</a></h5>
-          <p style="font-size: smaller;">{{ user.email }}</p>
-        </div>
+  <h2 style="font-family: MyCustomFont;">ผู้ใช้งานทั้งหมด</h2>
+
+  <!-- Search box -->
+  <div class="search-box">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="ค้นหาด้วยชื่อผู้ใช้" class="form-control">
+  </div>
+
+  <!-- Grid layout for users -->
+  <div class="user-grid slide-in-bottom">
+    <div 
+      class="user-card" 
+      *ngFor="let user of filteredUsers(); let i = index"
+      [ngStyle]="{
+        'background-color': user.username.length > 6 ? '#ffb07b' : '#fff', 
+        'border-color': searchQuery && user.username.toLowerCase().includes(searchQuery.toLowerCase()) ? '#ff6500' : '#ddd'
+      }"
+    >
+      <img 
+        [src]="user.picture" 
+        alt="{{ user.username }}'s picture" 
+        class="user-picture"
+        [ngStyle]="{
+          'width': i % 2 === 0 ? '120px' : '100px', 
+          'height': i % 2 === 0 ? '120px' : '100px'
+        }"
+      >
+      <div class="user-info">
+        <h5 
+          [ngStyle]="{
+            'color': searchQuery && user.username.toLowerCase().includes(searchQuery.toLowerCase()) ? '#ff6500' : '#000'
+          }"
+        >
+          <a href="user/{{ user._id }}">{{ user.username }}</a>
+        </h5>
+        <p style="font-size: smaller;">{{ user.email }}</p>
       </div>
     </div>
-  
-    <p *ngIf="filteredUsers().length === 0">ไม่พบผู้ใช้งาน.</p>
   </div>
-  
+
+  <p *ngIf="filteredUsers().length === 0">ไม่พบผู้ใช้งาน.</p>
+</div>
