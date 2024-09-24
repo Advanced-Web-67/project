@@ -59,19 +59,22 @@
             <textarea class="form-control" formControlName="answertext"
               placeholder="โปรดเพิ่มเฉพาะสิ่งที่เป็นประโยชน์ต่อสังคม!!!"
               style="flex: 1; height: 100px; border-radius: 20px; font-size: 28px;"></textarea>
+              
+              <div *ngIf="createAnswerForm.get('answertext')?.invalid && createAnswerForm.get('answertext')?.touched"
+                class="text-danger">
+                Answer is required and must be at least 10 characters long.
+              </div>
 
             <button type="submit" class="btn-submit"
               [disabled]="createAnswerForm.invalid">
               เพิ่มคำตอบ
             </button>
+            
           </div>
         </form>
       </div>
     </div>
   </div>
-
-
-
 
 
   <!-- Edit Answer Modal -->
