@@ -1,8 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-
+const path = require('path');
 const app = express();
+app.use('/static', express.static(path.join(__dirname, 'asset')));
 
 const url = 'mongodb://localhost:27017/Project';
 const config = {
