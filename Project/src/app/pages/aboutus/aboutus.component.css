@@ -14,15 +14,29 @@
     overflow: hidden;
     transform: scale(0.95); /* Slightly smaller by default */
   }
+
+  h3 {
+    color: white;
+    -webkit-text-stroke: 1px rgb(36, 36, 36);
+    font-family: fantasy;
+  }
+
+  h5 {
+    color: white;
+    -webkit-text-stroke: 1px rgb(36, 36, 36);
+  }
   
   /* Hover text initially visible */
   .hidden-card .hover-text {
+    font-family:fantasy;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-    color: white;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 1px rgb(36, 36, 36);
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
     text-align: center;

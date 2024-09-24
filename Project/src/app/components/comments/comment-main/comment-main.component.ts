@@ -102,7 +102,7 @@ export class CommentMainComponent implements OnInit {
         this.comments = data;
       },
       (error) => {
-        console.error('Error fetching comments:', error);
+        // console.log('Error fetching comments:', error);
       }
     );
   }

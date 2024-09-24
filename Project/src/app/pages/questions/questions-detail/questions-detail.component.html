@@ -13,7 +13,7 @@
       </div>
       <div style="display: flex;">
         <div class="text-userAsk" style="color: rgb(71, 71, 71);margin-right: 10px;">ถามโดย</div>
-        <div class="text-userAsk" [routerLink]="['/user/look/', user_id]" style="cursor: pointer;">{{ username }}</div>
+        <div class="text-userAsk" [routerLink]="['/user/look/', user_question_id]" style="cursor: pointer;">{{ username }}</div>
       </div>
       <div class="card-body">
         <div *ngIf="answers.length === 0">
