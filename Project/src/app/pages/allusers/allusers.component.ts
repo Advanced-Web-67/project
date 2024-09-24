@@ -4,14 +4,15 @@ import { UserdataService } from '../../services/profiles/userdata/userdata.servi
 @Component({
   selector: 'app-allusers',
   templateUrl: './allusers.component.html',
-  styleUrl: './allusers.component.css'
+  styleUrls: ['./allusers.component.css']
 })
-export class AllusersComponent implements OnInit{
+export class AllusersComponent implements OnInit {
 
   users: any[] = []; 
   searchQuery: string = '';
 
-  constructor(private userdataservice: UserdataService){}
+  constructor(private userdataservice: UserdataService) {}
+
   ngOnInit(): void {
     this.userdataservice.getAllUser().subscribe(
       (data: any[]) => {
