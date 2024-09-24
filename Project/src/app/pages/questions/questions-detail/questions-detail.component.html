@@ -80,9 +80,9 @@
   <!-- Edit Answer Modal -->
   <div *ngIf="showEditModal" class="modal fade show" style="display: block;">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" style="box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); border-radius: 10px;">
         <div class="modal-header">
-          <h5 class="modal-title">แก้ไขคำตอบ</h5>
+          <h5 class="modal-title" style="font-family: MyCustomFont;">แก้ไขคำตอบ</h5>
           <button type="button" class="close" (click)="showEditModal = false">
             <span>&times;</span>
           </button>
@@ -93,17 +93,18 @@
               <textarea formControlName="answertext" class="form-control" placeholder="Edit your answer here..."
                 style="height: 20vh;"></textarea>
               <div *ngIf="editAnswerForm.get('answertext')?.invalid && editAnswerForm.get('answertext')?.touched"
-                class="text-danger">
+                class="text-danger" style="font-family: MyCustomFont;">
                 Answer is required and must be at least 10 characters long.
               </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="background-color: #FF6500;border-color: white;;"
+            <button type="submit" class="btn btn-primary" style="background-color: #FF6500;border-color: white;font-family: MyCustomFont; font-size: 24px;" 
               [disabled]="editAnswerForm.invalid">บันทึกข้อมูล</button>
           </form>
         </div>
       </div>
     </div>
   </div>
+
 
 
 

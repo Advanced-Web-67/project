@@ -52,7 +52,7 @@
             <div class="card mb-45 slide-in">
                 <div class="container mt-44">
                     <h2 style="font-family: MyCustomFont;">คำถาม</h2>
-                    <div *ngIf="questions.length === 0 && !isLoading && !errorMessage">ไม่พบคำถาม</div>
+                    <div *ngIf="questions.length === 0 && !isLoading && !errorMessage" style="font-family:  MyCustomFont; font-size: 24px;">ไม่พบคำถาม</div>
                     <div *ngFor="let question of questions" class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">
