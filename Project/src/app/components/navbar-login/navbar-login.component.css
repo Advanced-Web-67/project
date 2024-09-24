@@ -17,7 +17,7 @@
     text-align: left; /* ให้ข้อความชิดซ้าย */
     display: flex;
     align-items: center; /* จัดให้อยู่ตรงกลางในแนวตั้ง */
-    margin-top: 10px;
+    margin-top: 30px;
     transition: 0.1s;
     cursor: pointer;
     -webkit-user-select: none;
