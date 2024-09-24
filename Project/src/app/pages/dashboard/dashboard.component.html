@@ -1,30 +1,51 @@
-<div class="container mt-4 " style="font-family: MyCustomFont; height: fit-content;">    
+<div class="container mt-4" style="font-family: MyCustomFont; height: fit-content;">
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-4 slide-in">
-                <h2 style="font-family: MyCustomFont;font-size: 54px">หน้าแรก</h2>
+                <h2 style="font-family: MyCustomFont; font-size: 54px">หน้าแรก</h2>
                 <div class="btn-group" role="group" aria-label="Select Period">
-                    <button type="button" class="btn btn-info"  (click)="fetchQuestions('day')">
+                    <button 
+                        type="button" 
+                        class="btn" 
+                        [ngClass]="{'btn-info': selectedPeriod === 'day', 'btn-outline-info': selectedPeriod !== 'day'}"
+                        (click)="fetchQuestions('day')">
                         วันนี้
                     </button>
-                    <button type="button" class="btn btn-primary"  (click)="fetchQuestions('week')">
+                    <button 
+                        type="button" 
+                        class="btn" 
+                        [ngClass]="{'btn-primary': selectedPeriod === 'week', 'btn-outline-primary': selectedPeriod !== 'week'}"
+                        (click)="fetchQuestions('week')">
                         สัปดาห์นี้
                     </button>
-                    <button type="button" class="btn btn-secondary" (click)="fetchQuestions('month')">
+                    <button 
+                        type="button" 
+                        class="btn" 
+                        [ngClass]="{'btn-secondary': selectedPeriod === 'month', 'btn-outline-secondary': selectedPeriod !== 'month'}"
+                        (click)="fetchQuestions('month')">
                         เดือนนี้
                     </button>
                 </div>
             </div>
+
+            <div *ngIf="isLoading" class="loading-indicator">
+                กำลังโหลดข้อมูล...
+            </div>
+
+            <div *ngIf="errorMessage" class="alert alert-danger">
+                {{ errorMessage }}
+            </div>
+
             <div class="card mb-45 slide-in">
                 <div class="container mt-44">
                     <h2 style="font-family: MyCustomFont;">คำถาม</h2>
-                    <div *ngIf="questions.length === 0">ไม่พบคำถาม</div>
+                    <div *ngIf="questions.length === 0 && !isLoading && !errorMessage">ไม่พบคำถาม</div>
                     <div *ngFor="let question of questions" class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">
                                 <a href="/questions/{{ question._id }}" style="color: #ff6500;">{{ question.title }}</a>
                             </h5>
-                            <p class="card-text" style="margin-bottom: 20px;" >{{ question.body }}</p>
+                            <p class="card-text" style="margin-bottom: 20px;">{{ question.body }}</p>
                         </div>
                         <div class="tags ml-3">
                             <span class="card-text">Tag: {{ question.tags }}</span>
