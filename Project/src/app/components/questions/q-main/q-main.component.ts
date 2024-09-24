@@ -1,10 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../../../services/question/question.service';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-q-main',
   templateUrl: './q-main.component.html',
   styleUrls: ['./q-main.component.css'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [
+        query('.card', [
+          style({ opacity: 0, transform: 'translateY(-20px)' }),
+          stagger(200, [
+            animate('0.6s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
 })
 export class QMainComponent implements OnInit {
   questions: any[] = []; // All questions
