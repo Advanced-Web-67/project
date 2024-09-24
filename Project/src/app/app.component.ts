@@ -7,9 +7,6 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
   isLoginPage: boolean = false;
   isRegisterPage: boolean = false;
   isLoggedIn: boolean = false;
@@ -17,12 +14,12 @@ export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // ตรวจสอบว่าอยู่ในเบราว์เซอร์หรือไม่
+    // Check if user is logged in by checking for a token in localStorage
     if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
       this.isLoggedIn = !!localStorage.getItem('token');
     }
   
-    // ตรวจสอบว่าอยู่ในหน้า login หรือ register
+    // Listen to router events to check if the current route is /login or /register
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.isLoginPage = this.router.url === '/login';
@@ -31,4 +28,14 @@ export class AppComponent implements OnInit {
     });
   }
 
+  // Logic to determine which navbar to display
+  getNavbarState(): string {
+    if (this.isLoginPage || this.isRegisterPage) {
+      return ''; // Don't display navbar on login/register pages
+    } else if (this.isLoggedIn) {
+      return 'afterLogin'; // Show after-login navbar
+    } else {
+      return 'beforeLogin'; // Show before-login navbar
+    }
+  }
 }
