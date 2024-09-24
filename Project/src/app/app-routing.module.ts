@@ -17,42 +17,35 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { AllusersComponent } from './pages/allusers/allusers.component';
 import { QuestionsEditComponent } from './pages/questions/questions-edit/questions-edit.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
-  { path: 'profile/edit', component: EditComponent, children: [
+  { path: 'profile/edit', component: EditComponent, canActivate: [AuthGuard], children: [
     { path: 'title', component: CTitleComponent },
     { path: 'edit', component: CEditComponent },
     ]},
-    { path: 'login', component: LoginComponent },
-  { path: 'login', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'users', component: UserListComponent },
-
-  { path: 'questions/main',component:MainComponent },
-
-  { path: 'myQuestions', component: MyQuestionsComponent},
- 
-  { path: 'questions', component: QMainComponent },
-  { path: 'questions/:id', component: QuestionsDetailComponent },
-  { path: 'questions/main/create', component: QuestionsCreateComponent },
-  { path: 'questions/edit/:id', component: QuestionsEditComponent },
+  { path: 'users', component: UserListComponent, canActivate: [AuthGuard] },
+  { path: 'questions/main', component: MainComponent, canActivate: [AuthGuard] },
+  { path: 'myQuestions', component: MyQuestionsComponent, canActivate: [AuthGuard] },
+  { path: 'questions', component: QMainComponent, canActivate: [AuthGuard] },
+  { path: 'questions/:id', component: QuestionsDetailComponent, canActivate: [AuthGuard] },
+  { path: 'questions/main/create', component: QuestionsCreateComponent, canActivate: [AuthGuard] },
+  { path: 'questions/edit/:id', component: QuestionsEditComponent, canActivate: [AuthGuard] },
   { path: '', component: DashboardComponent },
-
-  { path: 'aboutus', component: AboutusComponent },
-  { path: 'allusers', component: AllusersComponent },
-
-  { path: 'user/:id', component: SummaryComponent, children: [
+  { path: 'aboutus', component: AboutusComponent, canActivate: [AuthGuard] },
+  { path: 'allusers', component: AllusersComponent, canActivate: [AuthGuard] },
+  { path: 'user/:id', component: SummaryComponent, canActivate: [AuthGuard], children: [
     { path: 'title', component: CTitleComponent },
     { path: 'summary', component: CSummaryComponent },
   ]},
-  { path: 'user/look/:id', component: SummaryComponent, children: [
+  { path: 'user/look/:id', component: SummaryComponent, canActivate: [AuthGuard], children: [
     { path: 'title', component: CTitleComponent },
     { path: 'summary', component: CSummaryComponent },
-  ]
-  }
+  ]}
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
