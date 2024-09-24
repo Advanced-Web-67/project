@@ -102,7 +102,7 @@ export class CEditComponent implements OnInit{
       // Call your userdata service to update the user data
       this.userdata.updateUser(this.user_id, updatedUserData).subscribe(
         response => {
-          console.log('User profile updated successfully', response);
+          // console.log('User profile updated successfully', response);
           this.modals.hide();
           this.toastr.success('แก้ไขข้อมูลสำเร็จ', 'Success');
         },
@@ -113,7 +113,7 @@ export class CEditComponent implements OnInit{
       );
       this.commentPictureservice.updateCommentPicture(localStorage.getItem('userid'), this.profileForm.value.picture).subscribe(
         (response) => {
-          console.log('Picture updated successfully', response);
+          // console.log('Picture updated successfully', response);
           // You can reload the comments or handle the UI as needed
         },
         (error) => {
