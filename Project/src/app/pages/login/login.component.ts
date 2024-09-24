@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
 
             setTimeout(() => {
               window.location.reload()
-            }, 3000); 
+            }, 2050); 
 
           },
           (error) => {
