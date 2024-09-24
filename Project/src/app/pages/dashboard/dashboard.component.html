@@ -1,6 +1,19 @@
-<div class="container mt-4" style="font-family: MyCustomFont; height: fit-content;">
+<div class="container-fluid mt-4" style="font-family: MyCustomFont; height: fit-content;">
     <div class="row">
-        <div class="col-md-12">
+        <!-- Left Ad Column - Hidden on Mobile and Tablet -->
+        <div class="col-md-2 d-none d-md-block">
+            <div class="card ad-card">
+                <img src="path/to/your-left-ad-image.jpg" class="card-img-top" alt="Left Ad">
+                <div class="card-body">
+                    <h5 class="card-title">Ad Title</h5>
+                    <p class="card-text">สนับสนุนค่าเล่าเรียนได้ครับ</p>
+                    <a class="btn btn-ads">กดเลย</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="col-md-8">
             <div class="card mb-4 slide-in">
                 <h2 style="font-family: MyCustomFont; font-size: 54px">หน้าแรก</h2>
                 <div class="btn-group" role="group" aria-label="Select Period">
@@ -51,6 +64,18 @@
                             <span class="card-text">Tag: {{ question.tags }}</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Ad Column - Hidden on Mobile and Tablet -->
+        <div class="col-md-2 d-none d-md-block">
+            <div class="card ad-card">
+                <img src="path/to/your-right-ad-image.jpg" class="card-img-top" alt="Right Ad">
+                <div class="card-body">
+                    <h5 class="card-title">Ad Title</h5>
+                    <p class="card-text">สนับสนุนค่าเล่าเรียนได้ครับ</p>
+                    <a class="btn btn-ads">กดเลย</a>
                 </div>
             </div>
         </div>
