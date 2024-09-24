@@ -81,3 +81,21 @@ li {
     font-size: 1.7rem;
   }
 }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  opacity: 0;
+  animation: slideIn 1s forwards ease-out;
+  /* Adjust this as needed */
+  animation-delay: 0.5s; /* Optional: delay to make it feel smoother */
+}

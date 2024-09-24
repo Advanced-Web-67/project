@@ -23,6 +23,7 @@ export class QuestionsDetailComponent implements OnInit {
   showEditModal: boolean = false;
   editAnswerForm!: FormGroup;
 currentAnswerId!: string; // To hold the ID of the answer being edited
+  user_question_id: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -75,6 +76,7 @@ currentAnswerId!: string; // To hold the ID of the answer being edited
     this.questionService.getQuestionById(id).subscribe(
       (question) => {
         this.question = question;
+        this.user_question_id = question.user_id;
         // โหลดข้อมูลของผู้ตั้งคำถามจาก user_id ของคำถาม
         this.userService.getUser(question.user_id).subscribe(
           (user) => {
@@ -96,7 +98,6 @@ currentAnswerId!: string; // To hold the ID of the answer being edited
       (response) => {
         // Ensure that answers is initialized correctly
         this.answers = response.answers || []; // Use an empty array if undefined
-        console.log(this.answers);
       },
       (error) => {
         // You can log the error or handle it as needed

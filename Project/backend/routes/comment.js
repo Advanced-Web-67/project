@@ -27,7 +27,7 @@ router.get('/comment/:user_id', async (req, res) => {
     const comments = await Comment.find({ user_id });  // Query the database for comments by user_id
 
     if (comments.length === 0) {
-      return res.status(404).json({ message: 'No comments found for this user' });
+      // return res.status(404).json({ message: 'No comments found for this user' });
     }
 
     res.status(200).json(comments);

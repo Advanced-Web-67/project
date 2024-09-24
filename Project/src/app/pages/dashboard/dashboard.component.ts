@@ -20,6 +20,5 @@ export class DashboardComponent implements OnInit {
       data => this.questions = data,
       error => console.error('Error fetching questions', error)
     );
-    console.log(this.questions);
   }
 }
