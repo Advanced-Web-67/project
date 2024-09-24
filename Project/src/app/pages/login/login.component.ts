@@ -48,6 +48,11 @@ export class LoginComponent implements OnInit {
             setTimeout(() => {
               this.router.navigate(['/']);
             }, 2000); 
+
+            setTimeout(() => {
+              window.location.reload()
+            }, 3000); 
+
           },
           (error) => {
             // แสดง error หากมีข้อผิดพลาดจาก backend
