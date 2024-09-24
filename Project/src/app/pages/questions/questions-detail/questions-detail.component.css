@@ -118,6 +118,13 @@
     align-items: center;
   }
 
+  .modal-content{
+    top: 45px;
+    filter: drop-shadow(0vw 0vw 30vh #000000);
+    height: fit-content;
+    padding-bottom: 2.2rem;
+  }
+
   @media screen and (max-width:600px){
     .textTitle{
       margin-top: 1.6rem;
@@ -167,5 +174,13 @@
     .btn-submit{
       margin-top: 3vh;
       height: 10vh;
+    }
+    .modal-content{
+      top: 150px;
+      filter: drop-shadow(0vw 0vw 30vh #000000);
+      padding-bottom: 30px;
+    }
+    .responRight{
+      margin-left: 90px;
     }
   }
