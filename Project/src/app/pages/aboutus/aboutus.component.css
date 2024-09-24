@@ -17,13 +17,15 @@
 
   h3 {
     color: white;
-    -webkit-text-stroke: 1px rgb(36, 36, 36);
+    filter: drop-shadow(5px 5px 5px #202020d7);
+    
     font-family: fantasy;
   }
 
   h5 {
     color: white;
-    -webkit-text-stroke: 1px rgb(36, 36, 36);
+    filter: drop-shadow(5px 5px 5px #202020ce);
+    
   }
   
   /* Hover text initially visible */
@@ -34,13 +36,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2rem;
-    font-weight: bolder;
     color: rgb(255, 255, 255);
-    -webkit-text-stroke: 1px rgb(36, 36, 36);
-    opacity: 1;
     transition: opacity 0.5s ease-in-out;
     text-align: center;
     z-index: 2;
+    filter: drop-shadow(5px 5px 5px #2020209a);
+    
+    
   }
   
   /* Card content hidden initially */
