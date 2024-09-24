@@ -25,4 +25,9 @@
     width: 100%; /* Make sure the input textarea takes full width */
     resize: none; /* Disable resize for consistent height management */
   }
+
+  .btnsubmit {
+    background-color: #ff6500;  
+    color: white;
+  }
   
